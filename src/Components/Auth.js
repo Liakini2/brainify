@@ -1,9 +1,12 @@
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useContext} from 'react';
+import {UserContext} from '../context/UserContext'
 
 const Auth = () => {
     const [loginInfo, setLoginInfo] = useState({username: '', password: '', verpassword: '', email: '', first_name: '', last_name: ''});
     const [regErrors, setRegErrors] = useState({username: false, password: false, email: false, first_name: false, last_name: false})
     const [tryLogin, setTryLogin] = useState(true);
+
+    const userValue = useContext(UserContext)
 
     const checkEmail = () => {
         //must start with a letter or number containing as many as it wants can also have a - . _ or + but ending with a letter or number before the @ symbol
