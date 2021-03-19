@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import {HashRouter, BrowserRouter} from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
-import {UserProvider} from './context/UserContext'
+import {UserProvider} from './context/userContext'
 
 const Router = process.env.NODE_ENV === 'development' ? HashRouter : BrowserRouter;
 ReactDOM.render(

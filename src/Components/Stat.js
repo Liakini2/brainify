@@ -2,9 +2,9 @@ import React from 'react'
 
 const Stat = () => {
     return (
-        <div>
-            
-        </div>
+        <section className='stat'>
+            {/* import chartJS and use it here */}
+        </section>
     )
 }
 
