@@ -2,9 +2,9 @@ import React from 'react'
 
 const GameIcon = () => {
     return (
-        <div>
+        <section className='game-icon'>
             
-        </div>
+        </section>
     )
 }
 
