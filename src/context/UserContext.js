@@ -14,4 +14,4 @@ export const UserProvider = ({children}) => {
             {children}
         </UserContext.Provider>
     )
-}
+} 
