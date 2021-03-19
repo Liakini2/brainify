@@ -32,10 +32,10 @@ app.post('/auth/register', userCtrl.register);
 app.post('/auth/login', userCtrl.login);
 app.post('/auth/logout', userCtrl.logout)
 app.get('/auth/me', userCtrl.getuser);
-app.put('/auth/user/:user_id', userCtrl.updateuser);
+app.put('/auth/user/:user_id', auth.usersOnly, userCtrl.updateuser);
 
 
-app.post('/api/score', auth.usersOnly, gameCtrl.addScore);
+app.post('/api/score/:game_id', auth.usersOnly, gameCtrl.addScore);
 app.get('/api/scores', auth.usersOnly, gameCtrl.getScores);
 app.get('api/scores/compare', auth.usersOnly, gameCtrl.compareScores);
 
@@ -43,7 +43,7 @@ app.get('api/scores/compare', auth.usersOnly, gameCtrl.compareScores);
 app.use(express.static(__dirname + '/../build'));
 
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname + '../build/index.html'))
+    res.sendFile(path.join(__dirname + '../build/index.html'));
 });
 
 app.listen(SERVER_PORT, () => console.log(`running on ${SERVER_PORT}`));
