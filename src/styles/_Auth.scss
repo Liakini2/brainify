@@ -1,4 +1,66 @@
 
 .login {
     margin-top: 100px;
+    background: #0000ff;
+    height: 60vh;
+    width: 70vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .auth {
+        display: grid;
+        background: green;
+        height: 100%;
+        width: 100%;
+        grid-template-columns: 100%;
+        grid-template-rows: 10% 13% 13% 13% 13% 13% 13%;
+        label {
+            display: flex;
+            
+            span {
+                width: 35%;
+            }
+
+            input {
+                width: 70%;
+            }
+        }
+    }
 }
+
+// @import './functions';
+
+
+// .header{
+//     height: 100px;
+//     width: 100vw;
+//     position: absolute;
+//     top: 0;
+//     background-color: aqua;
+
+//     .mainBar {
+//         background-color: aqua;
+//         @include flexCenter(row, space-between);
+
+//         h1{
+//             position: absolute;
+//             left: 30px;
+//         }
+
+//         .headerOptions{
+//             @include flexCenter(row, space-between);
+//             position: relative;
+//             width: 70vw;
+//             margin-left: 200px;
+            
+
+//             ul {
+//                 @include flexCenter(row, space-between);
+//                 li {
+//                     list-style-type: none;
+//                     margin-left: 50px;
+//                 }
+//             }
+                
+//         }
+//     }

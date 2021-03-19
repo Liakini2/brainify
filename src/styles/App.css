@@ -4,6 +4,44 @@
 
 .login {
   margin-top: 100px;
+  background: #0000ff;
+  height: 60vh;
+  width: 70vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.login .auth {
+  display: -ms-grid;
+  display: grid;
+  background: green;
+  height: 100%;
+  width: 100%;
+  -ms-grid-columns: 100%;
+      grid-template-columns: 100%;
+  -ms-grid-rows: 10% 13% 13% 13% 13% 13% 13%;
+      grid-template-rows: 10% 13% 13% 13% 13% 13% 13%;
+}
+
+.login .auth label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.login .auth label span {
+  width: 35%;
+}
+
+.login .auth label input {
+  width: 70%;
 }
 
 .edit-user {
@@ -146,5 +184,9 @@
 
 .games-list {
   background: plum;
+}
+
+body {
+  background: orange;
 }
 /*# sourceMappingURL=App.css.map */
