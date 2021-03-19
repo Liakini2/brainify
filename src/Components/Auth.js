@@ -1,5 +1,5 @@
 import {useContext, useState, useEffect} from 'react';
-import {UserContext} from '../context/userContext'
+import {UserContext} from '../context/UserContext'
 
 const Auth = () => {
     const [loginInfo, setLoginInfo] = useState({username: '', password: '', verpassword: '', email: '', first_name: '', last_name: ''});
