@@ -37,7 +37,7 @@ const logout = (req, res) => {
 
 const getuser = (req, res) => {
     return req.session.user ? res.status(200).send(req.session.user) : res.sendStatus(404);
-    console.log('change')
+    console.log('change');
 }
 
 const updateuser = async (req, res) => {
