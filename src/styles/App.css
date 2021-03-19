@@ -1,3 +1,19 @@
+.aboutUs {
+  background: blue;
+}
+
+.login {
+  margin-top: 100px;
+}
+
+.edit-user {
+  background: orange;
+}
+
+.game-icon {
+  background: green;
+}
+
 .header {
   height: 100px;
   width: 100vw;
@@ -96,7 +112,39 @@
   margin-top: 15px;
 }
 
-.login {
-  margin-top: 100px;
+.home {
+  background-color: tan;
+}
+
+.recommended {
+  background-color: orangered;
+}
+
+.stats {
+  background: burlywood;
+}
+
+.stat {
+  background: navajowhite;
+}
+
+.your-stats {
+  background: yellowgreen;
+}
+
+.overview {
+  background: goldenrod;
+}
+
+.games {
+  background: blueviolet;
+}
+
+.category-list {
+  background: oldlace;
+}
+
+.games-list {
+  background: plum;
 }
 /*# sourceMappingURL=App.css.map */
