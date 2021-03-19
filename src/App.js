@@ -1,10 +1,8 @@
-
+import Auth from './Components/Auth';
 function App() {
   return (
     <div className="App">
-      Hello World!
-      Something else is here
-      STUPID STUPID STUPID
+      <Auth />
     </div>
   );
 }
