@@ -2,7 +2,7 @@ import React from 'react'
 
 const EditUser = () => {
     return (
-        <div>
+        <div className="edit-user">
             <input placeholder='username'/>
             <input placeholder='password'/>
             <input placeholder='first name'/>

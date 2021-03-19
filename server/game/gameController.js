@@ -38,5 +38,6 @@ const compareScores = async (req, res) => {
 module.exports = {
     addScore,
     getScores,
-    compareScores
+    compareScores,
+    getScoresDateRange
 }
