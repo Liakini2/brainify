@@ -14,7 +14,7 @@ const addScore = async (req, res) => {
 
 const getScores = async (req, res) => {
     //send back scores based off of user id. Get all games from user, categorize them by what the game trains and send the total results back
-    //find score from the previous week and see how it has changed recently.git pu
+    //find score from the previous week and see how it has changed recently.
     const results = await req.app.get('db').game.get_scores([req.session.user.id]);
     let final = [];
     const categories = [...new Set(results.map(el => el.category))];
