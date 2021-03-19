@@ -50,15 +50,17 @@ const updateuser = async (req, res) => {
             if(isAuthenticated) {
                 const salt = bcrypt.genSaltSync(10);
                 const hash = bcrypt.hashSync(new_password, salt);
-                const [newUser] = await req.app.get('db').update_user([user.id, first_name, last_name, hash]);
+                req.app.get('db').update_user([user.id, first_name, last_name, hash]).then(([newUser]) => {
                 req.session.user = {id: newUser.id, username: newUser.username, first_name: newUser.first_name, last_name: newUser.last_name, email: newUser.email, last_logged_in: newUser.last_logged_in};
                 return res.status(202).send(req.session.user);
+                })
             }
             return res.status(403).send('Invalid password');
         }
-        const [newUser] = await req.app.get('db').update_user([user.id, first_name, last_name, user.password]);
+        req.app.get('db').update_user([user.id, first_name, last_name, user.password]).then(([newUser]) => {
         req.session.user = {id: newUser.id, username: newUser.username, first_name: newUser.first_name, last_name: newUser.last_name, email: newUser.email, last_logged_in: newUser.last_logged_in};
         return res.status(202).send(req.session.user);
+        })
     }).catch(err => {
         console.log(err);
         return res.status(500).send('something went wrong');
