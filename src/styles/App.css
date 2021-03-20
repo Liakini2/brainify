@@ -137,14 +137,33 @@
 }
 
 .games {
-  background: blueviolet;
+  height: 98vh;
+  width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: none;
+      -ms-flex-pack: none;
+          justify-content: none;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
 }
 
-.category-list {
+.games .category-list {
+  height: 100%;
+  width: 25%;
   background: oldlace;
+  border: 2px solid black;
 }
 
-.games-list {
+.games .games-list {
+  width: 75%;
+  height: 100%;
   background: plum;
 }
 /*# sourceMappingURL=App.css.map */

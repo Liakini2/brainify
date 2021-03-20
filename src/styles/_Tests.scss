@@ -1,11 +1,20 @@
+@import './functions';
+
 .games {
-    background: blueviolet;
+    height: 98vh;
+    width: 100vw;
+    @include flexCenter(row, none);
+    .category-list {
+        height: 100%;
+        width: 25%;
+        background: oldlace;
+        border: 2px solid black;
+    }
+    
+    .games-list {
+        width: 75%;
+        height: 100%;
+        background: plum;
+    }
 }
 
-.category-list {
-    background: oldlace;
-}
-
-.games-list {
-    background: plum;
-}
