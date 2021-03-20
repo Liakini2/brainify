@@ -59,7 +59,7 @@ const Auth = () => {
                     <label><span>Username: </span><input type="text" autoFocus={true} value={loginInfo.username} onChange={e => setLoginInfo({...loginInfo, username: e.target.value})} /></label>
                     <label><span>Password: </span><input type="password" value={loginInfo.password} onChange={e => setLoginInfo({...loginInfo, password: e.target.value})} /></label>
                     <button onClick={login}>Login</button>
-                    <span>or</span><a onClick={_ => setTryLogin(false)}>Register</a>
+                    <span onClick={_ => setTryLogin(false)} className="switch">or Register</span>
             </section> : <section className="auth">
                 <label><span>Username: </span><input type="text" autoFocus={true} value={loginInfo.username} onChange={e => setLoginInfo({...loginInfo, username: e.target.value})} /></label>
                 <label><span>Password: </span><input type="password" value={loginInfo.password} onChange={e => setLoginInfo({...loginInfo, password: e.target.value})} /></label>
@@ -68,7 +68,7 @@ const Auth = () => {
                 <label><span>Last Name: </span><input type="text" value={loginInfo.last_name} onChange={e => setLoginInfo({...loginInfo, last_name: e.target.value})} /></label>
                 <label><span>Email: </span><input type="text" value={loginInfo.email} onChange={e => setLoginInfo({...loginInfo, email: e.target.value})} /></label>
                 <button onClick={register}>Register</button>
-                <a onClick={_ => setTryLogin(true)}>Login</a>
+                <span onClick={_ => setTryLogin(true)} className="switch">Login</span>
             </section>}
         </div>
     )
