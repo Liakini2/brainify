@@ -3,50 +3,56 @@
 
 .header{
     height: 100px;
-    width: 100vw;
-    position: absolute;
-    top: 0;
+    width: 100%;
     background-color: aqua;
 
     .mainBar {
-        background-color: aqua;
+        background-color: teal;
         @include flexCenter(row, space-between);
-
-        h1{
-            position: absolute;
-            left: 30px;
-        }
-
-        .headerOptions{
-            @include flexCenter(row, space-between);
-            position: relative;
-            width: 70vw;
-            margin-left: 200px;
-            
-
+        width: 100%;
+        nav {
+            width: 60%;
+            display: flex;
+            @include flexCenter(row, space-around);
+            h1{
+                width: 30%;
+                text-align: center;
+            }
             ul {
-                @include flexCenter(row, space-between);
+                width: 60%;
+                @include flexCenter(row, space-around);
                 li {
                     list-style-type: none;
-                    margin-left: 50px;
                 }
             }
-                
+        }
+
+            .about {
+                display: flex;
+                justify-content: space-around;
+                width: 30%;
+
+                a{
+                    width: 40%;
+                }
+
+                button {
+                    width: 40%;
+                }
+            }
+        }
+        .dropDown {
+            width: 300px;
+            height: 40vh;
+            @include flexCenter(column, center);
+            position: absolute;
+            right: -320px;
+            background-color: white;
+            border: 2px solid black;
         }
     }
 
-    .dropDown {
-        width: 300px;
-        height: 40vh;
-        @include flexCenter(column, center);
-        position: absolute;
-        right: -320px;
-        background-color: white;
-        border: 2px solid black;
-        
-    }
     
-}
 
 .active {
     transform: translate(-320px, 0);
