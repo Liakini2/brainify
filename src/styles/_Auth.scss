@@ -12,18 +12,25 @@
         background: green;
         height: 100%;
         width: 100%;
+        align-content: center;
+        justify-items: center;
         grid-template-columns: 100%;
         grid-template-rows: 10% 13% 13% 13% 13% 13% 13%;
         label {
             display: flex;
             
             span {
+                height: 50%;
                 width: 35%;
             }
 
             input {
+                height: 40%;
                 width: 70%;
             }
+        }
+        button {
+            width: 20%;
         }
     }
 }
