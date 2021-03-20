@@ -22,39 +22,82 @@
   display: -ms-grid;
   display: grid;
   background: green;
+  max-width: 671px;
+  max-height: 434px;
   height: 100%;
   width: 100%;
   -ms-flex-line-pack: center;
       align-content: center;
   justify-items: center;
-  -ms-grid-columns: 100%;
-      grid-template-columns: 100%;
-  -ms-grid-rows: 10% 13% 13% 13% 13% 13% 13%;
-      grid-template-rows: 10% 13% 13% 13% 13% 13% 13%;
+  -ms-grid-columns: auto;
+      grid-template-columns: auto;
+  -ms-grid-rows: 13% 13% 13% 13% 13% 13% 13% 5%;
+      grid-template-rows: 13% 13% 13% 13% 13% 13% 13% 5%;
 }
 
 .login .auth label {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: -ms-grid;
+  display: grid;
+  width: 70%;
+  -ms-grid-columns: 30% 60%;
+      grid-template-columns: 30% 60%;
 }
 
 .login .auth label span {
   height: 50%;
-  width: 35%;
+  width: 100%;
 }
 
 .login .auth label input {
   height: 40%;
   width: 70%;
+  -ms-flex-item-align: start;
+      -ms-grid-row-align: start;
+      align-self: start;
 }
 
 .login .auth button {
   width: 20%;
 }
 
+.login .auth .switch {
+  width: 100%;
+  text-align: center;
+}
+
 .edit-user {
   background: orange;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto;
+      grid-template-columns: auto;
+  width: 100%;
+  height: 100%;
+  max-width: 671px;
+  max-height: 434px;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  justify-items: center;
+  -ms-grid-rows: 10% 10% 10% 10% 10%;
+      grid-template-rows: 10% 10% 10% 10% 10%;
+  grid-row-gap: 2%;
+}
+
+.edit-user input {
+  width: 30%;
+  height: 50%;
+}
+
+.edit-user button {
+  width: 20%;
+}
+
+input {
+  border-radius: 20%;
+}
+
+button {
+  border-radius: 20%;
 }
 
 .header {
@@ -306,6 +349,19 @@
 #root, .App {
   width: 100%;
   height: 100%;
+}
+
+.App {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 body {
