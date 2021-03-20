@@ -16,32 +16,28 @@ const Header = (props) => {
     return (
         <header className='header'>
             <section className='mainBar'>
-
-                <h1>Brainify</h1>
-
-                <div className='headerOptions'>
-                    <nav className='nav'>
-                        <ul>
-                            <Link to='/home'>
-                                <li>Home</li>
-                            </Link>
-                            <Link to='tests'>
-                                <li>Tests</li>
-                            </Link>
-                            <Link to='stats'>
-                                <li>Your Stats</li>
-                            </Link>
-                        </ul> 
-                    </nav>
-
-                    <div className='about'>
-                        <Link to='/about'>
-                            <h3>About</h3>
+                <nav className='nav'>
+                    <h1>Brainify</h1>
+                    <ul>
+                        <Link to='/home'>
+                            <li>Home</li>
                         </Link>
-                        <button onClick={() => setToggle(!toggle)}>{username? username: 'menu'}</button>
-                    </div>
-                </div>
+                        <Link to='tests'>
+                            <li>Tests</li>
+                        </Link>
+                        <Link to='stats'>
+                            <li>Your Stats</li>
+                        </Link>
+                    </ul> 
+                </nav>
 
+                <div className='about'>
+                    <Link to='/about'>
+                        <h3>About</h3>
+                    </Link>
+                    <button onClick={() => setToggle(!toggle)}>{username? username: 'menu'}</button>
+                </div>
+                
             </section>
             <section className={`dropDown ${toggle && 'active'}`}>
 

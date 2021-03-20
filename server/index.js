@@ -10,6 +10,8 @@ const app = express();
 
 const {CONNECTION_STRING, SERVER_PORT, SESSION_SECRET} = process.env;
 
+console.log(CONNECTION_STRING);
+
 app.use(express.json());
 
 app.use(session({

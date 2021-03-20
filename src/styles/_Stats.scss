@@ -1,11 +1,20 @@
-.stat {
-    background : navajowhite;
-}
+
 
 .your-stats {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
     background: yellowgreen;
+    .stat {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 40%;
+        background : navajowhite;
+    }
+    .overview {
+        width: 50%;
+        background: goldenrod;
+    }
 }
 
-.overview {
-    background: goldenrod;
-}

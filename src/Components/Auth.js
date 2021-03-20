@@ -56,12 +56,12 @@ const Auth = () => {
     return (
         <div className="login">
             {tryLogin ? <section className="auth">
-                    <label><span>Username: </span><input type="text" value={loginInfo.username} onChange={e => setLoginInfo({...loginInfo, username: e.target.value})} /></label>
+                    <label><span>Username: </span><input type="text" autoFocus={true} value={loginInfo.username} onChange={e => setLoginInfo({...loginInfo, username: e.target.value})} /></label>
                     <label><span>Password: </span><input type="password" value={loginInfo.password} onChange={e => setLoginInfo({...loginInfo, password: e.target.value})} /></label>
                     <button onClick={login}>Login</button>
                     <span>or</span><a onClick={_ => setTryLogin(false)}>Register</a>
             </section> : <section className="auth">
-                <label><span>Username: </span><input type="text" value={loginInfo.username} onChange={e => setLoginInfo({...loginInfo, username: e.target.value})} /></label>
+                <label><span>Username: </span><input type="text" autoFocus={true} value={loginInfo.username} onChange={e => setLoginInfo({...loginInfo, username: e.target.value})} /></label>
                 <label><span>Password: </span><input type="password" value={loginInfo.password} onChange={e => setLoginInfo({...loginInfo, password: e.target.value})} /></label>
                 <label><span>Verify: </span><input type="password" value={loginInfo.verpassword} onChange={e => setLoginInfo({...loginInfo, verpassword: e.target.value})} /></label>
                 <label><span>First Name: </span><input type="text" value={loginInfo.first_name} onChange={e => setLoginInfo({...loginInfo, first_name: e.target.value})} /></label>
