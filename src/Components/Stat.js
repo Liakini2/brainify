@@ -5,8 +5,8 @@ const Stat = () => {
     return (
         <section className='stat'>
             <HorizontalBar
-            height={10}
-            width={50}
+            height={"50%"}
+            width={"100%"}
             options={{
                 maintainAspectRatio: false
             }}
@@ -15,7 +15,7 @@ const Stat = () => {
                     barPercentage: 1.0, 
                     barThickness: 30,
                     // score goes here 
-                    data: [5]
+                    data: [25]
                 }]
             }}
             options={{

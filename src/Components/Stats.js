@@ -19,11 +19,11 @@ const Stats = () => {
                     datasets:[{
                         label: `score`,
                         // user scores go here
-                        data: [50, 100, 10]
+                        data: [50, 100, 20]
                     }],
                     backgroundColor: [
-                        "rgba(201, 249, 255, 0.75)",
-                        "rgba(144, 215, 255, 0.75)",
+                        "rgba(201, 249, 255, 1)",
+                        "rgba(144, 215, 255, 1)",
                         "rgba(201, 249, 255, 0.75)"
                     ]
                 }}

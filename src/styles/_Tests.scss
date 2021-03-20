@@ -1,20 +1,29 @@
-@import './functions';
-
 .games {
-    height: 98vh;
-    width: 100vw;
-    @include flexCenter(row, none);
+    height: 100%;
+    width: 100%;
+    background: blueviolet;
+    display: flex;
+    justify-content: space-around;
+
     .category-list {
-        height: 100%;
-        width: 25%;
         background: oldlace;
-        border: 2px solid black;
+        width: 20%;
+        height: 100%;
     }
-    
+
     .games-list {
-        width: 75%;
+        width: 80%;
         height: 100%;
         background: plum;
+        display: grid;
+        grid-template-columns: 23% 23% 23% 23%;
+        grid-column-gap: 2%;
+        
+
+        .game-icon {
+            width: 100%;
+            height: 40%;
+            background: green;
+        }
     }
 }
-

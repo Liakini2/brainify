@@ -1,11 +1,53 @@
 .home {
     background-color: tan;
-}
+    width: 100%;
+    height: 90%;
+    display: flex;
 
-.recommended {
-    background-color: orangered;
-}
+    .recommended {
+        background-color: orangered;
+        width: 70%;
+        display: flex;
+        flex-direction: column;
 
-.stats {
-    background: burlywood;
+        section {
+            height: 90%;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            background: blue;
+            .game-icon {
+                background: green;
+                width: 30%;
+                height: 30%;
+            }
+        }
+    }
+
+    .stats {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: burlywood;
+        width: 30%;
+
+        h1{
+            height: 10%;
+            margin: 0;
+        }
+
+        .stat {
+            height: 25%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            // .chartjs-render-monitor {
+            //     width: 100%;
+            //     height: 50%;
+            // }
+        }
+
+        
+    }
 }
