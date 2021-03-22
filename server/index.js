@@ -38,6 +38,7 @@ app.put('/auth/user/:user_id', auth.usersOnly, userCtrl.updateuser);
 app.post('/api/score/:game_id', auth.usersOnly, gameCtrl.addScore);
 app.get('/api/scores', auth.usersOnly, gameCtrl.getScores);
 app.get('api/scores/compare', auth.usersOnly, gameCtrl.compareScores);
+app.get('api/games', gameCtrl.getGames);
 
 //hosting
 app.use(express.static(__dirname + '/../build'));

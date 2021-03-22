@@ -89,7 +89,9 @@ class SpeedMatch extends Component {
     }
 
     scoreGame = () => {
-
+        // axios.post(`/api/score/${game_id}`, {score: this.state.score}).then(_ => {
+            
+        // }).catch(err => console.log(err));
     }
 
     render() {

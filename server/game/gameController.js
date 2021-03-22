@@ -34,10 +34,20 @@ const compareScores = async (req, res) => {
     //get tally of all scores to see how user stacks up.
 }
 
+const getGames = (req, res) => {
+    req.app.get('db').game.get_games(res => {
+        return res.status(200).send(res.data);
+    }).catch(err => {
+        console.log(err);
+        return res.sendStatus(500);
+    })
+}
+
 
 module.exports = {
     addScore,
     getScores,
     compareScores,
-    getScoresDateRange
+    getScoresDateRange,
+    getGames
 }

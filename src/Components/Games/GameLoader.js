@@ -6,9 +6,9 @@ const GameLoader = (props) => {
 
     return <div className="game">
         <Switch>
-        <Route path='/game/mathdrop' component={MathDrop} />
-        <Route path='/game/speedmatch' component={SpeedMatch} />
-    </Switch>
+            <Route path='/game/mathdrop' component={MathDrop} />
+            <Route path='/game/speedmatch' component={SpeedMatch} />
+        </Switch>
     </div>
 }
 
