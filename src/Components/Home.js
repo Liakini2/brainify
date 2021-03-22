@@ -1,9 +1,19 @@
-import React from 'react'
+import {useContext} from 'react'
+import {UserContext} from '../context/UserContext'
+import {Redirect} from 'react-router-dom'
 import GameIcon from './GameIcon'
 import Stat from './Stat'
 import {Radar} from 'react-chartjs-2'
 
-const Home = () => {
+const Home = ({...props}) => {
+    const userValue = useContext(UserContext)
+    // console.log(userValue)
+    // console.log(props)
+    
+    if(!userValue.user.username){
+        return <Redirect to='/'/>
+    }
+
     return (
         <div className='home'>
             <section className='recommended'>
@@ -23,9 +33,6 @@ const Home = () => {
                 <Radar
                 height={"25%"}
                 width={"25%"}
-                options={{
-                    maintainAspectRatio: false
-                }}
                 data={{
                     //categories go here
                     labels: ['Memory', 'Speed', 'Math'], 
@@ -39,6 +46,9 @@ const Home = () => {
                         "rgba(144, 215, 255, 1)",
                         "rgba(201, 249, 255, 0.75)"
                     ]
+                }}
+                options={{
+                    maintainAspectRatio: false
                 }}
                 options={{
                     scale: {
