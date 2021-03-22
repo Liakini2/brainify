@@ -21,7 +21,6 @@ const Tests = () => {
                 <GameIcon/>
                 <GameIcon/>
                 <GameIcon/>
-                
             </section>
         </div>
     )
