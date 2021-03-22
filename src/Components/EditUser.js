@@ -8,6 +8,7 @@ const EditUser = () => {
             <input placeholder='first name'/>
             <input placeholder='last name'/>
             {/* <input placeholder='timezone'/> */}
+            <button>Submit</button>
         </div>
     )
 }
