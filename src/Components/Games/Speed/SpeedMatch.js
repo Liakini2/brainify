@@ -1,97 +1,7 @@
-import React, {useState, useEffect, useRef} from 'react';
-// let pressed = false;
+import React, {Component} from 'react';
+import axios from 'axios';
 
-// const SpeedMatch = () => {
-//     // let prev = {shape: '', color: ''};
-
-//     let colors = ['red', 'yellow', 'purple', 'green'];
-//     let shapes = ['square', 'triangle', 'circle', 'star'];
-    
-//     // const prevShapeRef = useRef();
-//     // const prevColorRef = useRef();
-//     const [color, setColor] = useState(colors[0]);
-//     const [shape, setShape] = useState(shapes[2]);
-//     // const [colorShape, setColorShape] = useState({shape: '', color: ''})
-//     const [prev, setPrev] = useState({shape: '', color: ''})
-
-//     useEffect(() => {
-//         window.addEventListener('keydown', compareShapes);
-//         window.addEventListener('keyup', () => pressed = false);
-//         setShape(shapes[Math.floor(Math.random() * shapes.length)]);
-//         setColor(colors[Math.floor(Math.random() * colors.length)]);
-//         // prevShapeRef.current = shape;
-//         // prevColorRef.current = color;
-//         // setPrev({shape: shape, color: color});
-//         return () => {
-//             window.removeEventListener('keydown', compareShapes); 
-//         }
-//     }, [])
-
-//     // useEffect(() => {
-//     //     console.log('effect', colorShape.shape, colorShape.color, prev)
-//     //     setPrev({shape: colorShape.shape, color: colorShape.color});
-//     // }, [shape, color]);
-    
-
-//     const getShapeAndColor = () => {
-        
-//         // prevShapeRef.current = shape;
-//         // prevColorRef.current = color;
-//         // setPrev({shape: shape, color: color});
-//         setShape(shapes[Math.floor(Math.random() * shapes.length)]);
-//         setColor(colors[Math.floor(Math.random() * colors.length)]);
-//     }
-
-
-    
-//     const compareShapes = (event) => {
-
-//         event.preventDefault();
-//         console.log(event);
-//         if(!pressed) {
-//             pressed = true;
-//             if(event.key === 'ArrowRight' || event.code === "ArrowRight")
-//             {
-//                 // if(shape === prevShapeRef && color === prevColorRef)
-//                 // {
-//                 //     // alert('correct');
-//                 // } else {
-//                 //     // alert('wrong');
-//                 // }
-//             } else if (event.key === "ArrowLeft" || event.code === "ArrowLeft")
-//             {
-//                 // console.log(shape.name !== prevShapeRef, color !== prevColorRef)
-//                 // if(shape !== prevShapeRef || color !== prevColorRef)
-//                 // {
-//                 //     // alert('correct');
-//                 // } else {
-//                 //     // alert('wrong');
-//                 // }
-//             } else {
-//                 console.log('here?')
-//                 return;
-//             }
-//             getShapeAndColor();
-//         }
-//     }
-
-//     // console.log('next?', shape, color, prev)
-//     return (
-//         <div className='speedmatch' autoFocus onKeyDown={(event) => {
-//             // console.log(event)
-//             // event.preventDefault();
-//             // // setPrev({shape, color});
-//             // setShape(shapes[Math.floor(Math.random() * shapes.length)]);
-//             // setColor(colors[Math.floor(Math.random() * colors.length)]);
-//         }}>
-//             <div className={`${shape} ${color}`}/>
-//         </div>
-//     )
-// }
-
-// export default SpeedMatch;
-
-class SpeedMatch extends React.Component {
+class SpeedMatch extends Component {
     constructor() {
         super();
 
@@ -110,7 +20,7 @@ class SpeedMatch extends React.Component {
         window.addEventListener('keydown', this.compareShape);
         window.addEventListener('keyup', this.setPressed);
         this.newShape();
-        setInterval(() => {if(this.state.gameTime > 0){this.setState({gameTime: this.state.gameTime-1})}}, 1000);
+        setInterval(() => {if(this.state.gameTime > 0){this.setState({gameTime: this.state.gameTime-1})} else { this.scoreGame() }}, 1000);
     }
 
     componentWillUnmount() {
@@ -175,6 +85,10 @@ class SpeedMatch extends React.Component {
                 this.pressed = true;
             }
         }
+
+    }
+
+    scoreGame = () => {
 
     }
 
