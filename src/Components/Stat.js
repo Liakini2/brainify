@@ -7,9 +7,6 @@ const Stat = () => {
             <HorizontalBar
             height={"50%"}
             width={"100%"}
-            options={{
-                maintainAspectRatio: false
-            }}
             data={{
                 datasets: [{
                     barPercentage: 1.0, 
@@ -19,6 +16,7 @@ const Stat = () => {
                 }]
             }}
             options={{
+                maintainAspectRatio: false,
                 scales: {
                     xAxes: [{
                         gridLines: {
