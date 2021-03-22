@@ -7,7 +7,7 @@ const Header = (props) => {
     const [toggle, setToggle] = useState(false)
     const userValue = useContext(UserContext)
     const {username} = useContext(UserContext)
-    console.log(userValue)
+    // console.log(userValue)
 
     const logout = async () => {
         await axios.post('auth/logout')
