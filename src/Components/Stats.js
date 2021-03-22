@@ -5,6 +5,7 @@ import Stat from './Stat'
 import {Radar} from 'react-chartjs-2'
 
 const Stats = ({...props}) => {
+    const userValue = useContext(UserContext)
 
     if(!userValue.user.username){
         return <Redirect to='/'/>

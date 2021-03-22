@@ -6,7 +6,7 @@ import EditUser from './Components/EditUser'
 import Tests from './Components/Tests'
 import Auth from './Components/Auth'
 import About from './Components/About'
-import MathDrop from './Components/Games/Math/MathDrop'
+import GameLoader from './Components/Games/GameLoader';
 
 export default (
     <Switch>
@@ -16,6 +16,6 @@ export default (
         <Route path='/tests' component={Tests}/>
         <Route path='/account' component={EditUser}/>
         <Route path='/about' component={About}/>
-        <Route path='/game/mathdrop' component={MathDrop} />
+        <Route path='/game/:game_name' component={GameLoader} />
     </Switch>
 )
