@@ -1,4 +1,5 @@
-import React from 'react'
+// import {useContext, useEffect} from 'react'
+// import axios from 'axios'
 import {HorizontalBar} from 'react-chartjs-2'
 
 const Stat = () => {

@@ -1,7 +1,8 @@
-import {useContext} from 'react'
+import {useContext, useEffect} from 'react'
 import {UserContext} from '../context/UserContext'
 import {Redirect} from 'react-router-dom'
 import GameIcon from './GameIcon'
+import axios from 'axios'
 
 const Tests = () => {
     const userValue = useContext(UserContext)
