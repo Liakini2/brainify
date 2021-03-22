@@ -1,7 +1,15 @@
-import React from 'react'
+import {useContext} from 'react'
+import {UserContext} from '../context/UserContext'
+import {Redirect} from 'react-router-dom'
 import GameIcon from './GameIcon'
 
 const Tests = () => {
+    const userValue = useContext(UserContext)
+
+    if(!userValue.user.username){
+        return <Redirect to='/'/>
+    }
+
     return (
         <div className='games'>
             <section className='category-list'>

@@ -10,8 +10,6 @@ const app = express();
 
 const {CONNECTION_STRING, SERVER_PORT, SESSION_SECRET} = process.env;
 
-console.log(CONNECTION_STRING);
-
 app.use(express.json());
 
 app.use(session({
@@ -44,8 +42,8 @@ app.get('api/scores/compare', auth.usersOnly, gameCtrl.compareScores);
 
 app.use(express.static(__dirname + '/../build'));
 
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname + '../build/index.html'));
-});
+// app.get('*', (req, res) => {
+//     res.sendFile(path.join(__dirname + '../build/index.html'));
+// });
 
 app.listen(SERVER_PORT, () => console.log(`running on ${SERVER_PORT}`));

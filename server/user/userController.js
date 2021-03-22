@@ -2,9 +2,8 @@ const bcrypt = require('bcryptjs');
 
 const register = async (req, res) => {
     let {username, password, first_name, last_name, email} = req.body;
-    console.log('register', req.body); 
+    // console.log('register', req.body); 
     let db = req.app.get('db');
-
     const [result] = await db.user.find_user([username]);
     if(result)
     {

@@ -5,11 +5,13 @@ import axios from 'axios'
 
 const Header = (props) => {
     const [toggle, setToggle] = useState(false)
-    const {username, setUser} = useContext(UserContext)
+    const userValue = useContext(UserContext)
+    const {username} = useContext(UserContext)
+    console.log(userValue)
 
     const logout = async () => {
         await axios.post('auth/logout')
-        setUser({username: '', firstName: '', lastName: '', email: '', loggedIn: false})
+        userValue.setUser({username: null, firstName: null, lastName: null, email: null, loggedIn: false})
         props.history.push('/')
     }
 
@@ -35,7 +37,7 @@ const Header = (props) => {
                     <Link to='/about'>
                         <h3>About</h3>
                     </Link>
-                    <button onClick={() => setToggle(!toggle)}>{username? username: 'menu'}</button>
+                    <button onClick={() => setToggle(!toggle)}>{username ? username: 'menu'}</button>
                 </div>
                 
             </section>
