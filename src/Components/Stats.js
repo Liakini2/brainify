@@ -1,18 +1,23 @@
-import React from 'react'
+import {useContext} from 'react'
+import {UserContext} from '../context/UserContext'
+import {Redirect} from 'react-router-dom'
 import Stat from './Stat'
 import {Radar} from 'react-chartjs-2'
 
-const Stats = () => {
+const Stats = ({...props}) => {
+    const userValue = useContext(UserContext)
+
+    if(!userValue.user.username){
+        return <Redirect to='/'/>
+    }
+    
     return (
         <div className='your-stats'>
             <Stat/>
             <section className='overview'>
                 <Radar
-                height={"25%"}
-                width={"25%"}
-                options={{
-                    maintainAspectRatio: false
-                }}
+                height={500}
+                width={100}
                 data={{
                     //categories go here
                     labels: ['Memory', 'Speed', 'Math'], 
@@ -23,11 +28,10 @@ const Stats = () => {
                     }],
                     backgroundColor: [
                         "rgba(201, 249, 255, 1)",
-                        "rgba(144, 215, 255, 1)",
-                        "rgba(201, 249, 255, 0.75)"
                     ]
                 }}
                 options={{
+                    maintainAspectRatio: false,
                     scale: {
                         ticks: {
                             suggestedMin: 10,

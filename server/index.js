@@ -10,8 +10,6 @@ const app = express();
 
 const {CONNECTION_STRING, SERVER_PORT, SESSION_SECRET} = process.env;
 
-console.log(CONNECTION_STRING);
-
 app.use(express.json());
 
 app.use(session({
@@ -29,23 +27,24 @@ massive({
     console.log('DB connected');
 }).catch(err => console.log(err));
 
-
+//auth endpoints
 app.post('/auth/register', userCtrl.register);
 app.post('/auth/login', userCtrl.login);
 app.post('/auth/logout', userCtrl.logout)
 app.get('/auth/me', userCtrl.getuser);
 app.put('/auth/user/:user_id', auth.usersOnly, userCtrl.updateuser);
 
-
+//game endpoints
 app.post('/api/score/:game_id', auth.usersOnly, gameCtrl.addScore);
 app.get('/api/scores', auth.usersOnly, gameCtrl.getScores);
-app.get('api/scores/compare', auth.usersOnly, gameCtrl.compareScores);
+app.get('/api/scores/compare', auth.usersOnly, gameCtrl.compareScores);
+app.get('/api/games', gameCtrl.getGames);
 
-
+//hosting
 app.use(express.static(__dirname + '/../build'));
 
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname + '../build/index.html'));
-});
+// app.get('*', (req, res) => {
+//     res.sendFile(path.join(__dirname + '../build/index.html'));
+// });
 
 app.listen(SERVER_PORT, () => console.log(`running on ${SERVER_PORT}`));

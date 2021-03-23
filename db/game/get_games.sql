@@ -1,0 +1,1 @@
+SELECT g.id, g.game_name as name, c.category FROM games g JOIN categories c ON c.id = g.category_id ORDER BY name ASC;

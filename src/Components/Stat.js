@@ -1,4 +1,5 @@
-import React from 'react'
+// import {useContext, useEffect} from 'react'
+// import axios from 'axios'
 import {HorizontalBar} from 'react-chartjs-2'
 
 const Stat = () => {
@@ -7,9 +8,6 @@ const Stat = () => {
             <HorizontalBar
             height={"50%"}
             width={"100%"}
-            options={{
-                maintainAspectRatio: false
-            }}
             data={{
                 datasets: [{
                     barPercentage: 1.0, 
@@ -19,6 +17,7 @@ const Stat = () => {
                 }]
             }}
             options={{
+                maintainAspectRatio: false,
                 scales: {
                     xAxes: [{
                         gridLines: {

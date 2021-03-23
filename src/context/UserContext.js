@@ -3,10 +3,10 @@ export const UserContext = createContext()
 
 export const UserProvider = ({children}) => {
     const [user, setUser] = useState({
-        username: '',
-        firstName: '',
-        lastName: '',
-        email: '',
+        username: null,
+        firstName: null,
+        lastName: null,
+        email: null,
         loggedIn: false
     })
     return(

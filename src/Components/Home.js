@@ -1,9 +1,26 @@
-import React from 'react'
+import {useContext, useEffect} from 'react'
+import {UserContext} from '../context/UserContext'
+import {Redirect} from 'react-router-dom'
 import GameIcon from './GameIcon'
 import Stat from './Stat'
 import {Radar} from 'react-chartjs-2'
+import axios from 'axios';
 
-const Home = () => {
+const Home = ({...props}) => {
+    const userValue = useContext(UserContext)
+    // console.log(userValue)
+    // console.log(props)
+
+    useEffect(() => {
+        axios.get('/api/scores').then(res => {
+            console.log(res.data);
+        }).catch(err => console.log(err));
+    }, [])
+    
+    if(!userValue.user.username){
+        return <Redirect to='/'/>
+    }
+
     return (
         <div className='home'>
             <section className='recommended'>
@@ -23,9 +40,6 @@ const Home = () => {
                 <Radar
                 height={"25%"}
                 width={"25%"}
-                options={{
-                    maintainAspectRatio: false
-                }}
                 data={{
                     //categories go here
                     labels: ['Memory', 'Speed', 'Math'], 
@@ -41,6 +55,7 @@ const Home = () => {
                     ]
                 }}
                 options={{
+                    maintainAspectRatio: false,
                     scale: {
                         ticks: {
                             suggestedMin: 10,
