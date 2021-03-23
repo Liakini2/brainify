@@ -1,6 +1,6 @@
 import {Switch, Route} from 'react-router-dom';
 import SpeedMatch from './Speed/SpeedMatch';
-import MathDrop from './Math/MathDrop';
+import MathDrop from './MathDrop/MathDrop';
 import {useContext} from 'react';
 import {GameContext} from '../../context/GameContext';
 
