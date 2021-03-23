@@ -24,7 +24,7 @@ const Home = ({...props}) => {
     return (
         <div className='home'>
             <section className='recommended'>
-                <h1>Recommended For You</h1>
+                <h1>Welcome {userValue.user.first_name}! Recommended For You</h1>
                 <section>
                     <GameIcon/>
                     <GameIcon/>
