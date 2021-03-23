@@ -24,10 +24,10 @@ const Header = (props) => {
                         <Link to='/home'>
                             <li>Home</li>
                         </Link>
-                        <Link to='tests'>
+                        <Link to='/tests'>
                             <li>Tests</li>
                         </Link>
-                        <Link to='stats'>
+                        <Link to='/stats'>
                             <li>Your Stats</li>
                         </Link>
                     </ul> 

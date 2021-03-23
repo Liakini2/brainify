@@ -1,34 +1,35 @@
-@import './About';
-@import './Auth';
-@import './EditUser';
-@import './Header';
-@import './Home';
-@import './Stats';
-@import './Tests';
-@import './SpeedMatch';
-@import '../Components/Games/Memory/MemoryGame';
+@import "./About";
+@import "./Auth";
+@import "./EditUser";
+@import "./Header";
+@import "./Home";
+@import "./Stats";
+@import "./Tests";
+@import "./SpeedMatch";
+@import "../Components/Games/MathDrop/MathDrop";
 
-#root, .App {
-    width: 100%;
-    height: 100%;
+#root,
+.App {
+  width: 100%;
+  height: 100%;
 }
 
 .App {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 body {
-    background: orange;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100vw;
-    height: 100vh;
+  background: orange;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
 }
 
 .game {
-    width: 100%;
-    height: 90vh;
+  width: 100%;
+  height: 90vh;
 }

@@ -27,20 +27,20 @@ massive({
     console.log('DB connected');
 }).catch(err => console.log(err));
 
-//auth endpoints
+
 app.post('/auth/register', userCtrl.register);
 app.post('/auth/login', userCtrl.login);
 app.post('/auth/logout', userCtrl.logout)
 app.get('/auth/me', userCtrl.getuser);
 app.put('/auth/user/:user_id', auth.usersOnly, userCtrl.updateuser);
 
-//game endpoints
+
 app.post('/api/score/:game_id', auth.usersOnly, gameCtrl.addScore);
 app.get('/api/scores', auth.usersOnly, gameCtrl.getScores);
 app.get('/api/scores/compare', auth.usersOnly, gameCtrl.compareScores);
 app.get('/api/games', gameCtrl.getGames);
 
-//hosting
+
 app.use(express.static(__dirname + '/../build'));
 
 // app.get('*', (req, res) => {

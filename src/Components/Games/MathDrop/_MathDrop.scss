@@ -1,0 +1,15 @@
+.equation {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  animation: drop 10s forwards;
+  animation-timing-function: linear;
+}
+@keyframes drop {
+  from {
+    transform: translate(0, 0);
+  }
+  to {
+    transform: translate(0, 90vh);
+  }
+}

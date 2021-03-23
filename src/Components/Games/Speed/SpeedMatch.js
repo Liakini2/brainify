@@ -70,6 +70,13 @@ class SpeedMatch extends Component {
     }
 
     compareShape = (event) => {
+
+        //animate card like it's going into used pile and a new one is being laoded on keypress. I may need a 'card' component in order to unmount and remount component.
+        //potentially transform: translate(-200px, 0) unmount and then remount at original location. 
+        // https://dev.to/samwatts98/how-to-easily-animate-your-react-components-on-click-with-css-keyframes-26mg
+        //https://blog.bitsrc.io/how-to-trigger-animation-events-using-react-a6c3256b21c6?gi=3d76305958db
+        //onAnimationEnd
+
         event.preventDefault();
         if(event.key === 'ArrowRight' || event.code === "ArrowRight" || event.key === 'ArrowLeft' || event.code === "ArrowLeft"){
             if(!this.pressed)
@@ -104,17 +111,17 @@ class SpeedMatch extends Component {
     scoreGame = () => {
         clearInterval(this.clock);
         if(this.state.game_started){
-        axios.post(`/api/score/${this.state.game_id}`, {score: this.state.score}).then(_ => {
-            this.setState({game_started: false});
-        }).catch(err => console.log(err));
-    }
+            axios.post(`/api/score/${this.state.game_id}`, {score: this.state.score}).then(_ => {
+                this.setState({game_started: false});
+            }).catch(err => console.log(err));
+        }
     }
 
     render() {
         // console.log("previous: " + this.state.prev.shape + " " + this.state.prev.color, this.state.color, this.state.shape);
         return <div className="speedmatch">
         <div className="gameInfo"><section className="score">Score: {this.state.score}</section><h1>{this.state.game_name}</h1><section className="timer">Time Remaining: {this.state.gameTime}</section></div>
-            {!this.state.game_started ? <button className="play" onClick={() => this.startGame()}>Play</button> :
+            {!this.state.game_started ? <div className="about-game"><section className="how-to-play">Press the left arrow if the new card doesn't match the previous. Press the </section><button className="play" onClick={() => this.startGame()}>Play</button></div> :
             this.state.gameTime > 0 ? <section className="shapes"><section className={`${this.state.shape} ${this.state.color}`} /></section> : <div className="final-score">Game Over! <br /><section> Final Score is {this.state.score}!</section></div>}
         </div>
     }
