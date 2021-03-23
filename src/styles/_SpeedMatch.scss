@@ -1,0 +1,148 @@
+.speedmatch {
+    width: 100vw;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .gameInfo {
+        display: flex;
+        justify-content: space-between;
+        align-self: flex-start;
+        justify-self: flex-start;
+        width: 100vw;
+        height: 10%;
+
+        .score {
+            width: 10%;
+            text-align: center;
+        }
+
+        .timer {
+            text-align: center;
+            width: 10%;
+        }
+    }
+
+    .square {
+        width: 50%;
+        height: 50%;
+        max-width: 250px;
+        max-height: 250px;
+    }
+
+    .triangle {
+        width: 0;
+        height: 0;
+        border-left: 250px solid transparent;
+        border-right: 250px solid transparent;
+        border-bottom: 250px solid black;
+    }
+
+    .triangle.green {
+        border-bottom-color: green;
+    }
+
+    .triangle.red {
+        border-bottom-color: red;
+    }
+
+    .triangle.yellow {
+        border-bottom-color: yellow;
+    }
+
+    .triangle.purple {
+        border-bottom-color: purple;
+    }
+
+    .circle {
+        width: 50%;
+        height: 50%;
+        max-width: 250px;
+        max-height: 250px;
+        border-radius: 50%;
+    }
+
+    .circle.green, 
+    .square.green {
+        background:green;
+        background-color: green;
+    }
+
+    .circle.yellow, 
+    .square.yellow {
+        background:yellow;
+        background-color: yellow;
+    }
+
+    .circle.red, 
+    .square.red {
+        background:red;
+        background-color: red;
+    }
+
+    .circle.purple, 
+    .square.purple {
+        background:purple;
+        background-color: purple;
+    }
+
+    .star {
+        width: 100px;
+        height: 100px;
+        position: relative;
+        margin-top: 100px;
+        margin-left: 100px;
+    }
+    
+    .star:before,
+    .star:after {
+        content: "";
+        position: absolute;
+        display: block;
+        left: 0;
+        width: 141.4213%; /* 100% * √2 */
+        top: 0;
+        bottom: 0;
+        border-radius: 5%;
+        transform: rotate(66.66deg) skewX(45deg);
+    }
+    
+      /* the same but +90deg to rotate */
+    .star:after {
+        transform: rotate(156.66deg) skew(45deg);
+    }
+
+    .star.green:after,
+    .star.green:before {
+        background-color: green;
+    }
+    .star.red:after,
+    .star.red:before {
+        background-color: red;
+    }
+    .star.purple:after,
+    .star.purple:before {
+        background-color: purple;
+    }
+    .star.yellow:after,
+    .star.yellow:before {
+        background-color: yellow;
+    }
+
+    .shapes {
+        height: 90%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 0 5px 5px black;
+    }
+
+    .final-score {
+        height: 90%;
+        display: flex;
+        align-items: center;
+    }
+}
