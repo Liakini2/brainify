@@ -56,6 +56,8 @@ const Home = ({...props}) => {
                 }}
                 options={{
                     maintainAspectRatio: false,
+                }}
+                options={{
                     scale: {
                         ticks: {
                             suggestedMin: 10,
