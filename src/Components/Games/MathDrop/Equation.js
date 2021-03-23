@@ -1,5 +1,4 @@
-import {useEffect} from 'react'
-
+import {useEffect, useRef} from 'react'
 
 const Equation = (props) => {
     useEffect(() => {
@@ -13,8 +12,12 @@ const Equation = (props) => {
         return () => {clearInterval(timer)}
     }, [])
 
+    const style = useRef({
+        left: Math.floor(Math.random()*80)+'vw' 
+    })
+
     return (
-        <li className='equation'>
+        <li className='equation' style={style.current}>
             {`${props.numOne} ${props.altOperator} ${props.numTwo} =`}
         </li>
     )
