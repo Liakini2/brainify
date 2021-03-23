@@ -46,7 +46,7 @@
             height: 40vh;
             @include flexCenter(column, center);
             position: absolute;
-            right: -320px;
+            right: 10px;
             background-color: white;
             border: 2px solid black;
         }

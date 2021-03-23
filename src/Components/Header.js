@@ -1,6 +1,7 @@
 import React, {useState, useContext} from 'react'
 import {Link, withRouter} from 'react-router-dom'
 import {UserContext} from '../context/UserContext'
+import { Slide } from '@material-ui/core';
 import axios from 'axios'
 
 const Header = (props) => {
@@ -11,6 +12,7 @@ const Header = (props) => {
 
     const logout = async () => {
         await axios.post('auth/logout')
+        setToggle(false);
         userValue.setUser({username: null, firstName: null, lastName: null, email: null, loggedIn: false})
         props.history.push('/')
     }
@@ -41,14 +43,15 @@ const Header = (props) => {
                 </div>
                 
             </section>
-            <section className={`dropDown ${toggle && 'active'}`}>
+            <Slide in={toggle} direction="left" timeout={500} unmountOnExit mountOnEnter>
+                <section className={`dropDown`}>
+                        <Link to='/account' onClick={() => setToggle(false)}>
+                            <h5>Edit Account</h5>
+                        </Link>
+                        <button onClick={() => logout()}>Logout</button>
 
-                    <Link to='/account'>
-                        <h5>Edit Account</h5>
-                    </Link>
-                    <button onClick={() => logout()}>Logout</button>
-
-            </section>
+                </section>
+            </Slide>
         </header>
     )
 }
