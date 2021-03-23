@@ -111,7 +111,7 @@ const MathDrop = () => {
             :
             <div>
                 {equations.map((equation, index)=>{
-                    return(<Equation key={index} missedTarget={missedTarget} numOne={equation.numOne} numTwo={equation.numTwo} altOperator={equation.altOperator}/>)
+                    return(<Equation missedTarget={missedTarget} numOne={equation.numOne} numTwo={equation.numTwo} altOperator={equation.altOperator}/>)
                 })}
                 <input className='user-answer' value={userAnswer} onKeyPress={checkAnswer} onChange={(e)=>{setUserAnswer(e.target.value)}}/>
             </div>
