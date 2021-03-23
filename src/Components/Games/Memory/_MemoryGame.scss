@@ -1,0 +1,65 @@
+@import '../../../../src/styles/functions';
+
+.memoryGame {
+    @include flexCenter(column, center)
+}
+
+.actualGame {
+    @include flexCenter(column, center)
+}
+
+
+
+.card {
+    height: 250px;
+    width: 100px;
+    border-radius: 10px;
+    margin: 15px;
+}
+
+
+
+.selected{
+    border-color: rgb(151, 255, 32);
+}
+
+.hidden{
+    background-color: rgb(34, 35, 133);
+}
+
+
+
+
+
+//Card type classes
+.green{
+
+}
+
+.red{
+
+}
+
+.yellow{
+
+}
+
+.blue{
+
+}
+
+.pink{
+
+}
+
+.orange{
+
+}
+
+.purple{
+
+}
+
+.black{
+
+}
