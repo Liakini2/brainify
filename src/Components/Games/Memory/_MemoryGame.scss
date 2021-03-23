@@ -5,7 +5,7 @@
 }
 
 .actualGame {
-    @include flexCenter(column, center)
+    @include flexCenter(row, space-around)
 }
 
 
