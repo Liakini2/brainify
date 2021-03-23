@@ -11,6 +11,7 @@ const MathDrop = () => {
     const [lives, setLives] = useState(0)
     const [equations, setEquations] = useState([])
     const [consecutive, setConsecutive] = useState(1)
+    const id = useRef(0)
 
     const equationTimer = useRef()
     const gameContext = useContext(GameContext)
@@ -35,11 +36,11 @@ const MathDrop = () => {
         let numTwo=Math.floor(Math.random()*(11))
         let operatorSelector=Math.floor(Math.random()*(2+1))
         let altOperator=['+', '-', 'X'][operatorSelector]
-        setEquations((e)=>[...e, {numOne, numTwo, altOperator}])
+        id.current = id.current+1
+        setEquations((e)=>[...e, {numOne, numTwo, altOperator, i: id.current}])
     }
 
     const checkAnswer=(event)=>{
-        console.log('here')
         if(event.key==='Enter' || event.code==='Enter'){
             let indexArr = []
             for(let i=0; i<equations.length; i++){
@@ -90,6 +91,7 @@ const MathDrop = () => {
     }
 
     const playGame=()=>{
+        id.current = 0
         setLives(3)
         setScore(0)
         equationTimer.current = setInterval(()=>{
@@ -111,7 +113,7 @@ const MathDrop = () => {
             :
             <div>
                 {equations.map((equation, index)=>{
-                    return(<Equation missedTarget={missedTarget} numOne={equation.numOne} numTwo={equation.numTwo} altOperator={equation.altOperator}/>)
+                    return(<Equation key={equation.i} missedTarget={missedTarget} numOne={equation.numOne} numTwo={equation.numTwo} altOperator={equation.altOperator}/>)
                 })}
                 <input className='user-answer' value={userAnswer} onKeyPress={checkAnswer} onChange={(e)=>{setUserAnswer(e.target.value)}}/>
             </div>
