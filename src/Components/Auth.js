@@ -80,7 +80,7 @@ const Auth = ({history, ...props}) => {
         <div className="login">
             {tryLogin ? <section className="auth">
                     <label><span>Username: </span><input type="text" autoFocus={true} value={loginInfo.username} onChange={e => setLoginInfo({...loginInfo, username: e.target.value})} /></label>
-                    <label><span>Password: </span><input type="password" value={loginInfo.password} onChange={e => setLoginInfo({...loginInfo, password: e.target.value})} /></label>
+                    <label><span>Password: </span><input type="password" value={loginInfo.password} onChange={e => setLoginInfo({...loginInfo, password: e.target.value})} onKeyDown={e => {if(e.key === 'Enter' || e.code === 'Enter'){login()}}}/></label>
                     <p className='error-text'>New to Brainify? Click the register button below to create an account.</p>
                     <button onClick={login}>Login</button>
                     <span onClick={_ => setTryLogin(false)} className="switch">or Register</span>

@@ -1,99 +1,9 @@
-import React, {useState, useEffect, useRef} from 'react';
-// let pressed = false;
+import React, {Component} from 'react';
+import axios from 'axios';
 
-// const SpeedMatch = () => {
-//     // let prev = {shape: '', color: ''};
-
-//     let colors = ['red', 'yellow', 'purple', 'green'];
-//     let shapes = ['square', 'triangle', 'circle', 'star'];
-    
-//     // const prevShapeRef = useRef();
-//     // const prevColorRef = useRef();
-//     const [color, setColor] = useState(colors[0]);
-//     const [shape, setShape] = useState(shapes[2]);
-//     // const [colorShape, setColorShape] = useState({shape: '', color: ''})
-//     const [prev, setPrev] = useState({shape: '', color: ''})
-
-//     useEffect(() => {
-//         window.addEventListener('keydown', compareShapes);
-//         window.addEventListener('keyup', () => pressed = false);
-//         setShape(shapes[Math.floor(Math.random() * shapes.length)]);
-//         setColor(colors[Math.floor(Math.random() * colors.length)]);
-//         // prevShapeRef.current = shape;
-//         // prevColorRef.current = color;
-//         // setPrev({shape: shape, color: color});
-//         return () => {
-//             window.removeEventListener('keydown', compareShapes); 
-//         }
-//     }, [])
-
-//     // useEffect(() => {
-//     //     console.log('effect', colorShape.shape, colorShape.color, prev)
-//     //     setPrev({shape: colorShape.shape, color: colorShape.color});
-//     // }, [shape, color]);
-    
-
-//     const getShapeAndColor = () => {
-        
-//         // prevShapeRef.current = shape;
-//         // prevColorRef.current = color;
-//         // setPrev({shape: shape, color: color});
-//         setShape(shapes[Math.floor(Math.random() * shapes.length)]);
-//         setColor(colors[Math.floor(Math.random() * colors.length)]);
-//     }
-
-
-    
-//     const compareShapes = (event) => {
-
-//         event.preventDefault();
-//         console.log(event);
-//         if(!pressed) {
-//             pressed = true;
-//             if(event.key === 'ArrowRight' || event.code === "ArrowRight")
-//             {
-//                 // if(shape === prevShapeRef && color === prevColorRef)
-//                 // {
-//                 //     // alert('correct');
-//                 // } else {
-//                 //     // alert('wrong');
-//                 // }
-//             } else if (event.key === "ArrowLeft" || event.code === "ArrowLeft")
-//             {
-//                 // console.log(shape.name !== prevShapeRef, color !== prevColorRef)
-//                 // if(shape !== prevShapeRef || color !== prevColorRef)
-//                 // {
-//                 //     // alert('correct');
-//                 // } else {
-//                 //     // alert('wrong');
-//                 // }
-//             } else {
-//                 console.log('here?')
-//                 return;
-//             }
-//             getShapeAndColor();
-//         }
-//     }
-
-//     // console.log('next?', shape, color, prev)
-//     return (
-//         <div className='speedmatch' autoFocus onKeyDown={(event) => {
-//             // console.log(event)
-//             // event.preventDefault();
-//             // // setPrev({shape, color});
-//             // setShape(shapes[Math.floor(Math.random() * shapes.length)]);
-//             // setColor(colors[Math.floor(Math.random() * colors.length)]);
-//         }}>
-//             <div className={`${shape} ${color}`}/>
-//         </div>
-//     )
-// }
-
-// export default SpeedMatch;
-
-class SpeedMatch extends React.Component {
-    constructor() {
-        super();
+class SpeedMatch extends Component {
+    constructor(props) {
+        super(props);
 
         this.pressed = false;
         this.state = {
@@ -102,28 +12,41 @@ class SpeedMatch extends React.Component {
             color: 'red',
             gameTime: 90,
             score: 0,
-            consecutive: 0
+            consecutive: 0,
+            game_id: props.game_id,
+            game_name: props.game_name,
+            game_started: false
         }
     }
 
     componentDidMount(){
         window.addEventListener('keydown', this.compareShape);
         window.addEventListener('keyup', this.setPressed);
+        console.log(this.state.game_id, this.state.game_name)
         this.newShape();
-        setInterval(() => {if(this.state.gameTime > 0){this.setState({gameTime: this.state.gameTime-1})}}, 1000);
     }
 
     componentWillUnmount() {
-        window.removeEventListener('keydown', this.compareShape)
-        window.removeEventListener('keyup', this.setPressed)
+        window.removeEventListener('keydown', this.compareShape);
+        window.removeEventListener('keyup', this.setPressed);
+        clearInterval(this.clock);
     }
 
     setPressed = () => {
         this.pressed = false;
     }
 
-    startTimer = () => {
-        
+    startGame = () => {
+        console.log('here');
+        let time = 3;
+        const start = setInterval(() => {
+            console.log(time);
+            if(time > 0){
+            time--;
+        } else {
+            this.clock = setInterval(() => {if(this.state.gameTime > 0){this.setState({gameTime: this.state.gameTime-1})} else if(this.state.game_started) { this.scoreGame() }}, 1000);
+            this.setState({game_started: true, gameTime: 90}, clearInterval(start));
+        }}, 1000);
     }
 
     newShape = () => {
@@ -178,11 +101,21 @@ class SpeedMatch extends React.Component {
 
     }
 
+    scoreGame = () => {
+        clearInterval(this.clock);
+        if(this.state.game_started){
+        axios.post(`/api/score/${this.state.game_id}`, {score: this.state.score}).then(_ => {
+            this.setState({game_started: false});
+        }).catch(err => console.log(err));
+    }
+    }
+
     render() {
         // console.log("previous: " + this.state.prev.shape + " " + this.state.prev.color, this.state.color, this.state.shape);
         return <div className="speedmatch">
-            <section className="gameInfo"><section className="score">Score: {this.state.score}</section><section className="timer">Time Remaining: {this.state.gameTime}</section></section>
-            {this.state.gameTime > 0 ? <section className="shapes"><section className={`${this.state.shape} ${this.state.color}`} /></section> : <div className="final-score">Game Over! <br /><section> Final Score is {this.state.score}!</section></div>}
+        <div className="gameInfo"><section className="score">Score: {this.state.score}</section><h1>{this.state.game_name}</h1><section className="timer">Time Remaining: {this.state.gameTime}</section></div>
+            {!this.state.game_started ? <button className="play" onClick={() => this.startGame()}>Play</button> :
+            this.state.gameTime > 0 ? <section className="shapes"><section className={`${this.state.shape} ${this.state.color}`} /></section> : <div className="final-score">Game Over! <br /><section> Final Score is {this.state.score}!</section></div>}
         </div>
     }
 }
