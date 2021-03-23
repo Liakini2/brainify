@@ -1,14 +1,21 @@
-import {useContext} from 'react'
+import {useContext, useEffect} from 'react'
 import {UserContext} from '../context/UserContext'
 import {Redirect} from 'react-router-dom'
 import GameIcon from './GameIcon'
 import Stat from './Stat'
 import {Radar} from 'react-chartjs-2'
+import axios from 'axios';
 
 const Home = ({...props}) => {
     const userValue = useContext(UserContext)
     // console.log(userValue)
     // console.log(props)
+
+    useEffect(() => {
+        axios.get('/api/scores').then(res => {
+            console.log(res.data);
+        }).catch(err => console.log(err));
+    }, [])
     
     if(!userValue.user.username){
         return <Redirect to='/'/>
@@ -48,9 +55,7 @@ const Home = ({...props}) => {
                     ]
                 }}
                 options={{
-                    maintainAspectRatio: false
-                }}
-                options={{
+                    maintainAspectRatio: false,
                     scale: {
                         ticks: {
                             suggestedMin: 10,

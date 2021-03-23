@@ -5,13 +5,16 @@ import App from './App';
 import {HashRouter, BrowserRouter} from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 import {UserProvider} from './context/UserContext'
+import {GameProvider} from './context/GameContext';
 
 const Router = process.env.NODE_ENV === 'development' ? HashRouter : BrowserRouter;
 ReactDOM.render(
   <React.StrictMode>
     <Router>
       <UserProvider>
-        <App />
+        <GameProvider>
+          <App />
+        </GameProvider>
       </UserProvider>
     </Router>
   </React.StrictMode>,

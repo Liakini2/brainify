@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import axios from 'axios';
 
 class SpeedMatch extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
 
         this.pressed = false;
         this.state = {
@@ -12,28 +12,41 @@ class SpeedMatch extends Component {
             color: 'red',
             gameTime: 90,
             score: 0,
-            consecutive: 0
+            consecutive: 0,
+            game_id: props.game_id,
+            game_name: props.game_name,
+            game_started: false
         }
     }
 
     componentDidMount(){
         window.addEventListener('keydown', this.compareShape);
         window.addEventListener('keyup', this.setPressed);
+        console.log(this.state.game_id, this.state.game_name)
         this.newShape();
-        setInterval(() => {if(this.state.gameTime > 0){this.setState({gameTime: this.state.gameTime-1})} else { this.scoreGame() }}, 1000);
     }
 
     componentWillUnmount() {
-        window.removeEventListener('keydown', this.compareShape)
-        window.removeEventListener('keyup', this.setPressed)
+        window.removeEventListener('keydown', this.compareShape);
+        window.removeEventListener('keyup', this.setPressed);
+        clearInterval(this.clock);
     }
 
     setPressed = () => {
         this.pressed = false;
     }
 
-    startTimer = () => {
-        
+    startGame = () => {
+        console.log('here');
+        let time = 3;
+        const start = setInterval(() => {
+            console.log(time);
+            if(time > 0){
+            time--;
+        } else {
+            this.clock = setInterval(() => {if(this.state.gameTime > 0){this.setState({gameTime: this.state.gameTime-1})} else if(this.state.game_started) { this.scoreGame() }}, 1000);
+            this.setState({game_started: true, gameTime: 90}, clearInterval(start));
+        }}, 1000);
     }
 
     newShape = () => {
@@ -89,16 +102,20 @@ class SpeedMatch extends Component {
     }
 
     scoreGame = () => {
-        // axios.post(`/api/score/${game_id}`, {score: this.state.score}).then(_ => {
-            
-        // }).catch(err => console.log(err));
+        clearInterval(this.clock);
+        if(this.state.game_started){
+        axios.post(`/api/score/${this.state.game_id}`, {score: this.state.score}).then(_ => {
+            this.setState({game_started: false});
+        }).catch(err => console.log(err));
+    }
     }
 
     render() {
         // console.log("previous: " + this.state.prev.shape + " " + this.state.prev.color, this.state.color, this.state.shape);
         return <div className="speedmatch">
-            <section className="gameInfo"><section className="score">Score: {this.state.score}</section><section className="timer">Time Remaining: {this.state.gameTime}</section></section>
-            {this.state.gameTime > 0 ? <section className="shapes"><section className={`${this.state.shape} ${this.state.color}`} /></section> : <div className="final-score">Game Over! <br /><section> Final Score is {this.state.score}!</section></div>}
+        <div className="gameInfo"><section className="score">Score: {this.state.score}</section><h1>{this.state.game_name}</h1><section className="timer">Time Remaining: {this.state.gameTime}</section></div>
+            {!this.state.game_started ? <button className="play" onClick={() => this.startGame()}>Play</button> :
+            this.state.gameTime > 0 ? <section className="shapes"><section className={`${this.state.shape} ${this.state.color}`} /></section> : <div className="final-score">Game Over! <br /><section> Final Score is {this.state.score}!</section></div>}
         </div>
     }
 }
