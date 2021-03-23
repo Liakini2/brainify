@@ -16,5 +16,6 @@ export default (
         <Route path='/tests' component={Tests}/>
         <Route path='/account' component={EditUser}/>
         <Route path='/about' component={About}/>
+        <Route path='/games' component={GameLoader}/>
     </Switch>
 )

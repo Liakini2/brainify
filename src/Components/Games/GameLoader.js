@@ -3,7 +3,7 @@ import SpeedMatch from './Speed/SpeedMatch';
 import MathDrop from './Math/MathDrop';
 import {useContext} from 'react';
 import {GameContext} from '../../context/GameContext';
-import MemoryGame from '../Games/Memory/Memory'
+import Memory from '../Games/Memory/Memory'
 
 const GameLoader = (props) => {
 
@@ -13,7 +13,7 @@ const GameLoader = (props) => {
         <Switch>
             <Route path='/game/mathdrop' component={MathDrop} />
             <Route path='/game/speedmatch'><SpeedMatch game_id={gameContext.game.game_id} game_name={gameContext.game.game_name} /></Route>
-            <Route path='/game/memorycards' component={MemoryGame}/>
+            <Route path='/game/memorycards' component={Memory}/>
         </Switch>
     </div>
 }
