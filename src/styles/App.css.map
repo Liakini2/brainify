@@ -24,6 +24,8 @@
         "_Tests.scss",
         "_Colors.scss",
         "_SpeedMatch.scss",
+        "_functions.scss",
+        "_Colors.scss",
         "../Components/Games/MathDrop/_MathDrop.scss",
         "_Colors.scss",
         "_Colors.scss",
