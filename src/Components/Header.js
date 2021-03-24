@@ -44,12 +44,11 @@ const Header = (props) => {
                 
             </section>
             <Slide in={toggle} direction="left" timeout={500} unmountOnExit mountOnEnter>
-                <section className={`dropDown`}>
+                <section className='dropDown'>
                         <Link to='/account' onClick={() => setToggle(false)}>
                             <h5>Edit Account</h5>
                         </Link>
                         <button onClick={() => logout()}>Logout</button>
-
                 </section>
             </Slide>
         </header>
