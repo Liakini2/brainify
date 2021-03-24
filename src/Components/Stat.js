@@ -13,7 +13,8 @@ const Stat = () => {
                     barPercentage: 1.0, 
                     barThickness: 30,
                     // score goes here 
-                    data: [25]
+                    data: [25],
+                    
                 }]
             }}
             options={{
