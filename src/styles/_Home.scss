@@ -36,16 +36,12 @@
     width: 30%;
     color: $primaryTextColor;
 
-    h1 {
-      height: 10%;
-      margin: 0;
-    }
-
     .stat {
       height: 25%;
       width: 100%;
       display: flex;
       justify-content: center;
+      align-items: center;
       .chartjs-render-monitor {
         color: $primaryTextColor;
       }

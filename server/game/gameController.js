@@ -17,12 +17,14 @@ const getScores = async (req, res) => {
     //send back scores based off of user id. Get all games from user, categorize them by what the game trains and send the total results back
     //find score from the previous week and see how it has changed recently.
     const results = await req.app.get('db').game.get_scores([req.session.user.id]);
+    // console.log(results)
     let final = [];
-    const categories = [...new Set(results.map(el => el.category))];
+    const categories = await req.app.get('db').game.get_categories()
     for(let i = 0;i<categories.length;i++)
     {
-        const score = results.filter(el => el.category === categories[i]).reduce((total, curr) => { total += +curr.score}, 0)/results.filter(el => el.category === categories[i]).length;
-        final.push({category: categories[i], averageScore: score});
+        const score = results.filter(el => el.category === categories[i].category).reduce((total, curr) => { return total += +curr.score}, 0)/(results.filter(el => el.category === categories[i].category).length ? results.filter(el => el.category === categories[i].category).length : 1)
+        // console.log('score:', score)
+        final.push({category: categories[i].category, averageScore: Math.floor(score)});
     }
     return res.status(200).send(final);
 }
