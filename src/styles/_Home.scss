@@ -1,53 +1,54 @@
+@import "./Colors";
+@import "./functions";
+
 .home {
-    background-color: tan;
-    width: 100%;
-    height: 90%;
+  background-color: tan;
+  width: 100%;
+  height: 90%;
+  display: flex;
+
+  .recommended {
+    background-color: $accentColorOne;
+    width: 70%;
     display: flex;
-
-    .recommended {
-        background-color: orangered;
-        width: 70%;
-        display: flex;
-        flex-direction: column;
-
-        section {
-            height: 90%;
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            background: blue;
-            .game-icon {
-                background: green;
-                width: 30%;
-                height: 30%;
-            }
-        }
-    }
-
-    .stats {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        background: burlywood;
+    flex-direction: column;
+    text-align: center;
+    section {
+      height: 90%;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      background: $primaryBackground;
+      .game-icon {
+        background: $primaryContainerBackground;
+        color: $primaryTextColor;
         width: 30%;
-
-        h1{
-            height: 10%;
-            margin: 0;
-        }
-
-        .stat {
-            height: 25%;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            // .chartjs-render-monitor {
-            //     width: 100%;
-            //     height: 50%;
-            // }
-        }
-
-        
+        height: 40%;
+        margin: 15px;
+        margin-bottom: 0;
+      }
     }
+  }
+
+  .stats {
+    @include flexCenter(column, center);
+    background: $primaryContainerBackground;
+    width: 30%;
+    color: $primaryTextColor;
+
+    h1 {
+      height: 10%;
+      margin: 0;
+    }
+
+    .stat {
+      height: 25%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      .chartjs-render-monitor {
+        color: $primaryTextColor;
+      }
+    }
+  }
 }

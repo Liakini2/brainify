@@ -1,29 +1,30 @@
+@import "./Colors";
+
 .games {
+  height: 100%;
+  width: 100%;
+  background: blueviolet;
+  display: flex;
+  justify-content: space-around;
+
+  .category-list {
+    background: oldlace;
+    width: 20%;
     height: 100%;
-    width: 100%;
-    background: blueviolet;
-    display: flex;
-    justify-content: space-around;
+  }
 
-    .category-list {
-        background: oldlace;
-        width: 20%;
-        height: 100%;
+  .games-list {
+    width: 80%;
+    height: 100%;
+    background: plum;
+    display: grid;
+    grid-template-columns: 23% 23% 23% 23%;
+    grid-column-gap: 2%;
+
+    .game-icon {
+      width: 100%;
+      height: 40%;
+      background: green;
     }
-
-    .games-list {
-        width: 80%;
-        height: 100%;
-        background: plum;
-        display: grid;
-        grid-template-columns: 23% 23% 23% 23%;
-        grid-column-gap: 2%;
-        
-
-        .game-icon {
-            width: 100%;
-            height: 40%;
-            background: green;
-        }
-    }
+  }
 }

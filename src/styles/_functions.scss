@@ -1,8 +1,28 @@
-
+@import "./Colors";
 
 @mixin flexCenter($direction, $justify) {
-    display: flex;
-    align-items: center;
-    justify-content: $justify;
-    flex-direction: $direction;
+  display: flex;
+  align-items: center;
+  justify-content: $justify;
+  flex-direction: $direction;
+}
+
+@mixin primaryBtn {
+  border: 2px solid $primaryTextColor;
+  color: $primaryTextColor;
+  background-color: $primaryBtnColor;
+  text-align: center;
+  width: 150px;
+  height: 50px;
+  border-radius: 0;
+}
+
+@mixin smallBtn {
+  border: 2px solid $primaryTextColor;
+  color: $primaryTextColor;
+  background-color: $primaryBtnColor;
+  text-align: center;
+  width: 65px;
+  height: 30px;
+  border-radius: 0;
 }
