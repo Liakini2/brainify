@@ -1,51 +1,62 @@
+@import "./Colors";
 
 .login {
-    margin-top: 100px;
-    background: #0000ff;
-    height: 60vh;
-    width: 70vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    .auth {
-        display: grid;
-        background: green;
-        max-width: 671px;
-        max-height: 434px;
-        height: 100%;
+  margin-top: 70px;
+  background: $primaryBackground;
+  height: 60vh;
+  width: 70vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .auth {
+    display: grid;
+    background: $primaryContainerBackground;
+    color: $primaryTextColor;
+    max-width: 671px;
+    max-height: 350px;
+    height: 100%;
+    width: 100%;
+    align-content: center;
+    justify-items: center;
+    grid-template-columns: auto;
+    grid-template-rows: 20% 20% 15% 15% 15%;
+    label {
+      display: grid;
+      width: 70%;
+      grid-template-columns: 30% 60%;
+      span {
+        height: 50%;
         width: 100%;
-        align-content: center;
-        justify-items: center;
-        grid-template-columns: auto;
-        grid-template-rows: 13% 13% 13% 13% 13% 13% 13% 5%;
-        label {
-            display: grid;
-            width: 70%;
-            grid-template-columns: 30% 60%;
-            span {
-                height: 50%;
-                width: 100%;
-            }
-
-            input {
-                height: 40%;
-                width: 70%;
-                align-self: start;
-            }
-        }
-        button {
-            width: 20%;
-        }
-
-        .switch {
-            width: 100%;
-            text-align: center;
-        }
+      }
+      input {
+        height: 40%;
+        width: 70%;
+        align-self: start;
+        border-radius: 0;
+      }
     }
+    button {
+      @include primaryBtn;
+    }
+    .switch {
+      @include smallBtn;
+    }
+  }
+  .register {
+    display: grid;
+    max-width: 671px;
+    max-height: 550px;
+    height: 150%;
+    width: 100%;
+    grid-template-columns: auto;
+    grid-template-rows: 12% 12% 12% 12% 12% 12% 10% 8%;
+    .error-text {
+      margin: 10px;
+    }
+  }
 }
 
 // @import './functions';
-
 
 // .header{
 //     height: 100px;
@@ -68,7 +79,6 @@
 //             position: relative;
 //             width: 70vw;
 //             margin-left: 200px;
-            
 
 //             ul {
 //                 @include flexCenter(row, space-between);
@@ -77,6 +87,6 @@
 //                     margin-left: 50px;
 //                 }
 //             }
-                
+
 //         }
 //     }

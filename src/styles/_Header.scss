@@ -1,60 +1,68 @@
-@import './functions';
+@import "./functions";
+@import "./Colors";
 
+.header {
+  height: 100px;
+  width: 100%;
+  background-color: $primaryTextColor;
 
-.header{
-    height: 100px;
+  .mainBar {
+    background-color: $transparentBackground;
+    @include flexCenter(row, space-between);
     width: 100%;
-    background-color: aqua;
-
-    .mainBar {
-        background-color: teal;
-        @include flexCenter(row, space-between);
-        width: 100%;
-        nav {
-            width: 60%;
-            display: flex;
-            @include flexCenter(row, space-around);
-            h1{
-                width: 30%;
-                text-align: center;
-            }
-            ul {
-                width: 60%;
-                @include flexCenter(row, space-around);
-                li {
-                    list-style-type: none;
-                }
-            }
+    nav {
+      width: 60%;
+      display: flex;
+      @include flexCenter(row, space-around);
+      h1 {
+        width: 30%;
+        text-align: center;
+      }
+      ul {
+        width: 60%;
+        @include flexCenter(row, space-around);
+        li {
+          list-style-type: none;
         }
-
-            .about {
-                display: flex;
-                justify-content: space-around;
-                width: 30%;
-
-                a{
-                    width: 40%;
-                }
-
-                button {
-                    width: 40%;
-                }
-            }
-        }
-        .dropDown {
-            width: 300px;
-            height: 40vh;
-            @include flexCenter(column, center);
-            position: absolute;
-            right: -320px;
-            background-color: white;
-            border: 2px solid black;
-        }
+      }
     }
 
-    
+    .about {
+      display: flex;
+      justify-content: space-around;
+      width: 30%;
+
+      a {
+        width: 40%;
+      }
+
+      button {
+        @include primaryBtn;
+        margin: 10px;
+      }
+    }
+    .dropDown {
+      width: 300px;
+      height: 40vh;
+      @include flexCenter(column, center);
+      position: absolute;
+      right: 10px;
+      background-color: white;
+      border: 2px solid black;
+    }
+  }
+  .dropDown {
+    width: 300px;
+    height: 40vh;
+    @include flexCenter(column, center);
+    position: absolute;
+    right: -320px;
+    background-color: white;
+    border: 2px solid black;
+  }
+}
 
 .active {
-    transform: translate(-320px, 0);
-    margin-top: 15px;
+  transform: translate(-320px, 0);
+  margin-top: 15px;
 }

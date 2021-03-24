@@ -7,7 +7,7 @@
 @import "./Tests";
 @import "./SpeedMatch";
 @import "../Components/Games/MathDrop/MathDrop";
-@import '../Components/Games/Memory/MemoryGame';
+@import "./Colors";
 
 #root,
 .App {
@@ -22,7 +22,8 @@
 }
 
 body {
-  background: orange;
+  background: $primaryBackground;
+  color: $primaryTextColor;
   display: flex;
   flex-direction: column;
   align-items: center;
