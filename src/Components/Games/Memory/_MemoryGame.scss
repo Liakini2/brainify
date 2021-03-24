@@ -1,18 +1,28 @@
 @import '../../../../src/styles/functions';
 
 .memoryGame {
-    @include flexCenter(column, center)
+    @include flexCenter(column, center);
 }
 
 .actualGame {
-    @include flexCenter(row, space-around)
+    @include flexCenter(row, space-around);
+    flex-wrap: wrap;
+    width: 800px;
+    height: 800px;
+    border: 1px solid yellow;
+    border-radius: 15px;
+    margin: 15px;
+}
+
+.gameSpace {
+    @include flexCenter(row, center);
 }
 
 
 
 .card {
-    height: 250px;
-    width: 100px;
+    height: 150px;
+    width: 150px;
     border-radius: 10px;
     margin: 15px;
 }
@@ -20,11 +30,14 @@
 
 
 .selected{
-    border-color: rgb(151, 255, 32);
+    border: 5px solid rgb(151, 255, 32);
+    height: 140px;
+    width: 140px;
 }
 
 .hidden{
-    background-color: rgb(34, 35, 133);
+    background-color: rgb(34, 35, 133)
+    !important;
 }
 
 
@@ -33,33 +46,33 @@
 
 //Card type classes
 .green{
-
+    background-color: green;
 }
 
 .red{
-
+    background-color: red;
 }
 
 .yellow{
-
+    background-color: yellow;
 }
 
 .blue{
-
+    background-color: blue;
 }
 
 .pink{
-
+    background-color: pink;
 }
 
 .orange{
-
+    background-color: rgb(155, 83, 0);
 }
 
 .purple{
-
+    background-color: purple;
 }
 
 .black{
-
+    background-color: black;
 }

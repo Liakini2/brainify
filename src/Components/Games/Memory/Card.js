@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react'
 
 const Card = (props) => {
-    const [active, setActive] = useState('')
     const [hidden, setHidden] = useState('')
 
 
@@ -10,16 +9,15 @@ const Card = (props) => {
     },[props.hide])
 
     useEffect(() => {
-        setActive('')
-    },[props.deactivate])
+        setHidden('')
+    },[props.active])
 
-
+    
     return(
-
-        <div className={`card ${props.color} ${active} ${hidden}`}
+        
+        <div className={`card ${hidden} ${props.color} ${props.active}`}
         onClick={() => {
-            setActive('selected')
-            props.setSelected(props.selected.push(props.index))
+            props.selectedFunc(props.index)
         }}>
         </div>
         
