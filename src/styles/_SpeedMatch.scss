@@ -27,7 +27,7 @@
 
     .square {
         width: 50%;
-        height: 50%;
+        height: 37.5%;
         max-width: 250px;
         max-height: 250px;
     }
@@ -35,9 +35,9 @@
     .triangle {
         width: 0;
         height: 0;
-        border-left: 250px solid transparent;
-        border-right: 250px solid transparent;
-        border-bottom: 250px solid black;
+        border-left: 6vw solid transparent;
+        border-right: 6vw solid transparent;
+        border-bottom: 6vw solid black;
     }
 
     .triangle.green {
@@ -58,7 +58,7 @@
 
     .circle {
         width: 50%;
-        height: 50%;
+        height: 37.5%;
         max-width: 250px;
         max-height: 250px;
         border-radius: 50%;
@@ -94,6 +94,7 @@
         position: relative;
         margin-top: 100px;
         margin-left: 100px;
+        transform: translate(-65%, -50%);
     }
     
     .star:before,
@@ -132,17 +133,46 @@
     }
 
     .shapes {
-        height: 90%;
-        width: 100%;
+        height: 50%;
+        width: 35%;
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
         box-shadow: 0 0 5px 5px black;
+
+        .discard-pile {
+            width: 300px;
+            height: 400px;
+            background: green;
+            z-index:5;
+        }
+
+        .card {
+            width: 300px;
+            height: 400px;
+            background: blue;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
     }
 
     .final-score {
         height: 90%;
         display: flex;
         align-items: center;
+    }
+
+    .animate-card {
+        animation: turncard 0.1s 1;
+    }
+}
+
+@keyframes turncard{
+    from {
+        transform: translateX(0)
+    }
+    to {
+        transform: translateX(-130%);
     }
 }
