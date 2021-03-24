@@ -1,1 +1,1 @@
-SELECT g.id, g.game_name as name, c.category FROM games g JOIN categories c ON c.id = g.category_id;
+SELECT g.id, g.game_name as name, g.game_icon, c.category FROM games g JOIN categories c ON c.id = g.category_id;

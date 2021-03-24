@@ -40,6 +40,7 @@ app.get('/api/scores', auth.usersOnly, gameCtrl.getScores);
 app.get('/api/scores/compare', auth.usersOnly, gameCtrl.compareScores);
 app.get('/api/games', gameCtrl.getGames);
 app.get('/api/games/categories', gameCtrl.getCategories);
+app.get('/api/games/recommended', auth.usersOnly, gameCtrl.getRecommendedGames);
 
 
 app.use(express.static(__dirname + '/../build'));

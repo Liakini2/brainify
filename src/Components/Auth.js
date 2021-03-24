@@ -37,6 +37,7 @@ const Auth = ({history, ...props}) => {
                 .then(({data})=>{
                     // console.log(`login data:`, data)
                     userValue.setUser(data)
+                    userValue.getRecommendedGames();
                     history.push(`/home`)
                 })
                 .catch((err)=>{
@@ -63,6 +64,7 @@ const Auth = ({history, ...props}) => {
                 .then(({data})=>{
                     // console.log(`register data:`, data)
                     userValue.setUser(data)
+                    userValue.getRecommendedGames();
                     history.push(`/home`)
                 })
                 .catch((err)=>{
