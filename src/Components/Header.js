@@ -39,17 +39,16 @@ const Header = (props) => {
                     <Link to='/about'>
                         <h3>About</h3>
                     </Link>
-                    <button onClick={() => setToggle(!toggle)}>{username ? username: 'menu'}</button>
+                    <button className='menuBtn' onClick={() => setToggle(!toggle)}>{username ? username: 'menu'}</button>
                 </div>
                 
             </section>
             <Slide in={toggle} direction="left" timeout={500} unmountOnExit mountOnEnter>
-                <section className={`dropDown`}>
+                <section className='dropDown'>
                         <Link to='/account' onClick={() => setToggle(false)}>
                             <h5>Edit Account</h5>
                         </Link>
-                        <button onClick={() => logout()}>Logout</button>
-
+                        <button className='logoutBtn' onClick={() => logout()}>Logout</button>
                 </section>
             </Slide>
         </header>

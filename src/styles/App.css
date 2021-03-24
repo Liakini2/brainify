@@ -1,11 +1,53 @@
 @charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap");
 .aboutUs {
-  background: magenta;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+  background-color: #292945;
+  width: 50vw;
+  height: 50vh;
+  margin: 10vh;
+}
+
+.aboutUs .aboutTextTwo {
+  margin-bottom: 0;
+}
+
+.aboutUs .aboutTextOne {
+  margin: 0;
+}
+
+.aboutUs .aboutParagraph {
+  padding: 30px;
+}
+
+.aboutUs button {
+  border: 2px solid #ffff;
+  color: #ffff;
+  background-color: #45376c;
+  text-align: center;
+  width: 150px;
+  height: 50px;
+  border-radius: 0;
 }
 
 .login {
-  margin-top: 100px;
-  background: #0000ff;
+  margin-top: 70px;
+  background: #24213b;
   height: 60vh;
   width: 70vw;
   display: -webkit-box;
@@ -22,9 +64,10 @@
 .login .auth {
   display: -ms-grid;
   display: grid;
-  background: green;
+  background: #292945;
+  color: #ffff;
   max-width: 671px;
-  max-height: 434px;
+  max-height: 350px;
   height: 100%;
   width: 100%;
   -ms-flex-line-pack: center;
@@ -32,8 +75,8 @@
   justify-items: center;
   -ms-grid-columns: auto;
       grid-template-columns: auto;
-  -ms-grid-rows: 13% 13% 13% 13% 13% 13% 13% 5%;
-      grid-template-rows: 13% 13% 13% 13% 13% 13% 13% 5%;
+  -ms-grid-rows: 20% 20% 15% 15% 15%;
+      grid-template-rows: 20% 20% 15% 15% 15%;
 }
 
 .login .auth label {
@@ -55,15 +98,44 @@
   -ms-flex-item-align: start;
       -ms-grid-row-align: start;
       align-self: start;
+  border-radius: 0;
 }
 
 .login .auth button {
-  width: 20%;
+  border: 2px solid #ffff;
+  color: #ffff;
+  background-color: #45376c;
+  text-align: center;
+  width: 150px;
+  height: 50px;
+  border-radius: 0;
 }
 
 .login .auth .switch {
-  width: 100%;
+  border: 1px solid #ffff;
+  color: #ffff;
+  background-color: #45376c;
   text-align: center;
+  width: 65px;
+  height: 30px;
+  border-radius: 0;
+}
+
+.login .register {
+  display: -ms-grid;
+  display: grid;
+  max-width: 671px;
+  max-height: 550px;
+  height: 150%;
+  width: 100%;
+  -ms-grid-columns: auto;
+      grid-template-columns: auto;
+  -ms-grid-rows: 12% 12% 12% 12% 12% 12% 10% 8%;
+      grid-template-rows: 12% 12% 12% 12% 12% 12% 10% 8%;
+}
+
+.login .register .error-text {
+  margin: 10px;
 }
 
 .edit-user {
@@ -104,11 +176,11 @@ button {
 .header {
   height: 100px;
   width: 100%;
-  background-color: aqua;
+  background-color: #ffff;
 }
 
 .header .mainBar {
-  background-color: teal;
+  background-color: rgba(36, 33, 59, 0.5);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -180,36 +252,46 @@ button {
   width: 40%;
 }
 
-.header .mainBar .about button {
-  width: 40%;
+.header .mainBar .about .menuBtn {
+  border: 2px solid #ffff;
+  color: #ffff;
+  background-color: #45376c;
+  text-align: center;
+  width: 150px;
+  height: 50px;
+  border-radius: 0;
+  margin: 10px;
 }
 
 .header .dropDown {
-  width: 300px;
-  height: 40vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   position: absolute;
-  right: 10px;
+  right: 0px;
+  width: 140px;
+  height: 120px;
+  margin: 0px;
   background-color: white;
-  border: 2px solid black;
+  border: #24213b;
+  border-radius: 3%;
 }
 
-.active {
-  -webkit-transform: translate(-320px, 0);
-          transform: translate(-320px, 0);
-  margin-top: 15px;
+.header .dropDown .logoutBtn {
+  border: 1px solid #ffff;
+  color: #ffff;
+  background-color: #45376c;
+  text-align: center;
+  width: 65px;
+  height: 30px;
+  border-radius: 0;
 }
 
 .home {
@@ -222,7 +304,7 @@ button {
 }
 
 .home .recommended {
-  background-color: orangered;
+  background-color: #754d80;
   width: 70%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -231,6 +313,7 @@ button {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  text-align: center;
 }
 
 .home .recommended section {
@@ -242,31 +325,35 @@ button {
       justify-content: space-around;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  background: blue;
+  background: #24213b;
 }
 
 .home .recommended section .game-icon {
-  background: green;
+  background: #292945;
+  color: #ffff;
   width: 30%;
-  height: 30%;
+  height: 40%;
+  margin: 15px;
+  margin-bottom: 0;
 }
 
 .home .stats {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background: burlywood;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background: #292945;
   width: 30%;
+  color: #ffff;
 }
 
 .home .stats h1 {
@@ -283,6 +370,10 @@ button {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+.home .stats .stat .chartjs-render-monitor {
+  color: #ffff;
 }
 
 .your-stats {
@@ -318,7 +409,7 @@ button {
 .games {
   height: 100%;
   width: 100%;
-  background: blueviolet;
+  background: #24213b;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -327,15 +418,51 @@ button {
 }
 
 .games .category-list {
-  background: oldlace;
+  background: #292945;
   width: 20%;
   height: 100%;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-top: 30px;
+}
+
+.games .searchBar {
+  border-radius: 0;
+  margin: 10px;
+  margin-bottom: 50px;
+  height: 26px;
+  width: 60%;
+}
+
+.games button {
+  border: 1px solid #ffff;
+  color: #ffff;
+  background-color: #45376c;
+  text-align: center;
+  width: 65px;
+  height: 30px;
+  border-radius: 0;
+}
+
+.games .categories-item {
+  font-size: xx-large;
+  list-style: none;
+  padding: 10px;
 }
 
 .games .games-list {
   width: 80%;
   height: 100%;
-  background: plum;
+  background: #24213b;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 23% 23% 23% 23%;
@@ -344,9 +471,12 @@ button {
 }
 
 .games .games-list .game-icon {
-  width: 100%;
-  height: 40%;
-  background: green;
+  background: #292945;
+  color: #ffff;
+  width: 95%;
+  height: 85%;
+  margin: 20px;
+  margin-bottom: 0;
 }
 
 .speedmatch {
@@ -632,7 +762,9 @@ button {
 }
 
 body {
-  background: orange;
+  font-family: "Roboto Condensed", sans-serif;
+  background: #24213b;
+  color: #ffff;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
