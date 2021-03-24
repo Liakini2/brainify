@@ -12,7 +12,6 @@ const Tests = () => {
     const [categories, setCategories] = useState([]);
     const [search, setSearch] = useState('');
     const [catFilter, setCatFilter] = useState('');
-    const [gameFilter, setGameFilter] = useState('');
 
     const history = useHistory();
     useEffect(() => {

@@ -1,10 +1,16 @@
+@import './functions';
+
 .speedmatch {
     width: 100vw;
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
+
+    .play {
+        @include primaryBtn;
+    }
 
     .gameInfo {
         display: flex;
@@ -23,6 +29,16 @@
             text-align: center;
             width: 10%;
         }
+    }
+
+    .about-game{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 22%;
+        align-items: center;
+        height: 50%;
+        text-align: center;
     }
 
     .square {
@@ -138,22 +154,26 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        box-shadow: 0 0 5px 5px black;
 
         .discard-pile {
-            width: 300px;
+            width: 298px;
             height: 400px;
-            background: green;
+            background-image: url(https://opengameart.org/sites/default/files/card%20back%20red.png);
+            background-position: center;
+            background-size: 95%;
+            background-repeat: no-repeat;
             z-index:5;
+            box-shadow: inset 0 0 0.2em 0.3em black;
         }
 
         .card {
-            width: 300px;
+            width: 298px;
             height: 400px;
-            background: blue;
+            background: white;
             display: flex;
             align-items: center;
             justify-content: center;
+            box-shadow: inset 0 0 0.2em 0.3em black;
         }
     }
 
@@ -166,6 +186,54 @@
     .animate-card {
         animation: turncard 0.1s 1;
     }
+
+    .arrows {
+        display: flex;
+        width: 15%;
+        height: 10%;
+        justify-content: space-around;
+        label {
+            height: 100%;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+        }
+    }
+
+    .left-arrow{
+        transform: rotate(180deg) scale(3);
+        color: green;
+    }
+
+    .right-arrow{
+        transform: scale(3);
+    }
+
+    .left-arrow.click {
+        animation: clickLeft 0.1s 1;
+    }
+
+    .right-arrow.click {
+        animation: click 0.1s 1;
+    }
+}
+
+@keyframes click {
+    from {
+        transform: scale(3);
+    } to {
+        transform: scale(2.5);
+    }
+}
+
+@keyframes clickLeft {
+    from {
+        transform: scale(3) rotate(180deg);
+    } to {
+        transform: scale(2.5) rotate(180deg);
+    }
 }
 
 @keyframes turncard{
@@ -173,6 +241,6 @@
         transform: translateX(0)
     }
     to {
-        transform: translateX(-130%);
+        transform: translateX(-127%);
     }
 }

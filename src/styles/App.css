@@ -2,6 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap");
 .aboutUs {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -489,13 +490,22 @@ button {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   /* the same but +90deg to rotate */
+}
+
+.speedmatch .play {
+  border: 2px solid #ffff;
+  color: #ffff;
+  background-color: #45376c;
+  text-align: center;
+  width: 150px;
+  height: 50px;
+  border-radius: 0;
 }
 
 .speedmatch .gameInfo {
@@ -520,6 +530,24 @@ button {
 .speedmatch .gameInfo .timer {
   text-align: center;
   width: 10%;
+}
+
+.speedmatch .about-game {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  width: 22%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 50%;
+  text-align: center;
 }
 
 .speedmatch .square {
@@ -647,21 +675,24 @@ button {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-shadow: 0 0 5px 5px black;
-          box-shadow: 0 0 5px 5px black;
 }
 
 .speedmatch .shapes .discard-pile {
-  width: 300px;
+  width: 298px;
   height: 400px;
-  background: green;
+  background-image: url(https://opengameart.org/sites/default/files/card%20back%20red.png);
+  background-position: center;
+  background-size: 95%;
+  background-repeat: no-repeat;
   z-index: 5;
+  -webkit-box-shadow: inset 0 0 0.2em 0.3em black;
+          box-shadow: inset 0 0 0.2em 0.3em black;
 }
 
 .speedmatch .shapes .card {
-  width: 300px;
+  width: 298px;
   height: 400px;
-  background: blue;
+  background: white;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -671,6 +702,8 @@ button {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-shadow: inset 0 0 0.2em 0.3em black;
+          box-shadow: inset 0 0 0.2em 0.3em black;
 }
 
 .speedmatch .final-score {
@@ -688,14 +721,106 @@ button {
           animation: turncard 0.1s 1;
 }
 
+.speedmatch .arrows {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 15%;
+  height: 10%;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.speedmatch .arrows label {
+  height: 100%;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.speedmatch .left-arrow {
+  -webkit-transform: rotate(180deg) scale(3);
+          transform: rotate(180deg) scale(3);
+  color: green;
+}
+
+.speedmatch .right-arrow {
+  -webkit-transform: scale(3);
+          transform: scale(3);
+}
+
+.speedmatch .left-arrow.click {
+  -webkit-animation: clickLeft 0.1s 1;
+          animation: clickLeft 0.1s 1;
+}
+
+.speedmatch .right-arrow.click {
+  -webkit-animation: click 0.1s 1;
+          animation: click 0.1s 1;
+}
+
+@-webkit-keyframes click {
+  from {
+    -webkit-transform: scale(3);
+            transform: scale(3);
+  }
+  to {
+    -webkit-transform: scale(2.5);
+            transform: scale(2.5);
+  }
+}
+
+@keyframes click {
+  from {
+    -webkit-transform: scale(3);
+            transform: scale(3);
+  }
+  to {
+    -webkit-transform: scale(2.5);
+            transform: scale(2.5);
+  }
+}
+
+@-webkit-keyframes clickLeft {
+  from {
+    -webkit-transform: scale(3) rotate(180deg);
+            transform: scale(3) rotate(180deg);
+  }
+  to {
+    -webkit-transform: scale(2.5) rotate(180deg);
+            transform: scale(2.5) rotate(180deg);
+  }
+}
+
+@keyframes clickLeft {
+  from {
+    -webkit-transform: scale(3) rotate(180deg);
+            transform: scale(3) rotate(180deg);
+  }
+  to {
+    -webkit-transform: scale(2.5) rotate(180deg);
+            transform: scale(2.5) rotate(180deg);
+  }
+}
+
 @-webkit-keyframes turncard {
   from {
     -webkit-transform: translateX(0);
             transform: translateX(0);
   }
   to {
-    -webkit-transform: translateX(-130%);
-            transform: translateX(-130%);
+    -webkit-transform: translateX(-127%);
+            transform: translateX(-127%);
   }
 }
 
@@ -705,8 +830,8 @@ button {
             transform: translateX(0);
   }
   to {
-    -webkit-transform: translateX(-130%);
-            transform: translateX(-130%);
+    -webkit-transform: translateX(-127%);
+            transform: translateX(-127%);
   }
 }
 

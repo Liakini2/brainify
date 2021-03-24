@@ -59,6 +59,40 @@ const getCategories = (req, res) => {
     })
 }
 
+const getRecommendedGames = async (req, res) => {
+    let db = req.app.get('db');
+    //get average scores per category
+    let results = await db.game.get_scores([req.session.user.id]);
+    let final = [];
+    const categories = await db.game.get_categories();
+    for(let i = 0;i<categories.length;i++)
+    {
+        let score = results.filter(el => el.category === categories[i]).reduce((total, curr) => { total += +curr.score}, 0)/(results.filter(el => el.category === categories[i]).length ? results.filter(el => el.category === categories[i]).length : 1);
+        final.push({category: categories[i].category, averageScore: score});
+    }
+    //sort scores
+    console.log(final)
+
+    //get games
+    const games = await db.game.get_games();
+    console.log('games', games)
+    //sort games into array by category
+    let catGameCombo = {test: ''};
+    for(let i = 0;i<categories.length;i++)
+    {
+        catGameCombo[categories[i].category] = games.filter(el => el.category === categories[i].category);
+    }
+    console.log('combos', final);
+    //get one game per 3 lowest categories and send it
+    console.log(catGameCombo)
+    let game1 = catGameCombo[final[0].category][Math.floor(Math.random() * catGameCombo[final[0].category].length)]
+    let game2 = catGameCombo[final[1].category][Math.floor(Math.random() * catGameCombo[final[1].category].length)]
+    let game3 = catGameCombo[final[2].category][Math.floor(Math.random() * catGameCombo[final[2].category].length)]
+
+    return res.status(200).send([game1, game2, game3]);
+}
+
+
 
 module.exports = {
     addScore,
@@ -66,5 +100,6 @@ module.exports = {
     compareScores,
     getScoresDateRange,
     getGames,
-    getCategories
+    getCategories,
+    getRecommendedGames
 }
