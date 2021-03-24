@@ -21,16 +21,16 @@ const Header = (props) => {
         <header className='header'>
             <section className='mainBar'>
                 <nav className='nav'>
-                    <h1>Brainify</h1>
+                    <h1 className='brainifyLogo'>Brainify</h1>
                     <ul>
                         <Link to='/home'>
-                            <li>Home</li>
+                            <li className='navBtn'>Home</li>
                         </Link>
                         <Link to='/tests'>
-                            <li>Tests</li>
+                            <li className='navBtn'>Tests</li>
                         </Link>
                         <Link to='/stats'>
-                            <li>Your Stats</li>
+                            <li className='navBtn'>Your Stats</li>
                         </Link>
                     </ul> 
                 </nav>
