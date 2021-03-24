@@ -1,5 +1,12 @@
 @import "./Colors";
 
+//google fonts
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap");
+
+//variable
+$roboto-condensed: "Roboto Condensed", sans-serif;
+
+//functions
 @mixin flexCenter($direction, $justify) {
   display: flex;
   align-items: center;
@@ -18,7 +25,7 @@
 }
 
 @mixin smallBtn {
-  border: 2px solid $primaryTextColor;
+  border: 1px solid $primaryTextColor;
   color: $primaryTextColor;
   background-color: $primaryBtnColor;
   text-align: center;
