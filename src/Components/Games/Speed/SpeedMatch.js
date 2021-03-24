@@ -15,7 +15,8 @@ class SpeedMatch extends Component {
             consecutive: 0,
             game_id: props.game_id,
             game_name: props.game_name,
-            game_started: false
+            game_started: false,
+            animate: ''
         }
     }
 
@@ -39,14 +40,15 @@ class SpeedMatch extends Component {
     startGame = () => {
         console.log('here');
         let time = 3;
-        const start = setInterval(() => {
-            console.log(time);
-            if(time > 0){
-            time--;
-        } else {
-            this.clock = setInterval(() => {if(this.state.gameTime > 0){this.setState({gameTime: this.state.gameTime-1})} else if(this.state.game_started) { this.scoreGame() }}, 1000);
-            this.setState({game_started: true, gameTime: 90}, clearInterval(start));
-        }}, 1000);
+        // const start = setInterval(() => {
+        //     console.log(time);
+        //     if(time > 0){
+        //     time--;
+        // } else {
+        //     this.clock = setInterval(() => {if(this.state.gameTime > 0){this.setState({gameTime: this.state.gameTime-1})} else if(this.state.game_started) { this.scoreGame() }}, 1000);
+        //     this.setState({game_started: true, gameTime: 90}, clearInterval(start));
+        // }}, 1000);
+        this.setState({game_started: true})
     }
 
     newShape = () => {
@@ -65,7 +67,8 @@ class SpeedMatch extends Component {
         this.setState({
             prev: {shape: this.state.shape, color: this.state.color},
             shape: newShape,
-            color: newColor
+            color: newColor,
+            animate: 'animate-card'
         });
     }
 
@@ -122,7 +125,8 @@ class SpeedMatch extends Component {
         return <div className="speedmatch">
         <div className="gameInfo"><section className="score">Score: {this.state.score}</section><h1>{this.state.game_name}</h1><section className="timer">Time Remaining: {this.state.gameTime}</section></div>
             {!this.state.game_started ? <div className="about-game"><section className="how-to-play">Press the left arrow if the new card doesn't match the previous. Press the </section><button className="play" onClick={() => this.startGame()}>Play</button></div> :
-            this.state.gameTime > 0 ? <section className="shapes"><section className={`${this.state.shape} ${this.state.color}`} /></section> : <div className="final-score">Game Over! <br /><section> Final Score is {this.state.score}!</section></div>}
+            this.state.gameTime > 0 ? <section className="shapes"><section className={`discard-pile`} />
+                <section className={`card ${this.state.animate}`} onAnimationEnd={_ => this.setState({animate: ''})}><section className={`${this.state.shape} ${this.state.color}`} /></section></section> : <div className="final-score">Game Over! <section> Final Score is {this.state.score}!</section></div>}
         </div>
     }
 }

@@ -21,8 +21,8 @@ const getScores = async (req, res) => {
     const categories = [...new Set(results.map(el => el.category))];
     for(let i = 0;i<categories.length;i++)
     {
-        const score = results.filter(el => el.category === categories[i]).reduce((total, curr) => { total += +curr.score}, 0);
-        final.push({category: categories[i], totalScore: score});
+        const score = results.filter(el => el.category === categories[i]).reduce((total, curr) => { total += +curr.score}, 0)/results.filter(el => el.category === categories[i]).length;
+        final.push({category: categories[i], averageScore: score});
     }
     return res.status(200).send(final);
 }
@@ -49,11 +49,22 @@ const getGames = async (req, res) => {
     
 }
 
+const getCategories = (req, res) => {
+    req.app.get('db').game.get_categories().then(r => {
+        console.log(r);
+        return res.status(200).send(r);
+    }).catch(err => {
+        res.sendStatus(500);
+        console.log(err);
+    })
+}
+
 
 module.exports = {
     addScore,
     getScores,
     compareScores,
     getScoresDateRange,
-    getGames
+    getGames,
+    getCategories
 }

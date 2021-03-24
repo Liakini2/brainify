@@ -9,6 +9,10 @@ const Tests = () => {
     const userValue = useContext(UserContext);
     const gameContext = useContext(GameContext);
     const [games, setGames] = useState([]);
+    const [categories, setCategories] = useState([]);
+    const [search, setSearch] = useState('');
+    const [catFilter, setCatFilter] = useState('');
+    const [gameFilter, setGameFilter] = useState('');
 
     const history = useHistory();
     useEffect(() => {
@@ -18,36 +22,38 @@ const Tests = () => {
         }).catch(err => {
             console.log(err);
         })
-    }, [])
+
+        axios.get('/api/games/categories').then(res => {
+            setCategories(res.data)
+        }).catch(err => console.log(err))
+    }, []);
     
     if(!userValue.user.username){
         return <Redirect to='/'/>
     }
 
 
-    const loadGame = (id, name) => {
+    const loadGame = (id, name, game_icon) => {
         //load game into context
         console.log(id, name);
-        gameContext.setGame({game_id: id, game_name: name});
+        gameContext.setGame({game_id: id, game_name: name, game_icon});
         history.push(`/game/${name.toLowerCase()}`);
     }
 
     return (
         <div className='games'>
             <section className='category-list'>
-                {/* categories*/}
-                <label><input className="searchBar" type="text" /><button>search</button></label>
-                {games.map((el, i) => {
-                    return <li className='categories-item' key={i} onClick={() => loadGame(el.id, el.name)}>{el.name}</li>
-                })}
+                <label>Find Game: <input type="text" value={search} onChange={e => setSearch(e.target.value)}/></label>
+
+                {/* Switch this to list of categories, game icons will be mapping over all the games. */}
+                <li onClick={() =>setCatFilter('')}>All</li>
+                {categories.map((el, i) => <li key={i} onClick={() => setCatFilter(el.category)}>{el.category}</li>)}
             </section> 
             <section className='games-list'>
-                <GameIcon/>
-                <GameIcon/>
-                <GameIcon/>
-                <GameIcon/>
-                <GameIcon/>
-                <GameIcon/>
+                {games.filter(el => el.name.includes(search) && el.category.includes(catFilter)).map((el, i) => {
+                    return <GameIcon key={i} loadgame={loadGame} info={el}/>
+                })}
+                
             </section>
         </div>
     )
