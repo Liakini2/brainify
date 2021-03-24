@@ -1,4 +1,23 @@
+@import "./Colors";
+@import "./functions";
 
 .aboutUs {
-    background: magenta;
+  @include flexCenter(column, center);
+  text-align: center;
+  background-color: $primaryContainerBackground;
+  width: 50vw;
+  height: 50vh;
+  margin: 10vh;
+  .aboutTextTwo {
+    margin-bottom: 0;
+  }
+  .aboutTextOne {
+    margin: 0;
+  }
+  .aboutParagraph {
+    padding: 30px;
+  }
+  button {
+    @include primaryBtn;
+  }
 }
