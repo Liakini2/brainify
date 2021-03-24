@@ -67,7 +67,7 @@ const getRecommendedGames = async (req, res) => {
     const categories = await db.game.get_categories();
     for(let i = 0;i<categories.length;i++)
     {
-        let score = results.filter(el => el.category === categories[i]).reduce((total, curr) => { total += +curr.score}, 0)/results.filter(el => el.category === categories[i]).length;
+        let score = results.filter(el => el.category === categories[i]).reduce((total, curr) => { total += +curr.score}, 0)/(results.filter(el => el.category === categories[i]).length ? results.filter(el => el.category === categories[i]).length : 1);
         final.push({category: categories[i].category, averageScore: score});
     }
     //sort scores
@@ -92,20 +92,6 @@ const getRecommendedGames = async (req, res) => {
     return res.status(200).send([game1, game2, game3]);
 }
 
-// const sort = (arr) => {
-//     if(!arr.length) return [];
-//     let len = arr.length;
-//     for (let i = len-1; i>=0; i--){
-//         for(let j = 1; j<=i; j++){
-//             if(arr[j-1]>arr[j]){
-//                 var temp = arr[j-1];
-//                 arr[j-1] = arr[j];
-//                 arr[j] = temp;
-//             }
-//         }
-//     }
-//     return arr;
-// }
 
 
 module.exports = {
