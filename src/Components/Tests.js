@@ -36,9 +36,9 @@ const Tests = () => {
         <div className='games'>
             <section className='category-list'>
                 {/* categories*/}
-                <label><input type="text" /><button>search</button></label>
+                <label><input className="searchBar" type="text" /><button>search</button></label>
                 {games.map((el, i) => {
-                    return <li key={i} onClick={() => loadGame(el.id, el.name)}>{el.name}</li>
+                    return <li className='categories-item' key={i} onClick={() => loadGame(el.id, el.name)}>{el.name}</li>
                 })}
             </section> 
             <section className='games-list'>
