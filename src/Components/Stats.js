@@ -1,14 +1,21 @@
 import {useContext, useEffect} from 'react'
 import axios from 'axios'
 import {UserContext} from '../context/UserContext'
-import {Redirect} from 'react-router-dom'
+import {useHistory} from 'react-router-dom'
 import Stat from './Stat'
 import {Radar} from 'react-chartjs-2'
 
 const Stats = () => {
+    const history = useHistory()
     const userValue = useContext(UserContext)
 
     useEffect(() => {
+        axios.get('/auth/me')
+        .then(({data})=>{
+            userValue.setUser(data)
+        })
+        .catch(_=>history.push('/'))
+
         axios.get(`/api/scores`)
         .then(({data})=>{
             console.log(data)
@@ -18,7 +25,7 @@ const Stats = () => {
     }, [])
 
     useEffect(() => {
-        userValue.stats.filter((stat, index)=>{
+        userValue.stats.filter((stat)=>{
             if(stat.category==='memory'){
                 userValue.setMemoryStat(stat.averageScore)
             } else if(stat.category==='math'){
@@ -28,12 +35,6 @@ const Stats = () => {
             }
         })
     }, [userValue.Stats])
-    
-    if(!userValue.user.username){
-        return <Redirect to='/'/>
-    }
-
-    console.log(userValue.memoryStat, userValue.speedStat, userValue.mathStat)
     
     return (
         <div className='your-stats'>
