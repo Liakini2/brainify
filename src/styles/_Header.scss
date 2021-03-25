@@ -25,6 +25,10 @@
         @include flexCenter(row, space-around);
         .navBtn {
           list-style: none;
+          text-decoration: none;
+          &:hover {
+            color: $accentColorThree;
+          }
         }
       }
     }
@@ -32,10 +36,15 @@
     .about {
       display: flex;
       justify-content: space-around;
+      align-items: center;
       width: 30%;
 
-      a {
-        width: 40%;
+      .altLinks {
+        text-decoration: none;
+        font-size: x-large;
+        &:hover {
+          color: $accentColorThree;
+        }
       }
 
       .menuBtn {
@@ -56,7 +65,14 @@
     background-color: white;
     border: $primaryBackground;
     border-radius: 3%;
-
+    .editBtn {
+      text-decoration: none;
+      font-size: large;
+      margin: 10px;
+      &:hover {
+        color: $accentColorThree;
+      }
+    }
     .logoutBtn {
       @include smallBtn;
     }

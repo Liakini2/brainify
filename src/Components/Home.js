@@ -1,13 +1,13 @@
-import {useContext, useEffect} from 'react'
+import {useContext} from 'react'
 import {UserContext} from '../context/UserContext'
 import {GameContext} from '../context/GameContext';
 import {Redirect, useHistory} from 'react-router-dom';
 import GameIcon from './GameIcon'
 import Stat from './Stat'
-import {Radar} from 'react-chartjs-2'
-import axios from 'axios';
+
 
 const Home = ({...props}) => {
+    const history = useHistory()
     const userValue = useContext(UserContext)
     const gameContext = useContext(GameContext);
     // console.log(userValue)
