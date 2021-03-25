@@ -119,10 +119,10 @@ const MathDrop = () => {
                 </div>
                 :
                 <div className='mathdropGame'>
-                    {equations.map((equation, index)=>{
+                    {equations.map((equation)=>{
                         return(<Equation className='displayEquations' key={equation.i} missedTarget={missedTarget} numOne={equation.numOne} numTwo={equation.numTwo} altOperator={equation.altOperator}/>)
                     })}
-                    <input className='user-answer' value={userAnswer} onKeyPress={checkAnswer} onChange={(e)=>{setUserAnswer(e.target.value)}}/>
+                    <input className='user-answer' type='number' value={userAnswer} onKeyPress={checkAnswer} onChange={(e)=>{setUserAnswer(e.target.value)}}/>
                 </div>
                 }
             </div>
