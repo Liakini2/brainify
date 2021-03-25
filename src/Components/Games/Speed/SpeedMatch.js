@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import ForwardIcon from '@material-ui/icons/Forward';
+import CountDown from '../Modal/CountDown';
+import CheckIcon from '@material-ui/icons/Check';
+import ClearIcon from '@material-ui/icons/Clear';
 
 class SpeedMatch extends Component {
     constructor(props) {
@@ -18,7 +21,8 @@ class SpeedMatch extends Component {
             game_name: props.game_name,
             game_started: false,
             animate: '',
-            direction: ''
+            direction: '',
+            answer: ''
         }
     }
 
@@ -39,18 +43,14 @@ class SpeedMatch extends Component {
         this.pressed = false;
     }
 
-    startGame = () => {
-        console.log('here');
-        let time = 3;
-        // const start = setInterval(() => {
-        //     console.log(time);
-        //     if(time > 0){
-        //     time--;
-        // } else {
-        //     this.clock = setInterval(() => {if(this.state.gameTime > 0){this.setState({gameTime: this.state.gameTime-1})} else if(this.state.game_started) { this.scoreGame() }}, 1000);
-        //     this.setState({game_started: true, gameTime: 90}, clearInterval(start));
-        // }}, 1000);
-        this.setState({game_started: true})
+    startCountDown = () => {
+        this.setState({countdown: true});
+    }
+
+    startGame = () => {   
+        console.log("play game");    
+            this.setState({game_started: true, gameTime: 90, countdown: false});
+            this.clock = setInterval(() => {console.log('run'); if(this.state.gameTime > 0){this.setState({gameTime: this.state.gameTime-1})} else if(this.state.game_started) { this.scoreGame() }}, 1000);
     }
 
     newShape = () => {
@@ -119,10 +119,13 @@ class SpeedMatch extends Component {
     render() {
         // console.log("previous: " + this.state.prev.shape + " " + this.state.prev.color, this.state.color, this.state.shape);
         return <div className="speedmatch">
+            {this.state.countdown && <CountDown time={3} play={this.startGame}/>}
         <div className="gameInfo"><section className="score">Score: {this.state.score}</section><h1>{this.state.game_name}</h1><section className="timer">Time Remaining: {this.state.gameTime}</section></div>
-            {!this.state.game_started ? <div className="about-game"><section className="how-to-play">Press the left arrow if the new card doesn't match the previous. Press the Right arrow if it does match! </section><button className="play" onClick={() => this.startGame()}>Play</button></div> :
+            {!this.state.game_started ? <div className="about-game"><section className="how-to-play">Press the left arrow if the new card doesn't match the previous. Press the Right arrow if it does match! </section><button className="play" onClick={() => this.startCountDown()}>Play</button></div> :
             this.state.gameTime > 0 ? <section className="shapes"><section className={`discard-pile`} />
-                <section className={`card ${this.state.animate}`} onAnimationEnd={_ => this.setState({animate: ''})}><section className={`${this.state.shape} ${this.state.color}`} /></section></section> : <div className="final-score">Game Over! <section> Final Score is {this.state.score}!</section></div>}
+                <span><CheckIcon /><ClearIcon /></span>
+                <section className={`card ${this.state.animate}`} onAnimationEnd={_ => this.setState({animate: ''})}><section className={`${this.state.shape} ${this.state.color}`} /></section></section> 
+                : <div className="final-score">Game Over! <section> Final Score is {this.state.score}!</section></div>}
                 <section className="arrows">
                     <label><ForwardIcon className={`left-arrow ${this.state.direction === 'left' ? 'click' : ''}`} onAnimationEnd={() => this.setState({direction: ''})}/>NO</label>
                 <label><ForwardIcon className={`right-arrow ${this.state.direction === 'right'  ? 'click' : ''}`} onAnimationEnd={() => this.setState({direction: ''})} />YES</label>
