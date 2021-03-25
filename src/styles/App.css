@@ -9,15 +9,15 @@
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   text-align: center;
   background-color: #292945;
   width: 50vw;
@@ -60,11 +60,11 @@
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .login .auth {
@@ -77,12 +77,12 @@
   height: 100%;
   width: 100%;
   -ms-flex-line-pack: center;
-      align-content: center;
+  align-content: center;
   justify-items: center;
   -ms-grid-columns: auto;
-      grid-template-columns: auto;
+  grid-template-columns: auto;
   -ms-grid-rows: 20% 20% 15% 15% 15%;
-      grid-template-rows: 20% 20% 15% 15% 15%;
+  grid-template-rows: 20% 20% 15% 15% 15%;
 }
 
 .login .auth label {
@@ -90,7 +90,7 @@
   display: grid;
   width: 70%;
   -ms-grid-columns: 30% 60%;
-      grid-template-columns: 30% 60%;
+  grid-template-columns: 30% 60%;
 }
 
 .login .auth label span {
@@ -102,8 +102,8 @@
   height: 40%;
   width: 70%;
   -ms-flex-item-align: start;
-      -ms-grid-row-align: start;
-      align-self: start;
+  -ms-grid-row-align: start;
+  align-self: start;
   border-radius: 0;
 }
 
@@ -143,9 +143,9 @@
   height: 150%;
   width: 100%;
   -ms-grid-columns: auto;
-      grid-template-columns: auto;
+  grid-template-columns: auto;
   -ms-grid-rows: 12% 12% 12% 12% 12% 12% 10% 8%;
-      grid-template-rows: 12% 12% 12% 12% 12% 12% 10% 8%;
+  grid-template-rows: 12% 12% 12% 12% 12% 12% 10% 8%;
 }
 
 .login .register .error-text {
@@ -157,16 +157,16 @@
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: auto;
-      grid-template-columns: auto;
+  grid-template-columns: auto;
   width: 100%;
   height: 100%;
   max-width: 671px;
   max-height: 434px;
   -ms-flex-line-pack: center;
-      align-content: center;
+  align-content: center;
   justify-items: center;
   -ms-grid-rows: 10% 10% 10% 10% 10%;
-      grid-template-rows: 10% 10% 10% 10% 10%;
+  grid-template-rows: 10% 10% 10% 10% 10%;
   grid-row-gap: 2%;
 }
 
@@ -199,15 +199,15 @@ button {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
   width: 100%;
   height: 10vh;
 }
@@ -219,14 +219,14 @@ button {
   display: flex;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -ms-flex-pack: distribute;
-      justify-content: space-around;
+  justify-content: space-around;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
 }
 
 .header .mainBar nav .brainifyLogo {
@@ -241,14 +241,14 @@ button {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -ms-flex-pack: distribute;
-      justify-content: space-around;
+  justify-content: space-around;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
 }
 
 .header .mainBar nav ul .navBtn {
@@ -265,10 +265,10 @@ button {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: distribute;
-      justify-content: space-around;
+  justify-content: space-around;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   width: 30%;
 }
 
@@ -302,11 +302,11 @@ button {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   position: absolute;
   right: 0px;
   width: 140px;
@@ -358,8 +358,8 @@ button {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   text-align: center;
 }
 
@@ -369,9 +369,9 @@ button {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: distribute;
-      justify-content: space-around;
+  justify-content: space-around;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
   background: #24213b;
 }
 
@@ -383,11 +383,11 @@ button {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   width: 30%;
   height: 65%;
   margin: 15px;
@@ -414,15 +414,15 @@ button {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   background: #292945;
   width: 30%;
   color: #ffff;
@@ -435,11 +435,11 @@ button {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .home .stats .stat .chartjs-render-monitor {
@@ -453,7 +453,7 @@ button {
   width: 100vw;
   height: 100vh;
   -ms-flex-pack: distribute;
-      justify-content: space-around;
+  justify-content: space-around;
   background: #24213b;
 }
 
@@ -462,8 +462,8 @@ button {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   width: 40%;
   height: 100px;
   padding-top: 200px;
@@ -485,7 +485,7 @@ button {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: distribute;
-      justify-content: space-around;
+  justify-content: space-around;
 }
 
 .games .category-list {
@@ -498,11 +498,11 @@ button {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   padding-top: 30px;
 }
 
@@ -531,7 +531,7 @@ button {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 23% 23% 23% 23%;
-      grid-template-columns: 23% 23% 23% 23%;
+  grid-template-columns: 23% 23% 23% 23%;
   grid-column-gap: 2%;
 }
 
@@ -543,11 +543,11 @@ button {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   width: 95%;
   height: 50%;
   margin: 20px;
@@ -578,13 +578,13 @@ button {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -ms-flex-pack: distribute;
-      justify-content: space-around;
+  justify-content: space-around;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   /* the same but +90deg to rotate */
 }
 
@@ -607,10 +607,10 @@ button {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   -ms-flex-item-align: start;
-      align-self: flex-start;
+  align-self: flex-start;
   justify-self: flex-start;
   width: 100vw;
   height: 10%;
@@ -626,20 +626,36 @@ button {
   width: 10%;
 }
 
+.speedmatch .correct {
+  color: green;
+  -webkit-transform: scale(1.5);
+  transform: scale(1.5);
+  -webkit-animation: answer 0.5s 1;
+  animation: answer 0.5s 1;
+}
+
+.speedmatch .wrong {
+  color: red;
+  -webkit-transform: scale(1.5);
+  transform: scale(1.5);
+  -webkit-animation: answer 0.5s 1;
+  animation: answer 0.5s 1;
+}
+
 .speedmatch .about-game {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -ms-flex-pack: distribute;
-      justify-content: space-around;
+  justify-content: space-around;
   width: 22%;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   height: 50%;
   text-align: center;
 }
@@ -714,7 +730,7 @@ button {
   margin-top: 100px;
   margin-left: 100px;
   -webkit-transform: translate(-65%, -50%);
-          transform: translate(-65%, -50%);
+  transform: translate(-65%, -50%);
 }
 
 .speedmatch .star:before,
@@ -729,12 +745,12 @@ button {
   bottom: 0;
   border-radius: 5%;
   -webkit-transform: rotate(66.66deg) skewX(45deg);
-          transform: rotate(66.66deg) skewX(45deg);
+  transform: rotate(66.66deg) skewX(45deg);
 }
 
 .speedmatch .star:after {
   -webkit-transform: rotate(156.66deg) skew(45deg);
-          transform: rotate(156.66deg) skew(45deg);
+  transform: rotate(156.66deg) skew(45deg);
 }
 
 .speedmatch .star.green:after,
@@ -764,11 +780,11 @@ button {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .speedmatch .shapes .discard-pile {
@@ -780,7 +796,7 @@ button {
   background-repeat: no-repeat;
   z-index: 5;
   -webkit-box-shadow: inset 0 0 0.2em 0.3em black;
-          box-shadow: inset 0 0 0.2em 0.3em black;
+  box-shadow: inset 0 0 0.2em 0.3em black;
 }
 
 .speedmatch .shapes .card {
@@ -791,13 +807,13 @@ button {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-shadow: inset 0 0 0.2em 0.3em black;
-          box-shadow: inset 0 0 0.2em 0.3em black;
+  box-shadow: inset 0 0 0.2em 0.3em black;
 }
 
 .speedmatch .final-score {
@@ -806,13 +822,13 @@ button {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 .speedmatch .animate-card {
   -webkit-animation: turncard 0.1s 1;
-          animation: turncard 0.1s 1;
+  animation: turncard 0.1s 1;
 }
 
 .speedmatch .arrows {
@@ -822,7 +838,7 @@ button {
   width: 15%;
   height: 10%;
   -ms-flex-pack: distribute;
-      justify-content: space-around;
+  justify-content: space-around;
 }
 
 .speedmatch .arrows label {
@@ -833,99 +849,120 @@ button {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -ms-flex-pack: distribute;
-      justify-content: space-around;
+  justify-content: space-around;
 }
 
 .speedmatch .left-arrow {
   -webkit-transform: rotate(180deg) scale(3);
-          transform: rotate(180deg) scale(3);
-  color: green;
+  transform: rotate(180deg) scale(3);
 }
 
 .speedmatch .right-arrow {
   -webkit-transform: scale(3);
-          transform: scale(3);
+  transform: scale(3);
 }
 
 .speedmatch .left-arrow.click {
   -webkit-animation: clickLeft 0.1s 1;
-          animation: clickLeft 0.1s 1;
+  animation: clickLeft 0.1s 1;
 }
 
 .speedmatch .right-arrow.click {
   -webkit-animation: click 0.1s 1;
-          animation: click 0.1s 1;
+  animation: click 0.1s 1;
 }
 
 @-webkit-keyframes click {
   from {
     -webkit-transform: scale(3);
-            transform: scale(3);
+    transform: scale(3);
   }
   to {
     -webkit-transform: scale(2.5);
-            transform: scale(2.5);
+    transform: scale(2.5);
   }
 }
 
 @keyframes click {
   from {
     -webkit-transform: scale(3);
-            transform: scale(3);
+    transform: scale(3);
   }
   to {
     -webkit-transform: scale(2.5);
-            transform: scale(2.5);
+    transform: scale(2.5);
   }
 }
 
 @-webkit-keyframes clickLeft {
   from {
     -webkit-transform: scale(3) rotate(180deg);
-            transform: scale(3) rotate(180deg);
+    transform: scale(3) rotate(180deg);
   }
   to {
     -webkit-transform: scale(2.5) rotate(180deg);
-            transform: scale(2.5) rotate(180deg);
+    transform: scale(2.5) rotate(180deg);
   }
 }
 
 @keyframes clickLeft {
   from {
     -webkit-transform: scale(3) rotate(180deg);
-            transform: scale(3) rotate(180deg);
+    transform: scale(3) rotate(180deg);
   }
   to {
     -webkit-transform: scale(2.5) rotate(180deg);
-            transform: scale(2.5) rotate(180deg);
+    transform: scale(2.5) rotate(180deg);
   }
 }
 
 @-webkit-keyframes turncard {
   from {
     -webkit-transform: translateX(0);
-            transform: translateX(0);
+    transform: translateX(0);
   }
   to {
     -webkit-transform: translateX(-127%);
-            transform: translateX(-127%);
+    transform: translateX(-127%);
   }
 }
 
 @keyframes turncard {
   from {
     -webkit-transform: translateX(0);
-            transform: translateX(0);
+    transform: translateX(0);
   }
   to {
     -webkit-transform: translateX(-127%);
-            transform: translateX(-127%);
+    transform: translateX(-127%);
+  }
+}
+
+@-webkit-keyframes answer {
+  from {
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5);
+  }
+  to {
+    -webkit-transform: scale(2);
+    transform: scale(2);
+  }
+}
+
+@keyframes answer {
+  from {
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5);
+  }
+  to {
+    -webkit-transform: scale(2);
+    transform: scale(2);
   }
 }
 
@@ -934,7 +971,7 @@ button {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: distribute;
-      justify-content: space-around;
+  justify-content: space-around;
   max-width: 100vw;
   max-height: 100vh;
 }
@@ -948,15 +985,15 @@ button {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .gameDisplay .centerGame .gameTitle {
@@ -970,15 +1007,15 @@ button {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   margin-top: 40px;
   background-color: #292945;
   height: 300px;
@@ -1009,11 +1046,11 @@ button {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
+  -ms-flex-align: end;
+  align-items: flex-end;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   background-color: #292945;
   height: 75vh;
   width: 70vw;
@@ -1034,10 +1071,16 @@ button {
   top: 18vh;
   left: 50%;
   -webkit-animation: drop 10s forwards;
-          animation: drop 10s forwards;
+  animation: drop 10s forwards;
   -webkit-animation-timing-function: linear;
-          animation-timing-function: linear;
-  background-image: -webkit-gradient(linear, left top, right bottom, from(#754d80), to(#2c3970));
+  animation-timing-function: linear;
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    right bottom,
+    from(#754d80),
+    to(#2c3970)
+  );
   background-image: linear-gradient(to bottom right, #754d80, #2c3970);
   height: 60px;
   width: 60px;
@@ -1046,11 +1089,11 @@ button {
   display: flex;
   text-align: center;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   border: 1px solid white;
   border-radius: 50%;
 }
@@ -1058,22 +1101,22 @@ button {
 @-webkit-keyframes drop {
   from {
     -webkit-transform: translate(0, 0);
-            transform: translate(0, 0);
+    transform: translate(0, 0);
   }
   to {
     -webkit-transform: translate(0, 68vh);
-            transform: translate(0, 68vh);
+    transform: translate(0, 68vh);
   }
 }
 
 @keyframes drop {
   from {
     -webkit-transform: translate(0, 0);
-            transform: translate(0, 0);
+    transform: translate(0, 0);
   }
   to {
     -webkit-transform: translate(0, 68vh);
-            transform: translate(0, 68vh);
+    transform: translate(0, 68vh);
   }
 }
 
@@ -1083,11 +1126,11 @@ button {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   position: relative;
   height: 15%;
   width: 100%;
@@ -1105,11 +1148,11 @@ button {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 body {
@@ -1121,11 +1164,11 @@ body {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   width: 100vw;
   height: 100vh;
 }
