@@ -75,7 +75,7 @@ class SpeedMatch extends Component {
     }
 
     compareShape = (event) => {
-
+        if(this.state.game_started){
         if(event.key === 'ArrowRight' || event.code === "ArrowRight" || event.key === 'ArrowLeft' || event.code === "ArrowLeft"){
             event.preventDefault();
             if(!this.pressed)
@@ -84,27 +84,27 @@ class SpeedMatch extends Component {
                 {
                     if(this.state.prev.shape === this.state.shape && this.state.prev.color === this.state.color)
                     {
-                        this.setState({consecutive: this.state.consecutive+1, score: this.state.score + (this.state.consecutive+1)*50, direction: 'right'});
-                        console.log('correct');
+                        this.setState({consecutive: this.state.consecutive+1, score: this.state.score + (this.state.consecutive+1)*50, direction: 'right', answer: 'correct'});
+                        // console.log('correct');
                     } else {
-                        this.setState({consecutive: 0, direction: 'right'});
-                        console.log('wrong');
+                        this.setState({consecutive: 0, direction: 'right', answer: 'wrong'});
+                        // console.log('wrong');
                     }
                 } else if(event.key === 'ArrowLeft' || event.code === "ArrowLeft"){
                     if(this.state.prev.shape !== this.state.shape || this.state.prev.color !== this.state.color)
                     {
-                        this.setState({consecutive: this.state.consecutive+1, score: this.state.score + (this.state.consecutive+1)*50, direction: 'left'});
-                        console.log('correct');
+                        this.setState({consecutive: this.state.consecutive+1, score: this.state.score + (this.state.consecutive+1)*50, direction: 'left', answer: 'correct'});
+                        // console.log('correct');
                     } else {
-                        this.setState({consecutive: 0, direction: 'left'});
-                        console.log('wrong');
+                        this.setState({consecutive: 0, direction: 'left', answer: 'wrong'});
+                        // console.log('wrong');
                     }
                 }
                 this.newShape();
                 this.pressed = true;
             }
         }
-
+    }
     }
 
     scoreGame = () => {
@@ -123,7 +123,7 @@ class SpeedMatch extends Component {
         <div className="gameInfo"><section className="score">Score: {this.state.score}</section><h1>{this.state.game_name}</h1><section className="timer">Time Remaining: {this.state.gameTime}</section></div>
             {!this.state.game_started ? <div className="about-game"><section className="how-to-play">Press the left arrow if the new card doesn't match the previous. Press the Right arrow if it does match! </section><button className="play" onClick={() => this.startCountDown()}>Play</button></div> :
             this.state.gameTime > 0 ? <section className="shapes"><section className={`discard-pile`} />
-                <span><CheckIcon /><ClearIcon /></span>
+                <span>{this.state.answer==='correct' ? <CheckIcon className="correct" onAnimationEnd={() => this.setState({answer: ''})}/> : this.state.answer ==='wrong' ? <ClearIcon className="wrong" onAnimationEnd={() => this.setState({answer: ''})}/> : null}</span>
                 <section className={`card ${this.state.animate}`} onAnimationEnd={_ => this.setState({animate: ''})}><section className={`${this.state.shape} ${this.state.color}`} /></section></section> 
                 : <div className="final-score">Game Over! <section> Final Score is {this.state.score}!</section></div>}
                 <section className="arrows">

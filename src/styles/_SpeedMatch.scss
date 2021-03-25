@@ -31,6 +31,18 @@
         }
     }
 
+    .correct {
+        color: green;
+        transform: scale(1.5);
+        animation: answer .5s 1;
+    }
+
+    .wrong {
+        color: red;
+        transform: scale(1.5);
+        animation: answer .5s 1;
+    }
+
     .about-game{
         display: flex;
         flex-direction: column;
@@ -137,7 +149,7 @@
     }
     .star.red:after,
     .star.red:before {
-        background-color: red;
+        background-color: red; 
     }
     .star.purple:after,
     .star.purple:before {
@@ -204,7 +216,7 @@
 
     .left-arrow{
         transform: rotate(180deg) scale(3);
-        color: green;
+        
     }
 
     .right-arrow{
@@ -242,5 +254,13 @@
     }
     to {
         transform: translateX(-127%);
+    }
+}
+
+@keyframes answer{
+    from {
+        transform: scale(1.5)
+    } to {
+        transform: scale(2);
     }
 }
