@@ -106,9 +106,9 @@ const MathDrop = () => {
     return (
         <div>
             <h1>Your Score: {score}</h1>
-            {lives<=0?<div>
+            {lives<=0?<div className='startNewGame'>
                 <p>type the answer to the equation press enter to submit your answer.</p>
-                <button onClick={playGame}>Play</button>
+                <button className='playBtn' onClick={playGame}>Play</button>
             </div>
             :
             <div>
