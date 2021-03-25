@@ -42,11 +42,11 @@ const Tests = () => {
     return (
         <div className='games'>
             <section className='category-list'>
-                <label>Find Game: <input type="text" value={search} onChange={e => setSearch(e.target.value)}/></label>
+                <label>Find Game: <input className='searchBar' type="text" value={search} onChange={e => setSearch(e.target.value)}/></label>
 
                 {/* Switch this to list of categories, game icons will be mapping over all the games. */}
-                <li onClick={() =>setCatFilter('')}>All</li>
-                {categories.map((el, i) => <li key={i} onClick={() => setCatFilter(el.category)}>{el.category}</li>)}
+                <li className='categories-item' onClick={() =>setCatFilter('')}>All</li>
+                {categories.map((el, i) => <li className='categories-item' key={i} onClick={() => setCatFilter(el.category)}>{el.category}</li>)}
             </section> 
             <section className='games-list'>
                 {games.filter(el => el.name.includes(search) && el.category.includes(catFilter)).map((el, i) => {

@@ -46,7 +46,7 @@ const MathDrop = () => {
             for(let i=0; i<equations.length; i++){
                 switch(equations[i].altOperator){
                     case '+':
-                        if(equations[i].numOne + equations[i].numTwo === userAnswer){
+                        if(equations[i].numOne + equations[i].numTwo == userAnswer){
                             //creates different array of index to remove from the equations.
                             indexArr.push(i)
                             setScore(score + (consecutive+1) *50)
@@ -54,7 +54,7 @@ const MathDrop = () => {
                         } 
                         break
                     case '-':
-                        if(equations[i].numOne - equations[i].numTwo === userAnswer){
+                        if(equations[i].numOne - equations[i].numTwo == userAnswer){
                             //creates different array of index to remove from the equations.
                             indexArr.push(i)
                             setScore(score + (consecutive+1) *50)
@@ -62,7 +62,7 @@ const MathDrop = () => {
                         } 
                         break
                     case 'X':
-                        if(equations[i].numOne * equations[i].numTwo === userAnswer){
+                        if(equations[i].numOne * equations[i].numTwo == userAnswer){
                             //creates different array of index to remove from the equations.
                             indexArr.push(i)
                             setConsecutive(consecutive+1)
@@ -106,9 +106,9 @@ const MathDrop = () => {
     return (
         <div>
             <h1>Your Score: {score}</h1>
-            {lives<=0?<div>
+            {lives<=0?<div className='startNewGame'>
                 <p>type the answer to the equation press enter to submit your answer.</p>
-                <button onClick={playGame}>Play</button>
+                <button className='playBtn' onClick={playGame}>Play</button>
             </div>
             :
             <div>

@@ -3,6 +3,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap");
 .aboutUs {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -44,6 +45,10 @@
   width: 150px;
   height: 50px;
   border-radius: 0;
+}
+
+.aboutUs button:hover {
+  background-color: #754d80;
 }
 
 .login {
@@ -112,6 +117,10 @@
   border-radius: 0;
 }
 
+.login .auth button:hover {
+  background-color: #754d80;
+}
+
 .login .auth .switch {
   border: 1px solid #ffff;
   color: #ffff;
@@ -120,6 +129,10 @@
   width: 65px;
   height: 30px;
   border-radius: 0;
+}
+
+.login .auth .switch:hover {
+  background-color: #754d80;
 }
 
 .login .register {
@@ -175,7 +188,7 @@ button {
 }
 
 .header {
-  height: 100px;
+  height: 11vh;
   width: 100%;
   background-color: #ffff;
 }
@@ -196,6 +209,7 @@ button {
       -ms-flex-direction: row;
           flex-direction: row;
   width: 100%;
+  height: 10vh;
 }
 
 .header .mainBar nav {
@@ -215,8 +229,9 @@ button {
           flex-direction: row;
 }
 
-.header .mainBar nav h1 {
+.header .mainBar nav .brainifyLogo {
   width: 30%;
+  font-size: xxx-large;
   text-align: center;
 }
 
@@ -236,8 +251,13 @@ button {
           flex-direction: row;
 }
 
-.header .mainBar nav ul li {
-  list-style-type: none;
+.header .mainBar nav ul .navBtn {
+  list-style: none;
+  text-decoration: none;
+}
+
+.header .mainBar nav ul .navBtn:hover {
+  color: #69dee6;
 }
 
 .header .mainBar .about {
@@ -246,11 +266,19 @@ button {
   display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 30%;
 }
 
-.header .mainBar .about a {
-  width: 40%;
+.header .mainBar .about .altLinks {
+  text-decoration: none;
+  font-size: x-large;
+}
+
+.header .mainBar .about .altLinks:hover {
+  color: #69dee6;
 }
 
 .header .mainBar .about .menuBtn {
@@ -262,6 +290,10 @@ button {
   height: 50px;
   border-radius: 0;
   margin: 10px;
+}
+
+.header .mainBar .about .menuBtn:hover {
+  background-color: #754d80;
 }
 
 .header .dropDown {
@@ -285,6 +317,16 @@ button {
   border-radius: 3%;
 }
 
+.header .dropDown .editBtn {
+  text-decoration: none;
+  font-size: large;
+  margin: 10px;
+}
+
+.header .dropDown .editBtn:hover {
+  color: #69dee6;
+}
+
 .header .dropDown .logoutBtn {
   border: 1px solid #ffff;
   color: #ffff;
@@ -293,6 +335,10 @@ button {
   width: 65px;
   height: 30px;
   border-radius: 0;
+}
+
+.header .dropDown .logoutBtn:hover {
+  background-color: #754d80;
 }
 
 .home {
@@ -332,10 +378,35 @@ button {
 .home .recommended section .game-icon {
   background: #292945;
   color: #ffff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 30%;
-  height: 40%;
+  height: 65%;
   margin: 15px;
   margin-bottom: 0;
+}
+
+.home .recommended section .game-icon .gameIconName {
+  font-size: xx-large;
+  margin: 0;
+}
+
+.home .recommended section .game-icon .gameIconName:hover {
+  color: #69dee6;
+}
+
+.home .recommended section .game-icon .gameIconImage {
+  height: 60%;
+  width: 70%;
+  border-radius: 5%;
 }
 
 .home .stats {
@@ -357,11 +428,6 @@ button {
   color: #ffff;
 }
 
-.home .stats h1 {
-  height: 10%;
-  margin: 0;
-}
-
 .home .stats .stat {
   height: 25%;
   width: 100%;
@@ -371,6 +437,9 @@ button {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .home .stats .stat .chartjs-render-monitor {
@@ -381,30 +450,31 @@ button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-  background: yellowgreen;
+  background: #24213b;
 }
 
 .your-stats .stat {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   width: 40%;
-  background: navajowhite;
+  height: 100px;
+  padding-top: 200px;
+  background: #24213b;
 }
 
 .your-stats .overview {
   width: 50%;
   height: 100vh;
-  background: goldenrod;
+  padding-top: 20px;
+  background: #292945;
 }
 
 .games {
@@ -444,20 +514,14 @@ button {
   width: 60%;
 }
 
-.games button {
-  border: 1px solid #ffff;
-  color: #ffff;
-  background-color: #45376c;
-  text-align: center;
-  width: 65px;
-  height: 30px;
-  border-radius: 0;
-}
-
 .games .categories-item {
   font-size: xx-large;
   list-style: none;
   padding: 10px;
+}
+
+.games .categories-item:hover {
+  color: #69dee6;
 }
 
 .games .games-list {
@@ -474,10 +538,36 @@ button {
 .games .games-list .game-icon {
   background: #292945;
   color: #ffff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 95%;
-  height: 85%;
+  height: 50%;
   margin: 20px;
   margin-bottom: 0;
+}
+
+.games .games-list .game-icon .gameIconName {
+  font-size: xx-large;
+  margin: 20px;
+}
+
+.games .games-list .game-icon .gameIconName:hover {
+  color: #69dee6;
+}
+
+.games .games-list .game-icon .gameIconImage {
+  height: 60%;
+  width: 70%;
+  border-radius: 5%;
+  margin: 15px;
 }
 
 .speedmatch {
@@ -506,6 +596,10 @@ button {
   width: 150px;
   height: 50px;
   border-radius: 0;
+}
+
+.speedmatch .play:hover {
+  background-color: #754d80;
 }
 
 .speedmatch .gameInfo {
@@ -865,6 +959,52 @@ button {
     -webkit-transform: translate(0, 90vh);
             transform: translate(0, 90vh);
   }
+}
+
+.startNewGame {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.startNewGame .playBtn {
+  border: 2px solid #ffff;
+  color: #ffff;
+  background-color: #45376c;
+  text-align: center;
+  width: 150px;
+  height: 50px;
+  border-radius: 0;
+}
+
+.startNewGame .playBtn:hover {
+  background-color: #754d80;
+}
+
+.stat {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+  height: 15%;
+  width: 100%;
 }
 
 #root,
