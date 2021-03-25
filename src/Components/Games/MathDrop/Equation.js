@@ -12,14 +12,19 @@ const Equation = (props) => {
         return () => {clearInterval(timer)}
     }, [])
 
+    // const style = useRef({
+    //     left: Math.floor(Math.random()*80)+'vw' 
+    // })
     const style = useRef({
-        left: Math.floor(Math.random()*80)+'vw' 
+        left: (Math.floor(Math.random()*65)+15)+'%'
     })
 
+    console.log(style)
+
     return (
-        <li className='equation' style={style.current}>
+        <div className='equation' style={style.current}>
             {`${props.numOne} ${props.altOperator} ${props.numTwo} =`}
-        </li>
+        </div>
     )
 }
 

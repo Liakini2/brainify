@@ -37,7 +37,7 @@ const logout = (req, res) => {
 }
 
 const getuser = (req, res) => {
-    return req.session.user ? res.status(200).send(req.session.user) : res.sendStatus(404);
+    return req.session.user ? res.status(200).send(req.session.user) : res.status(404).send(req.session.user);
     console.log('change');
 }
 

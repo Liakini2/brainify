@@ -1,7 +1,7 @@
 import {useContext, useEffect, useState} from 'react';
 import {UserContext} from '../context/UserContext';
 import {GameContext} from '../context/GameContext';
-import {Redirect, useHistory} from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
 import GameIcon from './GameIcon';
 import axios from 'axios';
 
@@ -15,6 +15,13 @@ const Tests = () => {
 
     const history = useHistory();
     useEffect(() => {
+        axios.get('/auth/me')
+        .then(({data})=>{
+            userValue.setUser(data)
+            userValue.getRecommendedGames()
+        })
+        .catch(_=>history.push('/'))
+
         axios.get('/api/games').then(res => {
             console.log(res.data)
             setGames(res.data);
@@ -26,11 +33,6 @@ const Tests = () => {
             setCategories(res.data)
         }).catch(err => console.log(err))
     }, []);
-    
-    if(!userValue.user.username){
-        return <Redirect to='/'/>
-    }
-
 
     const loadGame = (id, name, game_icon) => {
         //load game into context
