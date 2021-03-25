@@ -626,6 +626,22 @@ button {
   width: 10%;
 }
 
+.speedmatch .correct {
+  color: green;
+  -webkit-transform: scale(1.5);
+          transform: scale(1.5);
+  -webkit-animation: answer .5s 1;
+          animation: answer .5s 1;
+}
+
+.speedmatch .wrong {
+  color: red;
+  -webkit-transform: scale(1.5);
+          transform: scale(1.5);
+  -webkit-animation: answer .5s 1;
+          animation: answer .5s 1;
+}
+
 .speedmatch .about-game {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -845,7 +861,6 @@ button {
 .speedmatch .left-arrow {
   -webkit-transform: rotate(180deg) scale(3);
           transform: rotate(180deg) scale(3);
-  color: green;
 }
 
 .speedmatch .right-arrow {
@@ -926,6 +941,28 @@ button {
   to {
     -webkit-transform: translateX(-127%);
             transform: translateX(-127%);
+  }
+}
+
+@-webkit-keyframes answer {
+  from {
+    -webkit-transform: scale(1.5);
+            transform: scale(1.5);
+  }
+  to {
+    -webkit-transform: scale(2);
+            transform: scale(2);
+  }
+}
+
+@keyframes answer {
+  from {
+    -webkit-transform: scale(1.5);
+            transform: scale(1.5);
+  }
+  to {
+    -webkit-transform: scale(2);
+            transform: scale(2);
   }
 }
 
