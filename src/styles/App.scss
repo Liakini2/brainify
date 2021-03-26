@@ -52,3 +52,20 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+.phone {
+  display: none!important;
+}
+
+@media screen and (max-width: 760px)
+{
+  .phone{
+    display: flex !important;
+  }
+
+  .header .computer{
+    display: none !important;
+  }
+  
+
+}

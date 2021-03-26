@@ -269,6 +269,7 @@ button {
   height: 11vh;
   width: 100%;
   background-color: #ffff;
+  background: #24213b;
 }
 
 .header .mainBar {
@@ -417,6 +418,67 @@ button {
 
 .header .dropDown .logoutBtn:hover {
   background-color: #754d80;
+}
+
+@media screen and (max-width: 760px) {
+  .header {
+    background: #24213b;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+  }
+  .header .brainifyLogo {
+    margin: 0 auto;
+  }
+  .header nav {
+    z-index: 1000;
+    background: rgba(36, 33, 59, 0.5);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 35%;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .header nav .navBtn {
+    color: #ffff;
+    list-style: none;
+    text-align: center;
+  }
+  .header nav .editBtn {
+    color: #ffff;
+    text-align: center;
+  }
+  .header nav .logoutBtn {
+    width: 50%;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
+  .menu {
+    position: absolute;
+    top: 1%;
+    right: 2%;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .header nav {
+    width: 40%;
+    background: rgba(36, 33, 59, 0.5);
+  }
 }
 
 .home {
@@ -1270,5 +1332,20 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.phone {
+  display: none !important;
+}
+
+@media screen and (max-width: 760px) {
+  .phone {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+  }
+  .header .computer {
+    display: none !important;
+  }
 }
 /*# sourceMappingURL=App.css.map */
