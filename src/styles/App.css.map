@@ -27,11 +27,13 @@
         "_functions.scss",
         "_Colors.scss",
         "../Components/Games/MathDrop/_MathDrop.scss",
+        "../Components/Games/Memory/_MemoryGame.scss"
         "_Colors.scss",
         "_functions.scss",
         "_Colors.scss",
         "_Colors.scss",
         "_Stat.scss"
+
     ],
     "names": [],
     "file": "App.css"
