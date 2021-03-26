@@ -1,27 +1,22 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react'
 
 const Card = (props) => {
-    const [hidden, setHidden] = useState('')
 
-
-    useEffect(() => {
-        setHidden(props.hide)
-    },[props.hide])
-
-    useEffect(() => {
-        setHidden('')
-    },[props.active])
-
-    
     return(
         
-        <div className={`card ${hidden} ${props.color} ${props.active}`}
+        <input className={`card ${props.color} ${props.hide? 'hidden' : ''} ${props.active? 'selected' : ''}`}
+        
         onClick={() => {
+            if(props.selected.length < 2){
+            if(props.hide === true){
+                props.setHide(props.index, props.hide)
+            }
             props.selectedFunc(props.index)
-        }}>
-        </div>
+        }}} readOnly disabled={props.disabled}>
+        </input>
         
     )
+
 }
 
 export default Card

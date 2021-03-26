@@ -5,12 +5,27 @@ const Memory = () => {
     const [score, setScore] = useState(0)
     const [lives, setLives] = useState(3)
     const [gameState, setGameState] = useState('menu')
-
-    const [cards, setCards] = useState(['green', 'red', 'yellow', 'blue', 'pink', 'orange', 'purple', 'black', 'green', 'red', 'yellow', 'blue', 'pink', 'orange', 'purple', 'black'])
     const [selected, setSelected] = useState([])
-    const [hideAll, setHideAll] = useState('')
-    const [rehide, setRehide] = useState([])
-    // const [deactivate, setDeactivate] = useState(0)
+    const [cards, setCards] = useState([
+        {color: 'green', active: false, hidden: false, disabled: true, correct: false}, 
+        {color: 'red', active: false, hidden: false, disabled: true, correct: false}, 
+        {color: 'yellow', active: false, hidden: false, disabled: true, correct: false}, 
+        {color: 'blue', active: false, hidden: false, disabled: true, correct: false}, 
+        {color: 'pink', active: false, hidden: false, disabled: true, correct: false}, 
+        {color: 'orange', active: false, hidden: false, disabled: true, correct: false}, 
+        {color: 'purple', active: false, hidden: false, disabled: true, correct: false}, 
+        {color: 'black', active: false, hidden: false, disabled: true, correct: false}, 
+        {color: 'green', active: false, hidden: false, disabled: true, correct: false}, 
+        {color: 'red', active: false, hidden: false, disabled: true, correct: false}, 
+        {color: 'yellow', active: false, hidden: false, disabled: true, correct: false}, 
+        {color: 'blue', active: false, hidden: false, disabled: true, correct: false}, 
+        {color: 'pink', active: false, hidden: false, disabled: true, correct: false}, 
+        {color: 'orange', active: false, hidden: false, disabled: true, correct: false}, 
+        {color: 'purple', active: false, hidden: false, disabled: true, correct: false}, 
+        {color: 'black', active: false, hidden: false, disabled: true, correct: false}
+    ])
+    
+
 
 
 
@@ -24,47 +39,121 @@ const Memory = () => {
         setScore(0)
         setLives(3)
         shuffle(cards)
-        setHideAll('')
+        let arr = cards.map((elem) => {
+            elem.hidden = false
+            elem.active = false
+            elem.disabled = true
+            return elem
+        })
+        setCards(arr)
 
         setTimeout(() => {
-            setHideAll('hidden')
-        }, 5000)
+            let arr = cards.map((elem) => {
+                elem.hidden = true
+                elem.disabled = false
+                elem.correct = false
+                return elem
+            })
+            setCards(arr)
+        }, 3500)
 
     }
+
+    const setHide = (i, hideProp) => {
+        let hideAgain = cards.slice()
+        hideAgain[i].hidden = !hideProp
+        setCards(hideAgain)
+    }
+
+    const selectedFunc = (i) => {
+        setSelected([...selected, i])
+        let giveBorder = cards.slice()
+        giveBorder[i].active = true
+        setCards(giveBorder)
+    }
+
+
 
 
 
     //Wait for two cards to compare and then add to score or take a life
     useEffect(() => {
         if(selected.length === 2) {
-            if(cards[selected[0]] === cards[selected[1]]) {
+            if(cards[selected[0]].color === cards[selected[1]].color) {
+
+                //good comparison: if score is max then victory
                 setScore(score + 1)
+
+                if(score === 8){
+                    setSelected([])
+                    setTimeout(() => {
+                        setGameState('victory')
+                    },1000)
+                }else{
+                    let arr = cards.map((elem) => {
+                        elem.disabled = true
+                        return elem
+                    })
+                    setCards(arr)
+                    setTimeout(() => {
+                        let arr = cards.map((elem) => {
+                            elem.disabled = false
+                            return elem
+                        })
+                        setCards(arr)
+                        let deactivate = cards.slice()
+                        deactivate[selected[0]].active = false
+                        deactivate[selected[1]].active = false
+                        deactivate[selected[0]].correct = true
+                        deactivate[selected[1]].correct = true
+                        setCards(deactivate)
+                        setSelected([])
+                    }, 1500)
+                }
+
+                
             }else {
+
+                //bad comparison: if no lives remain then gameover
                 setLives(lives - 1)
+
+                if(lives === 1) {
+                    setSelected([])
+                    setTimeout(() => {
+                        setGameState('gameOver')
+                    }, 1000)  
+                }else{
+                    let arr = cards.map((elem) => {
+                        elem.disabled = true
+                        return elem
+                    })
+                    setCards(arr)
+                    setTimeout(() => {
+                        let hideAgain = cards.slice()
+                        hideAgain[selected[0]].hidden = true
+                        hideAgain[selected[1]].hidden = true
+                        hideAgain[selected[0]].active = false
+                        hideAgain[selected[1]].active = false
+                        setCards(hideAgain)
+                        let arr = cards.map((elem) => {
+                            elem.disabled = false
+                            return elem
+                        })
+                        setCards(arr)
+                        setSelected([])   
+                    }, 1500)
+                }
+
+                
             }
-            setTimeout(() => {
-                setSelected([])
-            }, 2000)
-            // setDeactivate(deactivate + 1)
         }
     },[selected])
 
-    //Listen for game over
-    useEffect(() => {
-        if(lives <= 0){
-            setGameState('gameOver')
-        }
-    },[lives])
 
-    //Listen for victory
-    useEffect(() => {
-        if(score === 8){
-            setGameState('victory')
-        }
-    }, [score])
+    
     
 
-
+    console.log(cards)
     return (
 
         <div className='memoryGame'>
@@ -86,11 +175,14 @@ const Memory = () => {
                     {cards.map((elem, i) => {
                         return <>
                             <Card 
-                                color={elem} 
+                                color={elem.color} 
                                 index={i}
-                                hide={hideAll}
-                                active={selected.includes(i)? 'selected' : ''}
-                                selectedFunc={(i) => setSelected([...selected, i])}
+                                hide={elem.hidden}
+                                active={elem.active}
+                                disabled={elem.disabled? true : elem.correct? true : false}
+                                selected={selected}
+                                setHide={setHide}
+                                selectedFunc={selectedFunc}
                             />
                         </>
                     })}

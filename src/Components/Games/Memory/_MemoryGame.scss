@@ -30,9 +30,9 @@
 
 
 .selected{
-    border: 5px solid rgb(151, 255, 32);
-    height: 140px;
-    width: 140px;
+    border: 5px solid rgb(151, 255, 32) !important;
+    height: 140px !important;
+    width: 140px !important;
 }
 
 .hidden{
@@ -66,7 +66,7 @@
 }
 
 .orange{
-    background-color: rgb(155, 83, 0);
+    background-color: orange;
 }
 
 .purple{
