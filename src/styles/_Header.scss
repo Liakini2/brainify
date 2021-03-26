@@ -5,6 +5,7 @@
   height: 11vh;
   width: 100%;
   background-color: $primaryTextColor;
+  background: $primaryBackground;
 
   .mainBar {
     background-color: $transparentBackground;
@@ -18,7 +19,7 @@
       .brainifyLogo {
         width: 30%;
         font-size: xxx-large;
-        text-align: center;
+        text-align: center; 
       }
       ul {
         width: 60%;
@@ -75,6 +76,64 @@
     }
     .logoutBtn {
       @include smallBtn;
+    }
+  }
+}
+
+@media screen and (max-width: 760px){
+
+  .header {
+    background: $primaryBackground;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    .brainifyLogo {
+      margin: 0 auto;
+    }
+
+    nav {
+      z-index: 1000;
+      background: $transparentBackground;
+      display: flex;
+      flex-direction: column;
+      width: 35%;
+      align-items: center;
+
+      .navBtn {
+        color: $primaryTextColor;
+        list-style: none;
+        text-align: center;
+      }
+
+      .editBtn{
+        color: $primaryTextColor;
+        text-align: center;
+      }
+
+      .logoutBtn {
+        width: 50%;
+        align-self: center;
+      }
+    }
+
+  }
+
+  
+
+  .menu {
+    position: absolute;
+    top: 1%;
+    right: 2%;
+  }
+  
+}
+
+@media screen and (max-width: 430px){
+  .header {
+    nav {
+      width: 40%;
+      background: $transparentBackground;
     }
   }
 }

@@ -1,25 +1,33 @@
 @import "./Colors";
 
 .login {
-  margin-top: 70px;
   background: $primaryBackground;
-  height: 60vh;
-  width: 70vw;
+  height: 90vh;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  .MuiSnackbar-root {
+    transform: translateY(300%);
+  }
+
   .auth {
     display: grid;
     background: $primaryContainerBackground;
     color: $primaryTextColor;
-    max-width: 671px;
-    max-height: 350px;
+    max-width: 471px;
+    max-height: 550px;
     height: 100%;
     width: 100%;
     align-content: center;
     justify-items: center;
     grid-template-columns: auto;
     grid-template-rows: 20% 20% 15% 15% 15%;
+
+    .error-text{
+      text-align: center;
+    }
     label {
       display: grid;
       width: 70%;
@@ -38,24 +46,107 @@
     button {
       @include primaryBtn;
     }
-    .switch {
-      @include smallBtn;
+
+    button:hover {
+      cursor: pointer !important;
     }
+    .switch {
+      // display: inline-block;
+      color: blue;
+      text-align: center;
+      // clear: left;
+    }
+
+    .switch:hover{
+      cursor: pointer;
+    }
+
   }
   .register {
-    display: grid;
-    max-width: 671px;
-    max-height: 550px;
-    height: 150%;
-    width: 100%;
-    grid-template-columns: auto;
     grid-template-rows: 12% 12% 12% 12% 12% 12% 10% 8%;
     .error-text {
       margin: 10px;
+      width: 80%;
+      text-align: center;
+    }
+  }
+
+  .row{
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 50% 50%;
+    width: 100%;
+    height: 100%;
+
+    label {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      span{
+        width: 20%;
+        text-align: end;
+        margin-right: 2%;
+      }
+
+      input {
+        width: 40%;
+        height: 70%; 
+        max-height: 30px;
+      }
+    }
+
+    .invalid {
+      color: red;
+      text-align: center;
     }
   }
 }
 
+@media screen and (max-width: 760px) {
+  .login {
+    width: 80%;
+    font-size: 1.5rem;
+    
+    .row {
+      
+      label {
+        justify-content: space-around;
+        width: 100%;
+        span {
+          width: 35%;
+          margin: 0;
+          text-align: end;
+        }
+
+        input {
+          width: 50%;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .login {
+    width: 100%;
+    font-size: 1rem;
+    .row {
+      
+      label {
+        justify-content: space-around;
+        width: 100%;
+        span {
+          width: 28%;
+          text-align: end;
+        }
+
+        input {
+          width: 55%;
+        }
+      }
+    }
+  }
+}
 // @import './functions';
 
 // .header{
