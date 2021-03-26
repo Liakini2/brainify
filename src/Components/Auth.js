@@ -1,3 +1,5 @@
+import { SettingsInputComponent } from '@material-ui/icons';
+import {Snackbar} from '@material-ui/core';
 import axios from 'axios';
 import {useContext, useState} from 'react';
 import {UserContext} from '../context/UserContext'
@@ -6,6 +8,7 @@ const Auth = ({history, ...props}) => {
     const [loginInfo, setLoginInfo] = useState({username: '', password: '', verpassword: '', email: '', first_name: '', last_name: ''});
     const [regErrors, setRegErrors] = useState({username: false, password: false, email: false, first_name: false, last_name: false})
     const [tryLogin, setTryLogin] = useState(true);
+    const [open, setOpen] = useState(false);
 
     const userValue = useContext(UserContext)
     // console.log(userValue)
@@ -41,11 +44,12 @@ const Auth = ({history, ...props}) => {
                     history.push(`/home`)
                 })
                 .catch((err)=>{
-                    if(err.response.data){
-                        document.getElementsByClassName('error-text')[0].innerHTML=`${err.response.data}`
-                    } else {
+                    setOpen(true);
+                    // if(err.response.data){
+                    //     document.getElementsByClassName('error-text')[0].innerHTML=`${err.response.data}`
+                    // } else {
                         console.log(err.response)
-                    }
+                    // }
                 })
         }
     }
@@ -80,22 +84,71 @@ const Auth = ({history, ...props}) => {
     // console.log(props)
     return (
         <div className="login">
+            <Snackbar anchorOrigin={{vertical: 'center', horizontal: 'center'}} open={open} onClose={() => setOpen(false)} message="Invalid username or password" autoHideDuration={1500} />
             {tryLogin ? <section className="auth">
-                    <label><span>Username: </span><input type="text" autoFocus={true} value={loginInfo.username} onChange={e => setLoginInfo({...loginInfo, username: e.target.value})} /></label>
-                    <label><span>Password: </span><input type="password" value={loginInfo.password} onChange={e => setLoginInfo({...loginInfo, password: e.target.value})} onKeyDown={e => {if(e.key === 'Enter' || e.code === 'Enter'){login()}}}/></label>
+                    <section className="row">
+                        <label>
+                            <span>Username: </span>
+                            <input type="text" autoFocus={true} value={loginInfo.username} onChange={e => setLoginInfo({...loginInfo, username: e.target.value})} />
+                        </label>
+                        {loginInfo.username === '' ? <label className="invalid">Please input a valid username</label> : <label className="invalid"></label>}
+                    </section>
+                    <section className="row">
+                        <label>
+                            <span>Password: </span>
+                            <input type="password" value={loginInfo.password} onChange={e => setLoginInfo({...loginInfo, password: e.target.value})} onKeyDown={e => {if(e.key === 'Enter' || e.code === 'Enter'){login()}}}/>
+                        </label>
+                        {loginInfo.password === '' ? <label className="invalid">Enter a password</label> : <label className="invalid"></label>}
+                    </section>
                     <button onClick={login}>Login</button>
-                    <p className='error-text'>New to Brainify? Click the register button below to create an account.</p>
-                    <button onClick={_ => setTryLogin(false)} className="switch">Register</button>
+                    <p className='error-text'>New to Brainify? <br /><span className="switch" onClick={_ => setTryLogin(false)}>Create an account!</span></p>
+                    {/* <button onClick={_ => setTryLogin(false)} className="switch">Register</button> */}
             </section> : <section className="auth register">
-                <label><span>Username: </span><input type="text" autoFocus={true} value={loginInfo.username} onChange={e => setLoginInfo({...loginInfo, username: e.target.value})} /></label>
-                <label><span>Password: </span><input type="password" value={loginInfo.password} onChange={e => setLoginInfo({...loginInfo, password: e.target.value})} /></label>
-                <label><span>Verify: </span><input type="password" value={loginInfo.verpassword} onChange={e => setLoginInfo({...loginInfo, verpassword: e.target.value})} /></label>
-                <label><span>First Name: </span><input type="text" value={loginInfo.first_name} onChange={e => setLoginInfo({...loginInfo, first_name: e.target.value})} /></label>
-                <label><span>Last Name: </span><input type="text" value={loginInfo.last_name} onChange={e => setLoginInfo({...loginInfo, last_name: e.target.value})} /></label>
-                <label><span>Email: </span><input type="text" value={loginInfo.email} onChange={e => setLoginInfo({...loginInfo, email: e.target.value})} /></label>
+                <section className="row">
+                    <label>
+                        <span>Username: </span>
+                        <input type="text" autoFocus={true} value={loginInfo.username} onChange={e => setLoginInfo({...loginInfo, username: e.target.value})} />
+                    </label>
+                    {regErrors.username ? <label className="invalid">Enter a valid username</label> : <label className="invalid"></label>}
+                </section>
+                <section className="row">
+                    <label>
+                        <span>Password: </span>
+                        <input type="password" value={loginInfo.password} onChange={e => setLoginInfo({...loginInfo, password: e.target.value})} />
+                    </label>
+                    {regErrors.password ? <label className="invalid">Enter a strong password</label> : <label className="invalid"></label>}
+                </section>
+                <section className="row">
+                    <label>
+                        <span>Verify: </span>
+                        <input type="password" value={loginInfo.verpassword} onChange={e => setLoginInfo({...loginInfo, verpassword: e.target.value})} />
+                    </label>
+                    {loginInfo.password !== loginInfo.verpassword ? <label className="invalid">Passwords do not match</label> : <label className="invalid"></label>}
+                </section>
+                <section className="row">
+                    <label>
+                        <span>First Name: </span>
+                        <input type="text" value={loginInfo.first_name} onChange={e => setLoginInfo({...loginInfo, first_name: e.target.value})} />
+                    </label>
+                    {regErrors.first_name ? <label className="invalid">Enter a valid first name</label> : <label className="invalid"></label>}
+                </section>
+                <section className="row">
+                    <label>
+                        <span>Last Name: </span>
+                        <input type="text" value={loginInfo.last_name} onChange={e => setLoginInfo({...loginInfo, last_name: e.target.value})} />
+                    </label>
+                    {regErrors.last_name ? <label className="invalid">Enter a valid last name</label> : <label className="invalid"></label>}
+                </section>
+                <section className="row">
+                    <label>
+                        <span>Email: </span>
+                        <input type="text" value={loginInfo.email} onChange={e => setLoginInfo({...loginInfo, email: e.target.value})} />
+                    </label>
+                    {regErrors.email ? <label className="invalid">Enter a valid email address</label> : <label className="invalid"></label>}
+                </section>
                 <button onClick={register}>Register</button>
-                <p className='error-text'>Already have an account? Click the login button below to log in.</p>
-                <button onClick={_ => setTryLogin(true)} className="switch">Login</button>
+                <p className='error-text'>Already have an account? <br /><span className="switch" onClick={_ => setTryLogin(true)}>Log in here.</span></p>
+                {/* <button onClick={_ => setTryLogin(true)} className="switch">Login</button> */}
             </section>}
         </div>
     )
