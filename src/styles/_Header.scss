@@ -2,7 +2,7 @@
 @import "./Colors";
 
 .header {
-  height: 100px;
+  height: 11vh;
   width: 100%;
   background-color: $primaryTextColor;
 
@@ -10,19 +10,25 @@
     background-color: $transparentBackground;
     @include flexCenter(row, space-between);
     width: 100%;
+    height: 10vh;
     nav {
       width: 60%;
       display: flex;
       @include flexCenter(row, space-around);
-      h1 {
+      .brainifyLogo {
         width: 30%;
+        font-size: xxx-large;
         text-align: center;
       }
       ul {
         width: 60%;
         @include flexCenter(row, space-around);
-        li {
-          list-style-type: none;
+        .navBtn {
+          list-style: none;
+          text-decoration: none;
+          &:hover {
+            color: $accentColorThree;
+          }
         }
       }
     }
@@ -30,39 +36,45 @@
     .about {
       display: flex;
       justify-content: space-around;
+      align-items: center;
       width: 30%;
 
-      a {
-        width: 40%;
+      .altLinks {
+        text-decoration: none;
+        font-size: x-large;
+        &:hover {
+          color: $accentColorThree;
+        }
       }
 
-      button {
+      .menuBtn {
         @include primaryBtn;
         margin: 10px;
       }
     }
-    .dropDown {
-      width: 300px;
-      height: 40vh;
-      @include flexCenter(column, center);
-      position: absolute;
-      right: 10px;
-      background-color: white;
-      border: 2px solid black;
-    }
   }
   .dropDown {
-    width: 300px;
-    height: 40vh;
-    @include flexCenter(column, center);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     position: absolute;
-    right: -320px;
+    right: 0px;
+    width: 140px;
+    height: 120px;
+    margin: 0px;
     background-color: white;
-    border: 2px solid black;
+    border: $primaryBackground;
+    border-radius: 3%;
+    .editBtn {
+      text-decoration: none;
+      font-size: large;
+      margin: 10px;
+      &:hover {
+        color: $accentColorThree;
+      }
+    }
+    .logoutBtn {
+      @include smallBtn;
+    }
   }
-}
-
-.active {
-  transform: translate(-320px, 0);
-  margin-top: 15px;
 }

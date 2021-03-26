@@ -2,19 +2,28 @@ import {useState, useEffect, useRef, useContext} from 'react'
 import Equation from './Equation'
 import axios from 'axios'
 import { GameContext } from '../../../context/GameContext'
+import { UserContext } from '../../../context/UserContext'
+import { useHistory } from 'react-router-dom'
 
 const MathDrop = () => {
-    //icebox - game speeds up as they play, numbers can fall anywhere along the x-axis
-
     const [userAnswer, setUserAnswer] = useState('')
     const [score, setScore] = useState(0)
     const [lives, setLives] = useState(0)
     const [equations, setEquations] = useState([])
     const [consecutive, setConsecutive] = useState(1)
     const id = useRef(0)
-
     const equationTimer = useRef()
+    const history = useHistory()
     const gameContext = useContext(GameContext)
+    const userValue = useContext(UserContext)
+
+    useEffect(() => {
+        axios.get('/auth/me')
+        .then(({data})=>{
+            userValue.setUser(data)
+        })
+        .catch(_=>history.push('/'))
+    }, [])
 
     useEffect(() => {
         return(()=>{clearInterval(equationTimer.current)})
@@ -72,7 +81,7 @@ const MathDrop = () => {
                     default:
                         break
                 }
-            }
+            } 
             let tempArr = equations.slice()
             for(let i=indexArr.length-1; i>=0; i--){
                 tempArr.splice(indexArr[i], 1)
@@ -99,26 +108,25 @@ const MathDrop = () => {
         },2000)
     }
 
-    // console.log(num1)
-    // console.log(num2)
-    // console.log(operator)
-
     return (
-        <div>
-            <h1>Your Score: {score}</h1>
-            {lives<=0?<div>
-                <p>type the answer to the equation press enter to submit your answer.</p>
-                <button onClick={playGame}>Play</button>
+        <div className='gameDisplay'>
+            <h1 className='hub'>Your Score: {score}</h1>
+            <div className='centerGame'>
+                <h1 className='gameTitle'>mathdrop</h1>
+                {lives<=0?<div className='startNewGame'>
+                    <p className='gameInstructions'>Type the answer to the equation into the box at the bottowm of the screen and press enter to submit your answer, before the equation falls to the bottom. You have three lives.</p>
+                    <button className='playBtn' onClick={playGame}>Play</button>
+                </div>
+                :
+                <div className='mathdropGame'>
+                    {equations.map((equation, index)=>{
+                        return(<Equation className='displayEquations' key={equation.i} missedTarget={missedTarget} numOne={equation.numOne} numTwo={equation.numTwo} altOperator={equation.altOperator}/>)
+                    })}
+                    <input className='user-answer' value={userAnswer} onKeyPress={checkAnswer} onChange={(e)=>{setUserAnswer(e.target.value)}}/>
+                </div>
+                }
             </div>
-            :
-            <div>
-                {equations.map((equation, index)=>{
-                    return(<Equation key={equation.i} missedTarget={missedTarget} numOne={equation.numOne} numTwo={equation.numTwo} altOperator={equation.altOperator}/>)
-                })}
-                <input className='user-answer' value={userAnswer} onKeyPress={checkAnswer} onChange={(e)=>{setUserAnswer(e.target.value)}}/>
-            </div>
-        }
-            
+            <h1 className='hub'>Lives Remainning: {lives}</h1>  
         </div>
     )
 }
