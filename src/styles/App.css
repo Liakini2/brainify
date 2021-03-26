@@ -4,6 +4,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap");
 .aboutUs {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1277,7 +1278,6 @@ button {
   }
 }
 
-
 .memoryGame {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1379,6 +1379,8 @@ button {
 
 .black {
   background-color: black;
+}
+
 .stat {
   display: -webkit-box;
   display: -ms-flexbox;
