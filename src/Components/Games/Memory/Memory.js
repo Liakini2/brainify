@@ -75,7 +75,6 @@ const Memory = () => {
 
 
 
-
     //Wait for two cards to compare and then add to score or take a life
     useEffect(() => {
         if(selected.length === 2) {
@@ -153,7 +152,7 @@ const Memory = () => {
     
     
 
-    console.log(cards)
+    
     return (
 
         <div className='memoryGame'>
@@ -195,7 +194,7 @@ const Memory = () => {
             <div className='victory'>
                 <h1>A Winner Is You!</h1>
                 <h1>Final Score: {score}</h1>
-                <button onClick={setGameState('menu')}>Replay</button>
+                <button onClick={() => setGameState('menu')}>Replay</button>
             </div>
 
 
@@ -203,7 +202,7 @@ const Memory = () => {
             <div className='gameOver'>
                 <h1>Game Over</h1>
                 <h1>Score: {score}</h1>
-                <button onClick={setGameState('menu')}>Try Again</button>
+                <button onClick={() => setGameState('menu')}>Try Again</button>
             </div>
 
 
