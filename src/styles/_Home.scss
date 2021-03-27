@@ -31,7 +31,7 @@
     width: 70vw;
     height: 100%;
     display: grid;
-    grid-template-columns: repeat(3, 30%);
+    grid-template-columns: 30% 30% 30%;
     text-align: center;
     justify-items: center;
     align-items: center;
@@ -48,7 +48,11 @@
 
         .gameIconName {
           font-size: xx-large;
+          align-content: center;
+          height: 20%;
           margin: 0;
+          display: flex;
+          align-items: center;
 
           &:hover {
             color: $accentColorThree;
@@ -80,6 +84,19 @@
       align-items: center;
       .chartjs-render-monitor {
         color: $primaryTextColor;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .home {
+    .recommended {
+      .game-icon {
+
+        .gameIconName {
+          font-size: 1.3rem;
+        }
       }
     }
   }

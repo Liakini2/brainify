@@ -51,7 +51,7 @@ const Header = (props) => {
             <Slide in={phoneMenu} direction="left" timeout={500} unmountOnExit mountOnEnter>
                 <nav className="nav">
                     <section className="left">
-                        <Link className="navBtn" to="/">Home</Link>
+                        <Link className="navBtn" to="/home">Home</Link>
                         <Link className="navBtn" to="/tests">Brain Games</Link>
                         <Link className="navBtn" to="/stats">Your Stats</Link>
                     </section>

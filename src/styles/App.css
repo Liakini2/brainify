@@ -368,6 +368,15 @@ button {
   text-decoration: none;
 }
 
+@media screen and (max-width: 1200px) {
+  .header .nav .left {
+    font-size: 1.5rem;
+  }
+  .header .nav .right {
+    width: 20vw;
+  }
+}
+
 @media screen and (max-width: 760px) {
   .header {
     height: 10vh;
@@ -399,6 +408,7 @@ button {
     -ms-flex-pack: distribute;
         justify-content: space-around;
     height: 12vh;
+    font-size: 1rem;
   }
   .header .nav .right {
     -webkit-box-orient: vertical;
@@ -482,8 +492,8 @@ button {
   height: 100%;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (30%)[3];
-      grid-template-columns: repeat(3, 30%);
+  -ms-grid-columns: 30% 30% 30%;
+      grid-template-columns: 30% 30% 30%;
   text-align: center;
   justify-items: center;
   -webkit-box-align: center;
@@ -512,7 +522,16 @@ button {
 
 .home .recommended .game-icon .gameIconName {
   font-size: xx-large;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  height: 20%;
   margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .home .recommended .game-icon .gameIconName:hover {
@@ -566,6 +585,12 @@ button {
 
 .home .stats .stat .chartjs-render-monitor {
   color: #fff;
+}
+
+@media screen and (max-width: 1200px) {
+  .home .recommended .game-icon .gameIconName {
+    font-size: 1.3rem;
+  }
 }
 
 @media screen and (max-width: 760px) {
@@ -672,8 +697,6 @@ button {
 
 .games .searchBar {
   border-radius: 0;
-  margin: 10px;
-  margin-bottom: 50px;
   height: 26px;
   width: 60%;
 }
@@ -709,6 +732,8 @@ button {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -720,7 +745,14 @@ button {
 
 .games .games-list .game-icon .gameIconName {
   font-size: xx-large;
-  margin: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 8%;
+  margin: 0;
 }
 
 .games .games-list .game-icon .gameIconName:hover {
@@ -728,10 +760,78 @@ button {
 }
 
 .games .games-list .game-icon .gameIconImage {
-  height: 60%;
+  height: 70%;
   width: 70%;
   border-radius: 5%;
-  margin: 15px;
+}
+
+@media screen and (max-width: 760px) {
+  .games {
+    width: 100vw;
+    height: 90vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .games .category-list {
+    width: 100vw;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .games .category-list label {
+    height: 5vh;
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .games .category-list label span {
+    height: 100%;
+  }
+  .games .category-list .categories-item {
+    display: none;
+  }
+  .games .games-list {
+    width: 100vw;
+    height: 80vh;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 40% 10% 40% 10%;
+        grid-template-columns: 40% 10% 40% 10%;
+  }
+  .games .games-list .game-icon {
+    width: 35vw;
+    max-height: 150px;
+  }
+  .games .games-list .game-icon .gameIconName {
+    font-size: 1rem;
+  }
+  .games .games-list .game-icon:nth-of-type(odd) {
+    -ms-grid-column: 1;
+        grid-column-start: 1;
+  }
+  .games .games-list .game-icon:nth-of-type(even) {
+    -ms-grid-column: 3;
+        grid-column-start: 3;
+  }
 }
 
 .speedmatch {

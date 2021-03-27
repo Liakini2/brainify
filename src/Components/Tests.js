@@ -44,7 +44,7 @@ const Tests = () => {
     return (
         <div className='games'>
             <section className='category-list'>
-                <label>Find Game: <input className='searchBar' type="text" value={search} onChange={e => setSearch(e.target.value)}/></label>
+                <label><span>Find Game:</span> <input className='searchBar' type="text" value={search} onChange={e => setSearch(e.target.value)}/></label>
 
                 {/* Switch this to list of categories, game icons will be mapping over all the games. */}
                 <li className='categories-item' onClick={() =>setCatFilter('')}>All</li>

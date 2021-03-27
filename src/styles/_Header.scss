@@ -72,6 +72,21 @@
   }
 }
 
+@media screen and (max-width: 1200px) {
+  .header {
+    .nav {
+
+      .left {
+        font-size: 1.5rem;
+      }
+
+      .right {
+        width: 20vw;
+      }
+    }
+  }
+}
+
 @media screen and (max-width: 760px){
   .header {
     height: 10vh;
@@ -91,6 +106,7 @@
         flex-direction: column;
         justify-content: space-around;
         height: 12vh;
+        font-size: 1rem;;
       } 
 
       .right {
