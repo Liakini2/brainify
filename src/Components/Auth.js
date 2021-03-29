@@ -23,7 +23,7 @@ const Auth = ({history, ...props}) => {
 
     const checkPassword = () => {
         //must contain at least 1 number, 1 capital letter, 1 lower case letter and one special character
-        var reg = new RegExp(/^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\w\d\s:])([^\s]){8, 32}$/);
+        var reg = new RegExp(/^(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[^\w\d\s:])([^\s]){8,16}$/);
         return reg.test(loginInfo.password);
     }
 

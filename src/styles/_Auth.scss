@@ -29,12 +29,11 @@
       text-align: center;
     }
     label {
-      display: grid;
-      width: 70%;
-      grid-template-columns: 30% 60%;
+      
       span {
         height: 50%;
-        width: 100%;
+        line-height: 50%;
+        
       }
       input {
         height: 40%;
@@ -64,7 +63,6 @@
   .register {
     grid-template-rows: 12% 12% 12% 12% 12% 12% 10% 8%;
     .error-text {
-      margin: 10px;
       width: 80%;
       text-align: center;
     }
@@ -83,8 +81,8 @@
       justify-content: center;
       span {
         width: 20%;
-        text-align: end;
-        margin-right: 2%;
+        text-align: center;
+        transform: translateY(50%);
       }
 
       input {
@@ -112,8 +110,6 @@
         width: 100%;
         span {
           width: 35%;
-          margin: 0;
-          text-align: end;
         }
 
         input {
@@ -134,7 +130,6 @@
         width: 100%;
         span {
           width: 28%;
-          text-align: end;
         }
 
         input {
@@ -144,37 +139,3 @@
     }
   }
 }
-// @import './functions';
-
-// .header{
-//     height: 100px;
-//     width: 100vw;
-//     position: absolute;
-//     top: 0;
-//     background-color: aqua;
-
-//     .mainBar {
-//         background-color: aqua;
-//         @include flexCenter(row, space-between);
-
-//         h1{
-//             position: absolute;
-//             left: 30px;
-//         }
-
-//         .headerOptions{
-//             @include flexCenter(row, space-between);
-//             position: relative;
-//             width: 70vw;
-//             margin-left: 200px;
-
-//             ul {
-//                 @include flexCenter(row, space-between);
-//                 li {
-//                     list-style-type: none;
-//                     margin-left: 50px;
-//                 }
-//             }
-
-//         }
-//     }

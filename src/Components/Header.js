@@ -9,7 +9,7 @@ const Header = (props) => {
 
 
     const [toggle, setToggle] = useState(false)
-    const [phoneMenu, SetPhoneMenu] = useState(true);
+    const [phoneMenu, setPhoneMenu] = useState(true);
 
     const userValue = useContext(UserContext);
     const [loggedin, setLoggedin] = useState(false);
@@ -19,22 +19,32 @@ const Header = (props) => {
 
     useEffect(() => {
         const getDimensions = () => {
-            setWidth(window.innerWidth);
+            let w = window.innerWidth;
+            setPhoneMenu(w > 760);
+            setToggle(w <= 760);
+            // if(w > 760) {
+            //     setPhoneMenu(true);
+            //     setToggle(false);
+            // } else {
+            //     setPhoneMenu(false);
+            //     setToggle(true);
+            // }
+            // setWidth(window.innerWidth);
         }
         window.addEventListener('resize', getDimensions)
         return (() => window.removeEventListener('resize', getDimensions))
     }, []);
 
-    useEffect(() => {
-        console.log('am i even triggering this? ', width)
-        if(width > 760) {
-            SetPhoneMenu(true);
-            setToggle(false);
-        } else {
-            SetPhoneMenu(false);
-            setToggle(true);
-        }
-    }, [width])
+    // useEffect(() => {
+    //     console.log('am i even triggering this? ', width)
+    //     if(width > 760) {
+    //         setPhoneMenu(true);
+    //         setToggle(false);
+    //     } else {
+    //         setPhoneMenu(false);
+    //         setToggle(true);
+    //     }
+    // }, [width])
 
     const logout = async () => {
         await axios.post('auth/logout')
@@ -47,7 +57,7 @@ const Header = (props) => {
     return (
         <header className='header'>
             <h1 className="brainifyLogo">BRAINIFY</h1>
-            <MenuIcon className="phone menu" onClick={_ => SetPhoneMenu(!phoneMenu)} />
+            <MenuIcon className="phone menu" onClick={_ => setPhoneMenu(!phoneMenu)} />
             <Slide in={phoneMenu} direction="left" timeout={500} unmountOnExit mountOnEnter>
                 <nav className="nav">
                     <section className="left">
