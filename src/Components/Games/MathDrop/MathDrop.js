@@ -5,6 +5,7 @@ import axios from 'axios'
 import { GameContext } from '../../../context/GameContext'
 import { UserContext } from '../../../context/UserContext'
 import { useHistory } from 'react-router-dom'
+import {v4 as uuidv4} from 'uuid';
 
 const MathDrop = () => {
     const [userAnswer, setUserAnswer] = useState('')
@@ -14,18 +15,18 @@ const MathDrop = () => {
     const [consecutive, setConsecutive] = useState(1)
     const [gameStart, setGameStart] = useState(false);
 
-    const id = useRef(0)
+    // const id = useRef(0)
     const equationTimer = useRef()
     const history = useHistory()
     const gameContext = useContext(GameContext)
     const userValue = useContext(UserContext)
 
     useEffect(() => {
-        axios.get('/auth/me')
-        .then(({data})=>{
-            userValue.setUser(data)
-        })
-        .catch(_=>history.push('/'))
+        // axios.get('/auth/me')
+        // .then(({data})=>{
+        //     userValue.setUser(data)
+        // })
+        // .catch(_=>history.push('/'))
     }, [])
 
     useEffect(() => {
@@ -51,9 +52,9 @@ const MathDrop = () => {
         let numTwo=Math.floor(Math.random()*(11))
         let operatorSelector=Math.floor(Math.random()*(2+1))
         let altOperator=['+', '-', 'X'][operatorSelector]
-        id.current = id.current+1
-        console.log(id.current);
-        setEquations((e)=>[...e, {numOne, numTwo, altOperator, i: id.current}])
+        // id.current = id.current+1
+        // console.log(id.current);
+        setEquations((e)=>[...e, {numOne, numTwo, altOperator, i: uuidv4()}])
     }
 
     const checkAnswer=(event)=>{
@@ -107,7 +108,7 @@ const MathDrop = () => {
     }
 
     const playGame=()=>{
-        id.current = 0
+        // id.current = 0
         setLives(3);
         setScore(0);
         equationTimer.current = setInterval(()=>{
@@ -132,8 +133,8 @@ const MathDrop = () => {
                 :
                 gameStart && <div className='mathdropGame'>
                     {equations.map((equation, index)=>{
-                        let time = Math.floor(Math.random() * 3)*3 + 6;
-                        return(<Equation className='displayEquations' key={equation.i} missedTarget={missedTarget} numOne={equation.numOne} numTwo={equation.numTwo} altOperator={equation.altOperator} time={time}/>)
+                        //get 6, 9 or 12
+                        return(<Equation className='displayEquations' key={equation.i} missedTarget={missedTarget} numOne={equation.numOne} numTwo={equation.numTwo} altOperator={equation.altOperator} />)
                     })}
                     <input className='user-answer' autoFocus value={userAnswer} onKeyPress={checkAnswer} onChange={(e)=>{setUserAnswer(e.target.value)}}/>
                 </div>

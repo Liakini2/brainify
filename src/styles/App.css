@@ -1548,6 +1548,7 @@ button {
 .gameDisplay .hub {
   width: 15vw;
   font-size: x-large;
+  text-align: center;
 }
 
 .gameDisplay .centerGame {
@@ -1632,6 +1633,10 @@ button {
   position: absolute;
   top: 18vh;
   left: 50%;
+  -webkit-animation: drop 9s forwards;
+          animation: drop 9s forwards;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
   background-image: -webkit-gradient(linear, left top, right bottom, from(#754d80), to(#2c3970));
   background-image: linear-gradient(to bottom right, #754d80, #2c3970);
   height: 60px;
@@ -1651,22 +1656,15 @@ button {
 }
 
 .gameDisplay .mathdropGame .equation.slowDrop {
-  -webkit-animation: drop 6s forwards;
-          animation: drop 6s forwards;
-  -webkit-animation-timing-function: linear;
-          animation-timing-function: linear;
-}
-
-.gameDisplay .mathdropGame .equation.normalDrop {
-  -webkit-animation: drop 9s forwards;
-          animation: drop 9s forwards;
+  -webkit-animation: drop 12s forwards;
+          animation: drop 12s forwards;
   -webkit-animation-timing-function: linear;
           animation-timing-function: linear;
 }
 
 .gameDisplay .mathdropGame .equation.fastDrop {
-  -webkit-animation: drop 12s forwards;
-          animation: drop 12s forwards;
+  -webkit-animation: drop 6s forwards;
+          animation: drop 6s forwards;
   -webkit-animation-timing-function: linear;
           animation-timing-function: linear;
 }
@@ -1677,8 +1675,8 @@ button {
             transform: translate(0, 0);
   }
   to {
-    -webkit-transform: translate(0, 64vh);
-            transform: translate(0, 64vh);
+    -webkit-transform: translate(0, 65vh);
+            transform: translate(0, 65vh);
   }
 }
 
@@ -1688,8 +1686,8 @@ button {
             transform: translate(0, 0);
   }
   to {
-    -webkit-transform: translate(0, 64vh);
-            transform: translate(0, 64vh);
+    -webkit-transform: translate(0, 65vh);
+            transform: translate(0, 65vh);
   }
 }
 
