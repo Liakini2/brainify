@@ -131,7 +131,7 @@
 }
 
 .login .auth .switch {
-  color: blue;
+  color: #69dee6;
   text-align: center;
 }
 
@@ -228,7 +228,7 @@
 }
 
 .edit-user {
-  background: orange;
+  background: #292945;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: auto;
@@ -248,10 +248,21 @@
 .edit-user input {
   width: 30%;
   height: 50%;
+  border-radius: 0;
 }
 
 .edit-user button {
-  width: 20%;
+  border: 2px solid #fff;
+  color: #fff;
+  background-color: #45376c;
+  text-align: center;
+  width: 150px;
+  height: 50px;
+  border-radius: 0;
+}
+
+.edit-user button:hover {
+  background-color: #754d80;
 }
 
 input {
@@ -1575,9 +1586,10 @@ body {
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  width: 200px;
-  height: 200px;
-  background: orange;
+  width: 100vw;
+  height: 50vh;
+  background: rgba(36, 33, 59, 0.5);
+  font-size: xx-large;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

@@ -46,9 +46,10 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 200px;
-  height: 200px;
-  background: orange;
+  width: 100vw;
+  height: 50vh;
+  background: $transparentBackground;
+  font-size: xx-large;
   display: flex;
   justify-content: center;
   align-items: center;
