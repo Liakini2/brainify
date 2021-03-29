@@ -9,15 +9,15 @@
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   text-align: center;
   background-color: #292945;
   width: 50vw;
@@ -52,19 +52,23 @@
 }
 
 .login {
-  margin-top: 70px;
   background: #24213b;
-  height: 60vh;
-  width: 70vw;
+  height: 90vh;
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.login .MuiSnackbar-root {
+  -webkit-transform: translateY(300%);
+          transform: translateY(300%);
 }
 
 .login .auth {
@@ -72,17 +76,21 @@
   display: grid;
   background: #292945;
   color: #ffff;
-  max-width: 671px;
-  max-height: 350px;
+  max-width: 471px;
+  max-height: 550px;
   height: 100%;
   width: 100%;
   -ms-flex-line-pack: center;
-  align-content: center;
+      align-content: center;
   justify-items: center;
   -ms-grid-columns: auto;
-  grid-template-columns: auto;
+      grid-template-columns: auto;
   -ms-grid-rows: 20% 20% 15% 15% 15%;
-  grid-template-rows: 20% 20% 15% 15% 15%;
+      grid-template-rows: 20% 20% 15% 15% 15%;
+}
+
+.login .auth .error-text {
+  text-align: center;
 }
 
 .login .auth label {
@@ -90,7 +98,7 @@
   display: grid;
   width: 70%;
   -ms-grid-columns: 30% 60%;
-  grid-template-columns: 30% 60%;
+      grid-template-columns: 30% 60%;
 }
 
 .login .auth label span {
@@ -102,8 +110,8 @@
   height: 40%;
   width: 70%;
   -ms-flex-item-align: start;
-  -ms-grid-row-align: start;
-  align-self: start;
+      -ms-grid-row-align: start;
+      align-self: start;
   border-radius: 0;
 }
 
@@ -121,35 +129,105 @@
   background-color: #754d80;
 }
 
+.login .auth button:hover {
+  cursor: pointer !important;
+}
+
 .login .auth .switch {
-  border: 1px solid #ffff;
-  color: #ffff;
-  background-color: #45376c;
+  color: blue;
   text-align: center;
-  width: 65px;
-  height: 30px;
-  border-radius: 0;
 }
 
 .login .auth .switch:hover {
-  background-color: #754d80;
+  cursor: pointer;
 }
 
 .login .register {
-  display: -ms-grid;
-  display: grid;
-  max-width: 671px;
-  max-height: 550px;
-  height: 150%;
-  width: 100%;
-  -ms-grid-columns: auto;
-  grid-template-columns: auto;
   -ms-grid-rows: 12% 12% 12% 12% 12% 12% 10% 8%;
-  grid-template-rows: 12% 12% 12% 12% 12% 12% 10% 8%;
+      grid-template-rows: 12% 12% 12% 12% 12% 12% 10% 8%;
 }
 
 .login .register .error-text {
   margin: 10px;
+  width: 80%;
+  text-align: center;
+}
+
+.login .row {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto;
+      grid-template-columns: auto;
+  -ms-grid-rows: 50% 50%;
+      grid-template-rows: 50% 50%;
+  width: 100%;
+  height: 100%;
+}
+
+.login .row label {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.login .row label span {
+  width: 20%;
+  text-align: end;
+  margin-right: 2%;
+}
+
+.login .row label input {
+  width: 40%;
+  height: 70%;
+  max-height: 30px;
+}
+
+.login .row .invalid {
+  color: red;
+  text-align: center;
+}
+
+@media screen and (max-width: 760px) {
+  .login {
+    width: 80%;
+    font-size: 1.5rem;
+  }
+  .login .row label {
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    width: 100%;
+  }
+  .login .row label span {
+    width: 35%;
+    margin: 0;
+    text-align: end;
+  }
+  .login .row label input {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .login {
+    width: 100%;
+    font-size: 1rem;
+  }
+  .login .row label {
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    width: 100%;
+  }
+  .login .row label span {
+    width: 28%;
+    text-align: end;
+  }
+  .login .row label input {
+    width: 55%;
+  }
 }
 
 .edit-user {
@@ -157,16 +235,16 @@
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: auto;
-  grid-template-columns: auto;
+      grid-template-columns: auto;
   width: 100%;
   height: 100%;
   max-width: 671px;
   max-height: 434px;
   -ms-flex-line-pack: center;
-  align-content: center;
+      align-content: center;
   justify-items: center;
   -ms-grid-rows: 10% 10% 10% 10% 10%;
-  grid-template-rows: 10% 10% 10% 10% 10%;
+      grid-template-rows: 10% 10% 10% 10% 10%;
   grid-row-gap: 2%;
 }
 
@@ -191,6 +269,7 @@ button {
   height: 11vh;
   width: 100%;
   background-color: #ffff;
+  background: #24213b;
 }
 
 .header .mainBar {
@@ -199,15 +278,15 @@ button {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-  -ms-flex-direction: row;
-  flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
   width: 100%;
   height: 10vh;
 }
@@ -219,14 +298,14 @@ button {
   display: flex;
   display: flex;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   -ms-flex-pack: distribute;
-  justify-content: space-around;
+      justify-content: space-around;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-  -ms-flex-direction: row;
-  flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
 }
 
 .header .mainBar nav .brainifyLogo {
@@ -241,14 +320,14 @@ button {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   -ms-flex-pack: distribute;
-  justify-content: space-around;
+      justify-content: space-around;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-  -ms-flex-direction: row;
-  flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
 }
 
 .header .mainBar nav ul .navBtn {
@@ -265,10 +344,10 @@ button {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: distribute;
-  justify-content: space-around;
+      justify-content: space-around;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 30%;
 }
 
@@ -302,11 +381,11 @@ button {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   position: absolute;
   right: 0px;
   width: 140px;
@@ -341,6 +420,67 @@ button {
   background-color: #754d80;
 }
 
+@media screen and (max-width: 760px) {
+  .header {
+    background: #24213b;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+  }
+  .header .brainifyLogo {
+    margin: 0 auto;
+  }
+  .header nav {
+    z-index: 1000;
+    background: rgba(36, 33, 59, 0.5);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 35%;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .header nav .navBtn {
+    color: #ffff;
+    list-style: none;
+    text-align: center;
+  }
+  .header nav .editBtn {
+    color: #ffff;
+    text-align: center;
+  }
+  .header nav .logoutBtn {
+    width: 50%;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
+  .menu {
+    position: absolute;
+    top: 1%;
+    right: 2%;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .header nav {
+    width: 40%;
+    background: rgba(36, 33, 59, 0.5);
+  }
+}
+
 .home {
   background-color: tan;
   width: 100%;
@@ -358,8 +498,8 @@ button {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   text-align: center;
 }
 
@@ -369,9 +509,9 @@ button {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: distribute;
-  justify-content: space-around;
+      justify-content: space-around;
   -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
+      flex-wrap: wrap;
   background: #24213b;
 }
 
@@ -383,11 +523,11 @@ button {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 30%;
   height: 65%;
   margin: 15px;
@@ -414,15 +554,15 @@ button {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   background: #292945;
   width: 30%;
   color: #ffff;
@@ -435,11 +575,11 @@ button {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .home .stats .stat .chartjs-render-monitor {
@@ -453,7 +593,7 @@ button {
   width: 100vw;
   height: 100vh;
   -ms-flex-pack: distribute;
-  justify-content: space-around;
+      justify-content: space-around;
   background: #24213b;
 }
 
@@ -462,8 +602,8 @@ button {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 40%;
   height: 100px;
   padding-top: 200px;
@@ -485,7 +625,7 @@ button {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: distribute;
-  justify-content: space-around;
+      justify-content: space-around;
 }
 
 .games .category-list {
@@ -498,11 +638,11 @@ button {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding-top: 30px;
 }
 
@@ -531,7 +671,7 @@ button {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 23% 23% 23% 23%;
-  grid-template-columns: 23% 23% 23% 23%;
+      grid-template-columns: 23% 23% 23% 23%;
   grid-column-gap: 2%;
 }
 
@@ -543,11 +683,11 @@ button {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 95%;
   height: 50%;
   margin: 20px;
@@ -578,13 +718,13 @@ button {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -ms-flex-pack: distribute;
-  justify-content: space-around;
+      justify-content: space-around;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   /* the same but +90deg to rotate */
 }
 
@@ -607,10 +747,10 @@ button {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -ms-flex-item-align: start;
-  align-self: flex-start;
+      align-self: flex-start;
   justify-self: flex-start;
   width: 100vw;
   height: 10%;
@@ -629,17 +769,17 @@ button {
 .speedmatch .correct {
   color: green;
   -webkit-transform: scale(1.5);
-  transform: scale(1.5);
+          transform: scale(1.5);
   -webkit-animation: answer 0.5s 1;
-  animation: answer 0.5s 1;
+          animation: answer 0.5s 1;
 }
 
 .speedmatch .wrong {
   color: red;
   -webkit-transform: scale(1.5);
-  transform: scale(1.5);
+          transform: scale(1.5);
   -webkit-animation: answer 0.5s 1;
-  animation: answer 0.5s 1;
+          animation: answer 0.5s 1;
 }
 
 .speedmatch .about-game {
@@ -648,14 +788,14 @@ button {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -ms-flex-pack: distribute;
-  justify-content: space-around;
+      justify-content: space-around;
   width: 22%;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   height: 50%;
   text-align: center;
 }
@@ -730,7 +870,7 @@ button {
   margin-top: 100px;
   margin-left: 100px;
   -webkit-transform: translate(-65%, -50%);
-  transform: translate(-65%, -50%);
+          transform: translate(-65%, -50%);
 }
 
 .speedmatch .star:before,
@@ -745,12 +885,12 @@ button {
   bottom: 0;
   border-radius: 5%;
   -webkit-transform: rotate(66.66deg) skewX(45deg);
-  transform: rotate(66.66deg) skewX(45deg);
+          transform: rotate(66.66deg) skewX(45deg);
 }
 
 .speedmatch .star:after {
   -webkit-transform: rotate(156.66deg) skew(45deg);
-  transform: rotate(156.66deg) skew(45deg);
+          transform: rotate(156.66deg) skew(45deg);
 }
 
 .speedmatch .star.green:after,
@@ -780,11 +920,11 @@ button {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .speedmatch .shapes .discard-pile {
@@ -796,7 +936,7 @@ button {
   background-repeat: no-repeat;
   z-index: 5;
   -webkit-box-shadow: inset 0 0 0.2em 0.3em black;
-  box-shadow: inset 0 0 0.2em 0.3em black;
+          box-shadow: inset 0 0 0.2em 0.3em black;
 }
 
 .speedmatch .shapes .card {
@@ -807,13 +947,13 @@ button {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-shadow: inset 0 0 0.2em 0.3em black;
-  box-shadow: inset 0 0 0.2em 0.3em black;
+          box-shadow: inset 0 0 0.2em 0.3em black;
 }
 
 .speedmatch .final-score {
@@ -822,13 +962,13 @@ button {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .speedmatch .animate-card {
   -webkit-animation: turncard 0.1s 1;
-  animation: turncard 0.1s 1;
+          animation: turncard 0.1s 1;
 }
 
 .speedmatch .arrows {
@@ -838,7 +978,7 @@ button {
   width: 15%;
   height: 10%;
   -ms-flex-pack: distribute;
-  justify-content: space-around;
+      justify-content: space-around;
 }
 
 .speedmatch .arrows label {
@@ -849,120 +989,120 @@ button {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   -ms-flex-pack: distribute;
-  justify-content: space-around;
+      justify-content: space-around;
 }
 
 .speedmatch .left-arrow {
   -webkit-transform: rotate(180deg) scale(3);
-  transform: rotate(180deg) scale(3);
+          transform: rotate(180deg) scale(3);
 }
 
 .speedmatch .right-arrow {
   -webkit-transform: scale(3);
-  transform: scale(3);
+          transform: scale(3);
 }
 
 .speedmatch .left-arrow.click {
   -webkit-animation: clickLeft 0.1s 1;
-  animation: clickLeft 0.1s 1;
+          animation: clickLeft 0.1s 1;
 }
 
 .speedmatch .right-arrow.click {
   -webkit-animation: click 0.1s 1;
-  animation: click 0.1s 1;
+          animation: click 0.1s 1;
 }
 
 @-webkit-keyframes click {
   from {
     -webkit-transform: scale(3);
-    transform: scale(3);
+            transform: scale(3);
   }
   to {
     -webkit-transform: scale(2.5);
-    transform: scale(2.5);
+            transform: scale(2.5);
   }
 }
 
 @keyframes click {
   from {
     -webkit-transform: scale(3);
-    transform: scale(3);
+            transform: scale(3);
   }
   to {
     -webkit-transform: scale(2.5);
-    transform: scale(2.5);
+            transform: scale(2.5);
   }
 }
 
 @-webkit-keyframes clickLeft {
   from {
     -webkit-transform: scale(3) rotate(180deg);
-    transform: scale(3) rotate(180deg);
+            transform: scale(3) rotate(180deg);
   }
   to {
     -webkit-transform: scale(2.5) rotate(180deg);
-    transform: scale(2.5) rotate(180deg);
+            transform: scale(2.5) rotate(180deg);
   }
 }
 
 @keyframes clickLeft {
   from {
     -webkit-transform: scale(3) rotate(180deg);
-    transform: scale(3) rotate(180deg);
+            transform: scale(3) rotate(180deg);
   }
   to {
     -webkit-transform: scale(2.5) rotate(180deg);
-    transform: scale(2.5) rotate(180deg);
+            transform: scale(2.5) rotate(180deg);
   }
 }
 
 @-webkit-keyframes turncard {
   from {
     -webkit-transform: translateX(0);
-    transform: translateX(0);
+            transform: translateX(0);
   }
   to {
     -webkit-transform: translateX(-127%);
-    transform: translateX(-127%);
+            transform: translateX(-127%);
   }
 }
 
 @keyframes turncard {
   from {
     -webkit-transform: translateX(0);
-    transform: translateX(0);
+            transform: translateX(0);
   }
   to {
     -webkit-transform: translateX(-127%);
-    transform: translateX(-127%);
+            transform: translateX(-127%);
   }
 }
 
 @-webkit-keyframes answer {
   from {
     -webkit-transform: scale(1.5);
-    transform: scale(1.5);
+            transform: scale(1.5);
   }
   to {
     -webkit-transform: scale(2);
-    transform: scale(2);
+            transform: scale(2);
   }
 }
 
 @keyframes answer {
   from {
     -webkit-transform: scale(1.5);
-    transform: scale(1.5);
+            transform: scale(1.5);
   }
   to {
     -webkit-transform: scale(2);
-    transform: scale(2);
+            transform: scale(2);
   }
 }
 
@@ -971,7 +1111,7 @@ button {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: distribute;
-  justify-content: space-around;
+      justify-content: space-around;
   max-width: 100vw;
   max-height: 100vh;
 }
@@ -985,15 +1125,15 @@ button {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .gameDisplay .centerGame .gameTitle {
@@ -1007,15 +1147,15 @@ button {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   margin-top: 40px;
   background-color: #292945;
   height: 300px;
@@ -1046,11 +1186,11 @@ button {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: end;
-  -ms-flex-align: end;
-  align-items: flex-end;
+      -ms-flex-align: end;
+          align-items: flex-end;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   background-color: #292945;
   height: 75vh;
   width: 70vw;
@@ -1071,16 +1211,10 @@ button {
   top: 18vh;
   left: 50%;
   -webkit-animation: drop 10s forwards;
-  animation: drop 10s forwards;
+          animation: drop 10s forwards;
   -webkit-animation-timing-function: linear;
-  animation-timing-function: linear;
-  background-image: -webkit-gradient(
-    linear,
-    left top,
-    right bottom,
-    from(#754d80),
-    to(#2c3970)
-  );
+          animation-timing-function: linear;
+  background-image: -webkit-gradient(linear, left top, right bottom, from(#754d80), to(#2c3970));
   background-image: linear-gradient(to bottom right, #754d80, #2c3970);
   height: 60px;
   width: 60px;
@@ -1089,11 +1223,11 @@ button {
   display: flex;
   text-align: center;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   border: 1px solid white;
   border-radius: 50%;
 }
@@ -1101,36 +1235,138 @@ button {
 @-webkit-keyframes drop {
   from {
     -webkit-transform: translate(0, 0);
-    transform: translate(0, 0);
+            transform: translate(0, 0);
   }
   to {
     -webkit-transform: translate(0, 68vh);
-    transform: translate(0, 68vh);
+            transform: translate(0, 68vh);
   }
 }
 
 @keyframes drop {
   from {
     -webkit-transform: translate(0, 0);
-    transform: translate(0, 0);
+            transform: translate(0, 0);
   }
   to {
     -webkit-transform: translate(0, 68vh);
-    transform: translate(0, 68vh);
+            transform: translate(0, 68vh);
   }
 }
 
+
+.memoryGame {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.actualGame {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 800px;
+  height: 800px;
+  border: 1px solid yellow;
+  border-radius: 15px;
+  margin: 15px;
+}
+
+.gameSpace {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.card {
+  height: 150px;
+  width: 150px;
+  border-radius: 10px;
+  margin: 15px;
+}
+
+.selected {
+  border: 5px solid #97ff20 !important;
+  height: 140px !important;
+  width: 140px !important;
+}
+
+.hidden {
+  background-color: #222385 !important;
+}
+
+.green {
+  background-color: green;
+}
+
+.red {
+  background-color: red;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.pink {
+  background-color: pink;
+}
+
+.orange {
+  background-color: orange;
+}
+
+.purple {
+  background-color: purple;
+}
+
+.black {
+  background-color: black;
 .stat {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   position: relative;
   height: 15%;
   width: 100%;
@@ -1140,6 +1376,7 @@ button {
 .App {
   width: 100%;
   height: 100%;
+  background: #24213b;
 }
 
 .App {
@@ -1148,11 +1385,11 @@ button {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 body {
@@ -1164,11 +1401,11 @@ body {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 100vw;
   height: 100vh;
 }
@@ -1176,5 +1413,41 @@ body {
 .game {
   width: 100%;
   height: 90vh;
+}
+
+.countdown {
+  z-index: 20;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 200px;
+  height: 200px;
+  background: orange;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.phone {
+  display: none !important;
+}
+
+@media screen and (max-width: 760px) {
+  .phone {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+  }
+  .header .computer {
+    display: none !important;
+  }
 }
 /*# sourceMappingURL=App.css.map */
