@@ -2,7 +2,8 @@ import {useEffect, useRef} from 'react'
 
 const Equation = (props) => {
     useEffect(() => {
-        let time = 10
+        console.log('t:',props.time);
+        let time = props.time;
         const timer = setInterval(()=>{
             time--
             if(time===0){
@@ -19,10 +20,10 @@ const Equation = (props) => {
         left: (Math.floor(Math.random()*65)+15)+'%'
     })
 
-    console.log(style)
+    // console.log(style)
 
     return (
-        <div className='equation' style={style.current}>
+        <div className={`equation ${props.time === 6 ? 'fastDrop' : props.time === 12 ? 'slowDrop' : 'normalDrop'}`} style={style.current}>
             {`${props.numOne} ${props.altOperator} ${props.numTwo} =`}
         </div>
     )
