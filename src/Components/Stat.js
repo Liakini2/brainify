@@ -2,6 +2,7 @@ import {useContext, useEffect} from 'react'
 import axios from 'axios'
 import {HorizontalBar} from 'react-chartjs-2'
 import { UserContext } from '../context/UserContext'
+import { white } from 'material-ui/styles/colors'
 
 const Stat = () => {
     const userValue = useContext(UserContext)
@@ -9,18 +10,20 @@ const Stat = () => {
     useEffect(() => {
         axios.get(`/api/scores`)
         .then(({data})=>{
-            console.log(data)
             userValue.setStats(data)
         })
         .catch(err=>console.log(err))
     }, [])
 
+    let mappedCategories = userValue.stats.map(stat=>{return stat.category})
+    let mappedAverageScore = userValue.stats.map(stat=>{return stat.averageScore})
+    
+    console.log(mappedCategories)
     return (
         <section className='stat'>
             <h1>Your Recent Stats</h1>
-            {userValue.stats.map((stat, index)=>{
-                return(
-                    <HorizontalBar
+            {userValue.stats.map(stat=>{
+                return <HorizontalBar
                     height={50}
                     width={100}
                     data={{
@@ -46,44 +49,17 @@ const Stat = () => {
                         },
                         scales: {
                             xAxes: [{
-                               ticks: {
-                                  beginAtZero: true,
-                                  fontColor: 'white'
-                               }
+                                ticks: {
+                                    beginAtZero: true,
+                                    fontColor: 'white'
+                                }
                             }]
-                         }
+                        }
                     }}
                     />
-                )
             })}
-        </section>
-    )
-}
+                    </section>
+                    )
+                }
 
 export default Stat
-
-{/* <HorizontalBar
-height={"50%"}
-width={"100%"}
-data={{
-    datasets: [{
-        barPercentage: 1.0, 
-        barThickness: 30,
-        label: [userValue.stats.map(e=>{console.log(e.category); return e.category})],
-        data: [userValue.stats.map(e=>e.averageScore)]    
-    }]
-}}
-options={{
-    maintainAspectRatio: false,
-    scales:{
-        xAxes :[{
-            ticks: {
-                beginAtZero: true,
-            }
-        }],
-        yAxes :[{
-            stacked: true
-        }]
-    },
-}}
-/> */}
