@@ -3,58 +3,83 @@
 
 .home {
   background-color: tan;
-  width: 100%;
-  height: 90%;
+  width: 100vw;
+  height: 90vh;
   display: flex;
+  flex-direction: column;
+
+    h1 {
+      font-size:1.5rem;
+      text-align: center;
+      margin: 0;
+    }
+
+    h2 {
+      font-size: 1.3rem;
+      text-align: center;
+    }
+    
+    .home-content {
+      width: 100vw;
+      height: 80vh;
+      display: flex;
+      justify-content: center;
+    }
 
   .recommended {
     background-color: $accentColorOne;
-    width: 70%;
-    display: flex;
-    flex-direction: column;
+    width: 70vw;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
     text-align: center;
-    section {
-      height: 90%;
-      display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
-      background: $primaryBackground;
+    justify-items: center;
+    align-items: center;
+
       .game-icon {
         background: $primaryContainerBackground;
         color: $primaryTextColor;
         display: flex;
         flex-direction: column;
         align-items: center;
-        width: 30%;
-        height: 65%;
-        margin: 15px;
-        margin-bottom: 0;
+        width: 15vw;
+        height: 50%;
+        box-shadow: inset 0 0 5px 5px black;
+
         .gameIconName {
           font-size: xx-large;
+          align-content: center;
+          height: 20%;
           margin: 0;
+          display: flex;
+          align-items: center;
+
           &:hover {
             color: $accentColorThree;
           }
         }
         .gameIconImage {
-          height: 60%;
-          width: 70%;
+          height: 70%;
+          width: 60%;
           border-radius: 5%;
+          
         }
       }
-    }
   }
 
   .stats {
     @include flexCenter(column, center);
     background: $primaryContainerBackground;
-    width: 30%;
+    width: 30vw;
     color: $primaryTextColor;
+    display: flex;
+    flex-direction: column;
 
     .stat {
       height: 25%;
       width: 100%;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       .chartjs-render-monitor {
@@ -64,8 +89,61 @@
   }
 }
 
+@media screen and (max-width: 1200px) {
+  .home {
+    .recommended {
+      .game-icon {
+
+        .gameIconName {
+          font-size: 1.3rem;
+        }
+      }
+    }
+  }
+}
+
 @media screen and (max-width: 760px){
-  
+  .home {
+    h1 {
+      margin: 0;
+    }
+
+    h2{
+      margin: 0;
+    }
+
+    .home-content {
+        flex-direction: column;
+      .recommended {
+        
+        width: 100vw;
+        height: 40vh;
+        justify-content: space-around;
+        align-items: center;
+
+        .game-icon {
+          width: 75vw;
+          height: 40vh;
+          max-width: 261px;
+          max-height: 240px;
+        }
+
+        .left {
+          transform: rotate(180deg) scale(2);
+        }
+
+        .right {
+          transform: scale(2); 
+        }
+      }
+ 
+      .stats {
+        height: 40vh;
+        width: 100vw;
+      }
+    }
+
+  }
 }
 
 @media screen and (max-width: 430px){

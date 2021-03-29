@@ -2,138 +2,157 @@
 @import "./Colors";
 
 .header {
-  height: 11vh;
-  width: 100%;
-  background-color: $primaryTextColor;
+  display: flex;
+  width: 100vw;
+  height: 10vh;
   background: $primaryBackground;
 
-  .mainBar {
-    background-color: $transparentBackground;
-    @include flexCenter(row, space-between);
-    width: 100%;
-    height: 10vh;
-    nav {
-      width: 60%;
-      display: flex;
-      @include flexCenter(row, space-around);
-      .brainifyLogo {
-        width: 30%;
-        font-size: xxx-large;
-        text-align: center; 
-      }
-      ul {
-        width: 60%;
-        @include flexCenter(row, space-around);
-        .navBtn {
-          list-style: none;
-          text-decoration: none;
-          &:hover {
-            color: $accentColorThree;
-          }
-        }
-      }
-    }
+  .brainifyLogo {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 30%);
+    margin: 0;
+  }
 
-    .about {
+  .nav{
+    color: $primaryTextColor;
+    display: flex;
+    background-color: $transparentBackground;
+    justify-content: space-between;
+    width: 100vw;
+    font-size: 1.7rem;
+    // flex-flow: row-reverse;
+
+    .left {
       display: flex;
+      flex-direction: row;
       justify-content: space-around;
       align-items: center;
-      width: 30%;
+      width: 40vw;
+    }
 
-      .altLinks {
-        text-decoration: none;
-        font-size: x-large;
-        &:hover {
-          color: $accentColorThree;
-        }
-      }
+    .right {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      width: 10vw;
 
-      .menuBtn {
-        @include primaryBtn;
-        margin: 10px;
+      .acctMenu {
+        height: 5vh;
+        transform: scale(1.5);
       }
+    }
+
+    .altLinks {
+      color: $primaryTextColor;
+      text-decoration: none;
+    }
+
+    .dropdown {
+      display: flex;
+      justify-content: space-around;
+      flex-direction: column;
+      align-items: center;
+      position: absolute;
+      height: 12vh;
+      top: 10vh;
+      right: 2vw;
+      
+      .navBtn {
+        font-size: 1.5rem;
+      }
+    }
+
+    .navBtn {
+      color: $primaryTextColor;
+      text-decoration: none;
     }
   }
-  .dropDown {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: absolute;
-    right: 0px;
-    width: 140px;
-    height: 120px;
-    margin: 0px;
-    background-color: white;
-    border: $primaryBackground;
-    border-radius: 3%;
-    .editBtn {
-      text-decoration: none;
-      font-size: large;
-      margin: 10px;
-      &:hover {
-        color: $accentColorThree;
+}
+
+@media screen and (max-width: 1200px) {
+  .header {
+    .nav {
+
+      .left {
+        font-size: 1.5rem;
       }
-    }
-    .logoutBtn {
-      @include smallBtn;
+
+      .right {
+        width: 20vw;
+      }
     }
   }
 }
 
 @media screen and (max-width: 760px){
-
   .header {
-    background: $primaryBackground;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-
-    .brainifyLogo {
-      margin: 0 auto;
-    }
-
-    nav {
-      z-index: 1000;
-      background: $transparentBackground;
-      display: flex;
+    height: 10vh;
+    .nav {
+      position: absolute;
+      top: 5.4vh;
+      right: 0;
+      height: 30vh;
+      width: 20vw;
       flex-direction: column;
-      width: 35%;
+      justify-content: center;
       align-items: center;
+      text-align: center;
+      font-size: 1rem;
 
-      .navBtn {
-        color: $primaryTextColor;
-        list-style: none;
-        text-align: center;
+      .left {
+        flex-direction: column;
+        justify-content: space-around;
+        height: 12vh;
+        font-size: 1rem;;
+      } 
+
+      .right {
+        flex-direction: column;
+        width: 100%;
+        height: 3vh;
+        justify-content: center;
       }
 
-      .editBtn{
-        color: $primaryTextColor;
-        text-align: center;
+      .altLinks {
+        height: 5vh;
+        font-size: 1rem;
       }
 
-      .logoutBtn {
-        width: 50%;
-        align-self: center;
+      .dropdown {
+        position: relative;
+        height: 8vh;
+        top: 0;
+        right: 0;
+        
+
+        .navBtn {
+          font-size: 1rem;
+        }
+
+        button {
+          display: inline-block;
+          max-width: 100px;
+          // width: 100%;
+          // height: 50%;
+        }
       }
     }
 
+    .menu {
+      position: absolute;
+      top: 1vh;
+      right: 1vw;
+    }
   }
-
-  
-
-  .menu {
-    position: absolute;
-    top: 1%;
-    right: 2%;
-  }
-  
 }
 
 @media screen and (max-width: 430px){
   .header {
-    nav {
-      width: 40%;
-      background: $transparentBackground;
+    .nav {
+      width: 30vw;
     }
   }
 }
