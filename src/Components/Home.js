@@ -16,12 +16,12 @@ const Home = ({...props}) => {
     const [index, setIndex] = useState(0);
 
     useEffect(() => {
-        axios.get('/auth/me')
-        .then(({data})=>{
-            userValue.setUser(data)
-            userValue.getRecommendedGames()
-        })
-        .catch(_=>history.push('/'))
+        // axios.get('/auth/me')
+        // .then(({data})=>{
+        //     userValue.setUser(data)
+        //     userValue.getRecommendedGames()
+        // })
+        // .catch(_=>history.push('/'))
     }, [])
 
     const loadGame = (id, name, game_icon) => {

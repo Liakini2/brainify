@@ -50,7 +50,7 @@ class SpeedMatch extends Component {
     startGame = () => {   
         console.log("play game");    
             this.setState({game_started: true, gameTime: 90, countdown: false});
-            this.clock = setInterval(() => {console.log('run'); if(this.state.gameTime > 0){this.setState({gameTime: this.state.gameTime-1})} else if(this.state.game_started) { this.scoreGame() }}, 1000);
+            // this.clock = setInterval(() => {console.log('run'); if(this.state.gameTime > 0){this.setState({gameTime: this.state.gameTime-1})} else if(this.state.game_started) { this.scoreGame() }}, 1000);
     }
 
     newShape = () => {
@@ -120,11 +120,11 @@ class SpeedMatch extends Component {
         // console.log("previous: " + this.state.prev.shape + " " + this.state.prev.color, this.state.color, this.state.shape);
         return <div className="speedmatch">
             {this.state.countdown && <CountDown time={3} play={this.startGame}/>}
-        <div className="gameInfo"><section className="score">Score: {this.state.score}</section><h1>{this.state.game_name}</h1><section className="timer">Time Remaining: {this.state.gameTime}</section></div>
+        <div className="gameInfo"><section className="score">Score: {this.state.score}</section><h1>{this.state.game_name}</h1><section className="timer">Time: {this.state.gameTime}</section></div>
             {!this.state.game_started ? <div className="about-game"><section className="how-to-play">Press the left arrow if the new card doesn't match the previous. Press the Right arrow if it does match! </section><button className="play" onClick={() => this.startCountDown()}>Play</button></div> :
             this.state.gameTime > 0 ? <section className="shapes"><section className={`discard-pile`} />
                 <span>{this.state.answer==='correct' ? <CheckIcon className="correct" onAnimationEnd={() => this.setState({answer: ''})}/> : this.state.answer ==='wrong' ? <ClearIcon className="wrong" onAnimationEnd={() => this.setState({answer: ''})}/> : null}</span>
-                <section className={`card ${this.state.animate}`} onAnimationEnd={_ => this.setState({animate: ''})}><section className={`${this.state.shape} ${this.state.color}`} /></section></section> 
+                <section className={`cardd ${this.state.animate}`} onAnimationEnd={_ => this.setState({animate: ''})}><section className={`${this.state.shape} ${this.state.color}`} /></section></section> 
                 : <div className="final-score">Game Over! <section> Final Score is {this.state.score}!</section></div>}
                 <section className="arrows">
                     <label><ForwardIcon className={`left-arrow ${this.state.direction === 'left' ? 'click' : ''}`} onAnimationEnd={() => this.setState({direction: ''})}/>NO</label>

@@ -15,12 +15,12 @@ const Tests = () => {
 
     const history = useHistory();
     useEffect(() => {
-        axios.get('/auth/me')
-        .then(({data})=>{
-            userValue.setUser(data)
-            userValue.getRecommendedGames()
-        })
-        .catch(_=>history.push('/'))
+        // axios.get('/auth/me')
+        // .then(({data})=>{
+        //     userValue.setUser(data)
+        //     userValue.getRecommendedGames()
+        // })
+        // .catch(_=>history.push('/'))
 
         axios.get('/api/games').then(res => {
             console.log(res.data)
@@ -54,7 +54,6 @@ const Tests = () => {
                 {games.filter(el => el.name.includes(search) && el.category.includes(catFilter)).map((el, i) => {
                     return <GameIcon key={i} loadgame={loadGame} info={el}/>
                 })}
-                
             </section>
         </div>
     )
