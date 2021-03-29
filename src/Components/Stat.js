@@ -18,7 +18,38 @@ const Stat = () => {
     return (
         <section className='stat'>
             <h1>Your Recent Stats</h1>
-            {userValue.stats.map((stat, index)=>{
+            <HorizontalBar height={50} width={100}
+            data={{
+                datasets: [{
+                    barPercentage: 1.0,
+                    barThickness: 30,
+                    label: "tester",
+                    data: [500000],
+                    backgroundColor: "rgba(105, 222, 230, 0.5)"
+                }]
+            }}
+            options={{
+                maintainAspectRatio: false,
+                        responsive: true,
+                        legend: {
+                            display: false,
+                        },
+                        title: {
+                            display: true,
+                            text: `testing again`,
+                            fontColor: 'white',
+                            fontSize: 14
+                        },
+                        scales: {
+                            xAxes: [{
+                               ticks: {
+                                  beginAtZero: true,
+                                  fontColor: 'white'
+                               }
+                            }]
+                         }
+            }} />
+            {/* {userValue.stats.map((stat, index)=>{
                 return(
                     <HorizontalBar
                     height={50}
@@ -54,8 +85,8 @@ const Stat = () => {
                          }
                     }}
                     />
-                )
-            })}
+                ) 
+            })} */}
         </section>
     )
 }
