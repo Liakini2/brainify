@@ -34,10 +34,6 @@
   margin: 0;
 }
 
-.aboutUs .aboutParagraph {
-  padding: 30px;
-}
-
 .aboutUs button {
   border: 2px solid #fff;
   color: #fff;
@@ -655,14 +651,12 @@ button {
           align-items: center;
   width: 40%;
   height: 100px;
-  padding-top: 200px;
   background: #24213b;
 }
 
 .your-stats .overview {
   width: 50%;
   height: 100vh;
-  padding-top: 20px;
   background: #292945;
 }
 
@@ -692,7 +686,10 @@ button {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding-top: 30px;
+}
+
+.games .category-list label {
+  height: 11vh;
 }
 
 .games .searchBar {
@@ -704,7 +701,6 @@ button {
 .games .categories-item {
   font-size: xx-large;
   list-style: none;
-  padding: 10px;
 }
 
 .games .categories-item:hover {
@@ -717,9 +713,10 @@ button {
   background: #24213b;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 23% 23% 23% 23%;
-      grid-template-columns: 23% 23% 23% 23%;
+  -ms-grid-columns: 18% 18% 18% 18% 18%;
+      grid-template-columns: 18% 18% 18% 18% 18%;
   grid-column-gap: 2%;
+  justify-items: center;
 }
 
 .games .games-list .game-icon {
@@ -740,6 +737,8 @@ button {
   width: 95%;
   height: 50%;
   margin: 20px;
+  max-width: 250px;
+  max-height: 300px;
   margin-bottom: 0;
 }
 
@@ -763,6 +762,27 @@ button {
   height: 70%;
   width: 70%;
   border-radius: 5%;
+}
+
+@media screen and (max-width: 1200px) {
+  .games .category-list .categories-item {
+    font-size: 1.5rem;
+  }
+  .games .games-list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+  .games .games-list .game-icon {
+    width: 22%;
+  }
+  .games .games-list .game-icon .gameIconName {
+    font-size: 1.5rem;
+  }
 }
 
 @media screen and (max-width: 760px) {
@@ -790,6 +810,9 @@ button {
         -ms-flex-align: center;
             align-items: center;
   }
+  .games .category-list h3 {
+    display: none;
+  }
   .games .category-list label {
     height: 5vh;
     width: 100%;
@@ -799,12 +822,14 @@ button {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
   }
   .games .category-list label span {
     height: 100%;
+    width: 32vw;
+    -webkit-transform: translateY(15%);
+            transform: translateY(15%);
   }
   .games .category-list .categories-item {
     display: none;
@@ -812,10 +837,13 @@ button {
   .games .games-list {
     width: 100vw;
     height: 80vh;
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: 40% 10% 40% 10%;
-        grid-template-columns: 40% 10% 40% 10%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
   }
   .games .games-list .game-icon {
     width: 35vw;
