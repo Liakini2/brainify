@@ -2,8 +2,9 @@ import React, {useState, useEffect} from 'react'
 import Card from './Card'
 
 const Memory = () => {
+    const [augScore, setAugScore] = useState(0)
     const [score, setScore] = useState(0)
-    const [lives, setLives] = useState(3)
+    const [lives, setLives] = useState(5)
     const [gameState, setGameState] = useState('menu')
     const [selected, setSelected] = useState([])
     const [cards, setCards] = useState([
@@ -72,6 +73,15 @@ const Memory = () => {
         setCards(giveBorder)
     }
 
+    //makes the score more interesting
+    useEffect(() => {
+        if(lives === 0){
+            setAugScore(score * 1500)
+        }else{
+            setAugScore((lives * 300) * (score * 15))
+        }
+    },[selected])
+
 
 
 
@@ -83,7 +93,7 @@ const Memory = () => {
                 //good comparison: if score is max then victory
                 setScore(score + 1)
 
-                if(score === 8){
+                if(score === 7){
                     setSelected([])
                     setTimeout(() => {
                         setGameState('victory')
@@ -159,7 +169,8 @@ const Memory = () => {
 
             {gameState === 'menu'? 
             <div className='startCard'>
-                <p>This is a description of the game.</p>
+                <h1>Memory Cards!</h1>
+                <p>Match all the cards </p>
                 <button onClick={() => {
                     newGame()
                     setGameState('play') 
@@ -169,7 +180,7 @@ const Memory = () => {
 
             :gameState === 'play'? 
             <div className='gameSpace'> 
-                <h1>Score: {score}</h1>
+                <h1>Lives: {lives}</h1>
                 <div className='actualGame'>
                     {cards.map((elem, i) => {
                         return <>
@@ -186,14 +197,14 @@ const Memory = () => {
                         </>
                     })}
                 </div>
-                <h1>Lives: {lives}</h1>
+                <h1>Score: {augScore}</h1>
             </div>
 
 
             :gameState === 'victory'?
             <div className='victory'>
                 <h1>A Winner Is You!</h1>
-                <h1>Final Score: {score}</h1>
+                <h1>Final Score: {augScore}</h1>
                 <button onClick={() => setGameState('menu')}>Replay</button>
             </div>
 
@@ -201,7 +212,7 @@ const Memory = () => {
             :gameState === 'gameOver'?
             <div className='gameOver'>
                 <h1>Game Over</h1>
-                <h1>Score: {score}</h1>
+                <h1>Score: {augScore}</h1>
                 <button onClick={() => setGameState('menu')}>Try Again</button>
             </div>
 
