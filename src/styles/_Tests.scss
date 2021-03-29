@@ -39,10 +39,9 @@
     width: 80%;
     height: 100%;
     background: $primaryBackground;
-    display: grid;
-    grid-template-columns: 18% 18% 18% 18% 18%;
-    grid-column-gap: 2%;
-    justify-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 
     .game-icon {
       background: $primaryContainerBackground;
@@ -53,16 +52,14 @@
       align-items: center;
       width: 95%;
       height: 50%;
-      margin: 20px;
       max-width: 250px;
       max-height: 300px;
-      margin-bottom: 0;
+
       .gameIconName {
         font-size: xx-large;
         display: flex;
         align-items: center;
         height: 8%;
-        margin: 0;
         &:hover {
           color: $accentColorThree;
         }
@@ -109,6 +106,7 @@
 
     .category-list {
       width: 100vw;
+      height: 5vh;
       flex-direction: row;
       align-items: center;
       h3 {
@@ -142,8 +140,9 @@
       justify-content: space-around;
 
       .game-icon {
-        width: 35vw;
-        max-height: 150px;
+        height: 30vh;
+        width: 45vw;
+        max-height: 200px;
 
         .gameIconName{
           font-size: 1rem;

@@ -19,7 +19,8 @@
 -- (
 -- id SERIAL PRIMARY KEY, 
 -- game_name VARCHAR (30), 
--- category_id INT REFERENCES categories(id)
+-- category_id INT REFERENCES categories(id),
+-- game_icon VARCHAR
 -- );
 
 -- CREATE TABLE results 
@@ -29,4 +30,4 @@
 -- user_id INT REFERENCES users(id), 
 -- score INT, 
 -- date DATE DEFAULT CURRENT_DATE
--- );
+-- )
