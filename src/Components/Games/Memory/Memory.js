@@ -1,4 +1,6 @@
+import axios from 'axios'
 import React, {useState, useEffect} from 'react'
+import { GameContext } from '../../../context/GameContext'
 import Card from './Card'
 
 const Memory = () => {
@@ -95,6 +97,13 @@ const Memory = () => {
 
                 if(score === 7){
                     setSelected([])
+                    async () => {
+                        try{
+                            await axios.post(`api/score/${GameContext.game.game_id}`, {augScore})
+                        }catch{
+                            (err) => console.log(err)
+                        }
+                    }
                     setTimeout(() => {
                         setGameState('victory')
                     },1000)
@@ -128,6 +137,13 @@ const Memory = () => {
 
                 if(lives === 1) {
                     setSelected([])
+                    async () => {
+                        try{
+                            await axios.post(`api/score/${GameContext.game.game_id}`, {augScore})
+                        }catch{
+                            (err) => console.log(err)
+                        }
+                    }
                     setTimeout(() => {
                         setGameState('gameOver')
                     }, 1000)  
