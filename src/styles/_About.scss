@@ -1,24 +1,33 @@
 @import "./Colors";
 @import "./functions";
 
-*{
+* {
   margin: 0;
   padding: 0;
 }
 
-.aboutUs {
+.about {
   @include flexCenter(column, center);
-  text-align: center;
-  background-color: $primaryContainerBackground;
-  justify-self: flex-end;
-  
-  width: 50vw;
-  height: 70vh;
+  .aboutUs {
+    @include flexCenter(column, center);
+    text-align: center;
+    background-color: $primaryContainerBackground;
+    width: 50vw;
+    height: 70vh;
 
-  .aboutParagraph {
-    
+    .aboutParagraph {
+      padding: 5% 10%;
+    }
+    button {
+      @include primaryBtn;
+    }
   }
-  button {
-    @include primaryBtn;
+}
+
+@media screen and (max-width: 760px) {
+  .about {
+    .aboutUs {
+      width: 90vw;
+    }
   }
 }

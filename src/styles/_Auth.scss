@@ -29,11 +29,11 @@
       text-align: center;
     }
     label {
-      
       span {
         height: 50%;
         line-height: 50%;
-        
+        position: relative;
+        z-index: 1;
       }
       input {
         height: 40%;
@@ -101,7 +101,6 @@
 
 @media screen and (max-width: 760px) {
   .login {
-    width: 80%;
     font-size: 1.5rem;
 
     .row {

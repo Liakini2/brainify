@@ -2,31 +2,31 @@
 @import "./functions";
 
 .home {
-  background-color: tan;
+  background-color: $headerPrimaryColor;
   width: 100vw;
   height: 90vh;
   display: flex;
   flex-direction: column;
 
-    h1 {
-      font-size:1.5rem;
-      text-align: center;
-    }
+  h1 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
 
-    h2 {
-      font-size: 1.3rem;
-      text-align: center;
-    }
-    
-    .home-content {
-      width: 100vw;
-      height: 80vh;
-      display: flex;
-      justify-content: center;
-    }
+  h2 {
+    font-size: 1.3rem;
+    text-align: center;
+  }
+
+  .home-content {
+    width: 100vw;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+  }
 
   .recommended {
-    background-color: $accentColorOne;
+    background-color: $primaryBackground;
     width: 70vw;
     height: 100%;
     display: flex;
@@ -35,37 +35,37 @@
     justify-content: space-around;
     align-items: center;
 
-      .game-icon {
+    .game-icon {
+      background-color: $transparentBackground;
+      color: $primaryTextColor;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 20vw;
+      height: 50%;
+      max-height: 350px;
+      max-width: 300px;
+      min-width: 150px;
+      box-shadow: inset 0 0 5px 5px black;
+
+      &:hover {
         background: $primaryContainerBackground;
-        color: $primaryTextColor;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 15vw;
-        height: 50%;
-        max-height: 350px;
-        max-width: 300px;
-        min-width: 150px;
-        box-shadow: inset 0 0 5px 5px black;
-
-        .gameIconName {
-          font-size: xx-large;
-          align-content: center;
-          height: 20%;
-          display: flex;
-          align-items: center;
-
-          &:hover {
-            color: $accentColorThree;
-          }
-        }
-        .gameIconImage {
-          height: 70%;
-          width: 60%;
-          border-radius: 5%;
-          
-        }
       }
+
+      .gameIconName {
+        font-size: xx-large;
+        align-content: center;
+        height: 20%;
+        display: flex;
+        align-items: center;
+        font-size: x-large;
+      }
+      .gameIconImage {
+        height: 70%;
+        width: 60%;
+        border-radius: 5%;
+      }
+    }
   }
 
   .stats {
@@ -77,8 +77,8 @@
     flex-direction: column;
 
     .stat {
-      height: 25%;
-      width: 100%;
+      height: 50%;
+      width: 90%;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -94,7 +94,6 @@
   .home {
     .recommended {
       .game-icon {
-
         .gameIconName {
           font-size: 1.3rem;
         }
@@ -103,13 +102,11 @@
   }
 }
 
-@media screen and (max-width: 760px){
+@media screen and (max-width: 760px) {
   .home {
-
     .home-content {
-        flex-direction: column;
+      flex-direction: column;
       .recommended {
-        
         width: 100vw;
         height: 40vh;
         justify-content: space-around;
@@ -127,19 +124,24 @@
         }
 
         .right {
-          transform: scale(2); 
+          transform: scale(2);
         }
       }
- 
+
       .stats {
         height: 40vh;
         width: 100vw;
       }
     }
-
   }
 }
 
-@media screen and (max-width: 430px){
-  
+@media screen and (max-width: 430px) {
+  .home {
+    .home-content {
+      .stats {
+        height: 50vh;
+      }
+    }
+  }
 }

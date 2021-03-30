@@ -131,20 +131,12 @@ const MathDrop = () => {
                     <button className='playBtn' onClick={_ => startGame()}>Play</button>
                 </div>
                 :
-<<<<<<< HEAD
-                <div className='mathdropGame'>
-                    {equations.map((equation)=>{
-                        return(<Equation className='displayEquations' key={equation.i} missedTarget={missedTarget} numOne={equation.numOne} numTwo={equation.numTwo} altOperator={equation.altOperator}/>)
-                    })}
-                    <input className='user-answer' type='number' value={userAnswer} onKeyPress={checkAnswer} onChange={(e)=>{setUserAnswer(e.target.value)}}/>
-=======
                 gameStart && <div className='mathdropGame'>
                     {equations.map((equation, index)=>{
                         //get 6, 9 or 12
                         return(<Equation className='displayEquations' key={equation.i} missedTarget={missedTarget} numOne={equation.numOne} numTwo={equation.numTwo} altOperator={equation.altOperator} />)
                     })}
                     <input className='user-answer' autoFocus value={userAnswer} onKeyPress={checkAnswer} onChange={(e)=>{setUserAnswer(e.target.value)}}/>
->>>>>>> main
                 </div>
                 }
             </div>

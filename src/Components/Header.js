@@ -15,7 +15,8 @@ const Header = (props) => {
     const [loggedin, setLoggedin] = useState(false);
 
     const [width, setWidth] = useState(window.innerWidth);
-    // console.log(userValue)
+    console.log(window.innerWidth)
+    console.log(window.innerHeight)
 
     useEffect(() => {
         const getDimensions = () => {
@@ -68,6 +69,7 @@ const Header = (props) => {
                     <section className="right">
                         <Link to="/about" className="altLinks">About</Link>
                         <MenuIcon className="acctMenu computer" onClick={_ => setToggle(!toggle)}/>
+                        <div></div>
                     </section>
                     <Slide in={toggle} direction="left" timeout={500} unmountOnExit mountOnEnter>
                         <section className="dropdown">

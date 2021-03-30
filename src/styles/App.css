@@ -10,7 +10,23 @@
   padding: 0;
 }
 
-.aboutUs {
+.about {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.about .aboutUs {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -26,12 +42,15 @@
           flex-direction: column;
   text-align: center;
   background-color: #292945;
-  justify-self: flex-end;
   width: 50vw;
   height: 70vh;
 }
 
-.aboutUs button {
+.about .aboutUs .aboutParagraph {
+  padding: 5% 10%;
+}
+
+.about .aboutUs button {
   border: 2px solid #fff;
   color: #fff;
   background-color: #45376c;
@@ -41,8 +60,14 @@
   border-radius: 0;
 }
 
-.aboutUs button:hover {
+.about .aboutUs button:hover {
   background-color: #754d80;
+}
+
+@media screen and (max-width: 760px) {
+  .about .aboutUs {
+    width: 90vw;
+  }
 }
 
 .login {
@@ -90,6 +115,8 @@
 .login .auth label span {
   height: 50%;
   line-height: 50%;
+  position: relative;
+  z-index: 1;
 }
 
 .login .auth label input {
@@ -179,7 +206,6 @@
 
 @media screen and (max-width: 760px) {
   .login {
-    width: 80%;
     font-size: 1.5rem;
   }
   .login .row label {
@@ -274,6 +300,7 @@ button {
   left: 50%;
   -webkit-transform: translate(-50%, 30%);
           transform: translate(-50%, 30%);
+  z-index: 200;
 }
 
 .header .nav {
@@ -281,12 +308,13 @@ button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background-color: rgba(36, 33, 59, 0.5);
+  background-color: #24213b;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
   width: 100vw;
-  font-size: 1.7rem;
+  font-size: 1.25rem;
+  z-index: 100;
 }
 
 .header .nav .left {
@@ -346,13 +374,15 @@ button {
       -ms-flex-align: center;
           align-items: center;
   position: absolute;
-  height: 12vh;
+  height: 15vh;
+  width: 15vw;
   top: 10vh;
-  right: 2vw;
+  right: 0;
+  background-color: #24213b;
 }
 
 .header .nav .dropdown .navBtn {
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
 
 .header .nav .navBtn {
@@ -360,9 +390,23 @@ button {
   text-decoration: none;
 }
 
+.header .nav button {
+  border: 1px solid #fff;
+  color: #fff;
+  background-color: #45376c;
+  text-align: center;
+  width: 65px;
+  height: 30px;
+  border-radius: 0;
+}
+
+.header .nav button:hover {
+  background-color: #754d80;
+}
+
 @media screen and (max-width: 1200px) {
-  .header .nav .left {
-    font-size: 1.5rem;
+  .header .nav {
+    font-size: 1rem;
   }
   .header .nav .right {
     width: 20vw;
@@ -375,10 +419,10 @@ button {
   }
   .header .nav {
     position: absolute;
-    top: 5.4vh;
+    top: 5.6vh;
     right: 0;
     height: 30vh;
-    width: 20vw;
+    width: 100vw;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -391,6 +435,7 @@ button {
             align-items: center;
     text-align: center;
     font-size: 1rem;
+    z-index: 100;
   }
   .header .nav .left {
     -webkit-box-orient: vertical;
@@ -429,6 +474,16 @@ button {
   .header .nav .dropdown button {
     display: inline-block;
     max-width: 100px;
+    border: 1px solid #fff;
+    color: #fff;
+    background-color: #45376c;
+    text-align: center;
+    width: 65px;
+    height: 30px;
+    border-radius: 0;
+  }
+  .header .nav .dropdown button:hover {
+    background-color: #754d80;
   }
   .header .menu {
     position: absolute;
@@ -439,12 +494,12 @@ button {
 
 @media screen and (max-width: 430px) {
   .header .nav {
-    width: 30vw;
+    width: 100vw;
   }
 }
 
 .home {
-  background-color: tan;
+  background-color: #948992;
   width: 100vw;
   height: 90vh;
   display: -webkit-box;
@@ -468,7 +523,7 @@ button {
 
 .home .home-content {
   width: 100vw;
-  height: 80vh;
+  height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -478,7 +533,7 @@ button {
 }
 
 .home .recommended {
-  background-color: #754d80;
+  background-color: #24213b;
   width: 70vw;
   height: 100%;
   display: -webkit-box;
@@ -495,7 +550,7 @@ button {
 }
 
 .home .recommended .game-icon {
-  background: #292945;
+  background-color: rgba(36, 33, 59, 0.5);
   color: #fff;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -507,13 +562,17 @@ button {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 15vw;
+  width: 20vw;
   height: 50%;
   max-height: 350px;
   max-width: 300px;
   min-width: 150px;
   -webkit-box-shadow: inset 0 0 5px 5px black;
           box-shadow: inset 0 0 5px 5px black;
+}
+
+.home .recommended .game-icon:hover {
+  background: #292945;
 }
 
 .home .recommended .game-icon .gameIconName {
@@ -527,10 +586,7 @@ button {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-
-.home .recommended .game-icon .gameIconName:hover {
-  color: #69dee6;
+  font-size: x-large;
 }
 
 .home .recommended .game-icon .gameIconImage {
@@ -561,8 +617,8 @@ button {
 }
 
 .home .stats .stat {
-  height: 25%;
-  width: 100%;
+  height: 50%;
+  width: 90%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -624,33 +680,78 @@ button {
   }
 }
 
+@media screen and (max-width: 430px) {
+  .home .home-content .stats {
+    height: 50vh;
+  }
+}
+
 .your-stats {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   width: 100vw;
   height: 100vh;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
   background: #24213b;
 }
 
-.your-stats .stat {
+.your-stats .barGraph {
+  width: 48vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 85%;
+}
+
+.your-stats .barGraph .stat {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 40%;
-  height: 100px;
+  width: 80%;
+  height: 90%;
   background: #24213b;
 }
 
 .your-stats .overview {
-  width: 50%;
-  height: 100vh;
+  width: 50vw;
+  height: 88%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   background: #292945;
+}
+
+@media screen and (max-width: 800px) {
+  .your-stats {
+    display: inline-block;
+  }
+  .your-stats .barGraph {
+    width: 100vw;
+    height: 38vh;
+  }
+  .your-stats .overview {
+    width: 100vw;
+    height: 50vh;
+  }
 }
 
 .games {
@@ -679,6 +780,7 @@ button {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding-top: 2%;
 }
 
 .games .category-list label {
@@ -689,6 +791,10 @@ button {
   border-radius: 0;
   height: 26px;
   width: 60%;
+}
+
+.games .listTitle {
+  font-size: xx-large;
 }
 
 .games .categories-item {
@@ -711,10 +817,11 @@ button {
       flex-wrap: wrap;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+  padding-top: 5%;
 }
 
 .games .games-list .game-icon {
-  background: #292945;
+  background-color: rgba(36, 33, 59, 0.5);
   color: #fff;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -723,35 +830,39 @@ button {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 95%;
+  width: 20vw;
   height: 50%;
-  max-width: 250px;
-  max-height: 300px;
+  max-height: 350px;
+  max-width: 300px;
+  min-width: 150px;
+  -webkit-box-shadow: inset 0 0 5px 5px black;
+          box-shadow: inset 0 0 5px 5px black;
+}
+
+.games .games-list .game-icon:hover {
+  background: #292945;
 }
 
 .games .games-list .game-icon .gameIconName {
   font-size: xx-large;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  height: 20%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 8%;
-}
-
-.games .games-list .game-icon .gameIconName:hover {
-  color: #69dee6;
+  font-size: x-large;
 }
 
 .games .games-list .game-icon .gameIconImage {
   height: 70%;
-  width: 70%;
+  width: 60%;
   border-radius: 5%;
 }
 
@@ -769,7 +880,7 @@ button {
         justify-content: space-around;
   }
   .games .games-list .game-icon {
-    width: 22%;
+    width: 25%;
   }
   .games .games-list .game-icon .gameIconName {
     font-size: 1.5rem;
@@ -838,9 +949,9 @@ button {
         justify-content: space-around;
   }
   .games .games-list .game-icon {
-    height: 30vh;
+    height: 35vh;
     width: 45vw;
-    max-height: 200px;
+    max-height: 400px;
   }
   .games .games-list .game-icon .gameIconName {
     font-size: 1rem;
@@ -1810,15 +1921,6 @@ button {
   width: 100vw;
   height: 100vh;
   background: #24213b;
-}
-
-.App {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
 }
 
 body {
