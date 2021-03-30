@@ -49,7 +49,7 @@ class SpeedMatch extends Component {
 
     startGame = () => {   
         // console.log("play game");    
-            this.setState({game_started: true, gameTime: 10, countdown: false, score: 0, consecutive: 0});
+            this.setState({game_started: true, gameTime: 60, countdown: false, score: 0, consecutive: 0});
             this.clock = setInterval(() => {console.log('run'); if(this.state.gameTime > 0){this.setState({gameTime: this.state.gameTime-1})} else if(this.state.game_started) { this.scoreGame() }}, 1000);
     }
 
@@ -135,7 +135,7 @@ class SpeedMatch extends Component {
                     <button onClick={_ => this.restartGame()}>Play Again</button>
                 </div>}
                 <section className="arrows">
-                    <label><ForwardIcon className={`left-arrow ${this.state.direction === 'left' ? 'click' : ''}`} onAnimationEnd={() => this.setState({direction: ''})}/>NO</label>
+                    <label><ForwardIcon className={`left-arrow ${this.state.direction === 'left' ? 'click' : ''}`} onAnimationEnd={() => this.setState({direction: ''})} />NO</label>
                 <label><ForwardIcon className={`right-arrow ${this.state.direction === 'right'  ? 'click' : ''}`} onAnimationEnd={() => this.setState({direction: ''})} />YES</label>
                 </section>
         </div>

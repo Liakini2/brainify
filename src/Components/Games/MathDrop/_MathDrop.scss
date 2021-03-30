@@ -51,7 +51,6 @@
       position: absolute;
       top: 18vh;
       left: 50%;
-      animation: drop 9s forwards;
       animation-timing-function: linear;
       background-image: linear-gradient(
         to bottom right,
@@ -68,20 +67,6 @@
       border-radius: 50%;
     }
 
-    .equation.slowDrop {
-      animation: drop 12s forwards;
-      animation-timing-function: linear;
-    }
-
-    // .equation.normalDrop {
-    //   animation: drop 9s forwards;
-    //   animation-timing-function: linear;
-    // }
-
-    .equation.fastDrop {
-      animation: drop 6s forwards;
-      animation-timing-function: linear;
-    }
   }
 }
 

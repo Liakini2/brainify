@@ -28,7 +28,7 @@ const Equation = (props) => {
 
     //  ${time === 6 ? ' fastDrop' : time === 12 ? ' slowDrop' : ''}
     return (
-        <div className={`equation`} style={style.current}>
+        <div className='equation' style={style.current}>
             {`${props.numOne} ${props.altOperator} ${props.numTwo} =`}
         </div>
     )
