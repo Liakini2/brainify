@@ -45,10 +45,10 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 100vw;
-  height: 50vh;
-  background: $transparentBackground;
+  width: 200px;
+  height: 200px;
   font-size: xx-large;
+  background: none;
   display: flex;
   justify-content: center;
   align-items: center;

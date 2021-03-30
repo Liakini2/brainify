@@ -14,7 +14,7 @@ class SpeedMatch extends Component {
             prev: {shape: '', color: ''},
             shape: 'square',
             color: 'red',
-            gameTime: 90,
+            gameTime: 60,
             score: 0,
             consecutive: 0,
             game_id: props.game_id,
@@ -29,7 +29,7 @@ class SpeedMatch extends Component {
     componentDidMount(){
         window.addEventListener('keydown', this.compareShape);
         window.addEventListener('keyup', this.setPressed);
-        console.log(this.state.game_id, this.state.game_name)
+        // console.log(this.state.game_id, this.state.game_name)
         this.newShape();
     }
 
@@ -48,9 +48,9 @@ class SpeedMatch extends Component {
     }
 
     startGame = () => {   
-        console.log("play game");    
-            this.setState({game_started: true, gameTime: 90, countdown: false});
-            // this.clock = setInterval(() => {console.log('run'); if(this.state.gameTime > 0){this.setState({gameTime: this.state.gameTime-1})} else if(this.state.game_started) { this.scoreGame() }}, 1000);
+        // console.log("play game");    
+            this.setState({game_started: true, gameTime: 60, countdown: false, score: 0, consecutive: 0});
+            this.clock = setInterval(() => {console.log('run'); if(this.state.gameTime > 0){this.setState({gameTime: this.state.gameTime-1})} else if(this.state.game_started) { this.scoreGame() }}, 1000);
     }
 
     newShape = () => {
@@ -111,9 +111,15 @@ class SpeedMatch extends Component {
         clearInterval(this.clock);
         if(this.state.game_started){
             axios.post(`/api/score/${this.state.game_id}`, {score: this.state.score}).then(_ => {
-                this.setState({game_started: false});
+                
             }).catch(err => console.log(err));
         }
+    }
+
+    restartGame = () => {
+        this.setState({
+            countdown: true
+        });
     }
 
     render() {
@@ -125,9 +131,11 @@ class SpeedMatch extends Component {
             this.state.gameTime > 0 ? <section className="shapes"><section className={`discard-pile`} />
                 <span>{this.state.answer==='correct' ? <CheckIcon className="correct" onAnimationEnd={() => this.setState({answer: ''})}/> : this.state.answer ==='wrong' ? <ClearIcon className="wrong" onAnimationEnd={() => this.setState({answer: ''})}/> : null}</span>
                 <section className={`cardd ${this.state.animate}`} onAnimationEnd={_ => this.setState({animate: ''})}><section className={`${this.state.shape} ${this.state.color}`} /></section></section> 
-                : <div className="final-score">Game Over! <section> Final Score is {this.state.score}!</section></div>}
+                : <div className="final-score">Game Over! <section> Final Score is {this.state.score}!</section>
+                    <button onClick={_ => this.restartGame()}>Play Again</button>
+                </div>}
                 <section className="arrows">
-                    <label><ForwardIcon className={`left-arrow ${this.state.direction === 'left' ? 'click' : ''}`} onAnimationEnd={() => this.setState({direction: ''})}/>NO</label>
+                    <label><ForwardIcon className={`left-arrow ${this.state.direction === 'left' ? 'click' : ''}`} onAnimationEnd={() => this.setState({direction: ''})} />NO</label>
                 <label><ForwardIcon className={`right-arrow ${this.state.direction === 'right'  ? 'click' : ''}`} onAnimationEnd={() => this.setState({direction: ''})} />YES</label>
                 </section>
         </div>

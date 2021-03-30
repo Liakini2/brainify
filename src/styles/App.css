@@ -1014,8 +1014,8 @@ button {
   height: 100px;
   position: relative;
   background-color: transparent;
-  -webkit-transform: translate(-65%, -50%);
-          transform: translate(-65%, -50%);
+  -webkit-transform: translate(-20%, -20%);
+          transform: translate(-20%, -20%);
 }
 
 .speedmatch .star:before,
@@ -1059,14 +1059,13 @@ button {
 }
 
 .speedmatch .shapes {
-  height: 50%;
-  width: 35%;
+  height: 80%;
+  width: 75%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -1120,10 +1119,13 @@ button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 15%;
-  height: 10%;
+  width: 30%;
+  height: 20%;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .speedmatch .arrows label {
@@ -1217,14 +1219,14 @@ button {
     border-bottom-color: purple;
   }
   .speedmatch .shapes .star {
-    width: 45px;
-    height: 45px;
+    width: 75px;
+    height: 75px;
     min-width: 50px;
     min-height: 50px;
     position: relative;
     background-color: transparent;
-    -webkit-transform: translate(-20%, -50%);
-            transform: translate(-20%, -50%);
+    -webkit-transform: translate(-20%, -20%);
+            transform: translate(-20%, -20%);
   }
   .speedmatch .shapes .star:before,
   .speedmatch .shapes .star:after {
@@ -1555,7 +1557,9 @@ button {
 }
 
 .gameDisplay .hub {
+  width: 15vw;
   font-size: x-large;
+  text-align: center;
 }
 
 .gameDisplay .centerGame {
@@ -1565,19 +1569,14 @@ button {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-}
-
-.gameDisplay .centerGame .gameTitle {
-  margin: 0;
-  margin-top: 15px;
-  margin-bottom: 5px;
+  width: 65vw;
+  height: 80vh;
 }
 
 .gameDisplay .startNewGame {
@@ -1587,22 +1586,20 @@ button {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin-top: 40px;
   background-color: #292945;
-  height: 300px;
-  width: 800px;
+  height: 70%;
+  width: 100%;
   text-align: center;
 }
 
 .gameDisplay .startNewGame .gameInstructions {
-  margin: 50px;
+  width: 63%;
 }
 
 .gameDisplay .startNewGame .playBtn {
@@ -1639,7 +1636,6 @@ button {
   width: 65px;
   height: 50px;
   border-radius: 5%;
-  margin: 10px;
   font-size: xx-large;
 }
 
@@ -1648,8 +1644,6 @@ button {
   position: absolute;
   top: 18vh;
   left: 50%;
-  -webkit-animation: drop 10s forwards;
-          animation: drop 10s forwards;
   -webkit-animation-timing-function: linear;
           animation-timing-function: linear;
   background-image: -webkit-gradient(linear, left top, right bottom, from(#754d80), to(#2c3970));
@@ -1676,8 +1670,8 @@ button {
             transform: translate(0, 0);
   }
   to {
-    -webkit-transform: translate(0, 68vh);
-            transform: translate(0, 68vh);
+    -webkit-transform: translate(0, 65vh);
+            transform: translate(0, 65vh);
   }
 }
 
@@ -1687,8 +1681,8 @@ button {
             transform: translate(0, 0);
   }
   to {
-    -webkit-transform: translate(0, 68vh);
-            transform: translate(0, 68vh);
+    -webkit-transform: translate(0, 65vh);
+            transform: translate(0, 65vh);
   }
 }
 
@@ -1822,10 +1816,6 @@ button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -1861,10 +1851,10 @@ body {
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  width: 100vw;
-  height: 50vh;
-  background: rgba(36, 33, 59, 0.5);
+  width: 200px;
+  height: 200px;
   font-size: xx-large;
+  background: none;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
