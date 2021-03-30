@@ -52,9 +52,6 @@
     height: 50%;
     text-align: center;
 
-    .how-to-play {
-
-    }
   }
 
   .square {
@@ -126,9 +123,7 @@
     height: 100px;
     position: relative;
     background-color: transparent;
-    // margin-top: 100px;
-    // margin-left: 100px;
-    transform: translate(-65%, -50%);
+    transform: translate(-20%, -20%);
   }
 
   .star:before,
@@ -167,10 +162,10 @@
   }
 
   .shapes {
-    height: 50%;
-    width: 35%;
+    height: 80%;
+    width: 75%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
 
     .discard-pile {
@@ -208,9 +203,10 @@
 
   .arrows {
     display: flex;
-    width: 15%;
-    height: 10%;
+    width: 30%;
+    height: 20%;
     justify-content: space-around;
+    align-items: center;
     label {
       height: 100%;
       text-align: center;
@@ -301,15 +297,13 @@
       }
 
       .star {
-        width: 45px;
-        height: 45px;
+        width: 75px;
+        height: 75px;
         min-width: 50px;
         min-height: 50px;
         position: relative;
         background-color: transparent;
-        // margin-top: 100px;
-        // margin-left: 100px;
-        transform: translate(-20%, -50%);
+        transform: translate(-20%, -20%);
       }
     
       .star:before,
@@ -429,8 +423,6 @@
         min-height: 50px;
         position: relative;
         background-color: transparent;
-        // margin-top: 100px;
-        // margin-left: 100px;
         transform: translate(-20%, -50%);
       }
     
@@ -533,8 +525,6 @@
         height: 50px;
         position: relative;
         background-color: transparent;
-        // margin-top: 100px;
-        // margin-left: 100px;
         transform: translate(-30%, -50%);
       }
     

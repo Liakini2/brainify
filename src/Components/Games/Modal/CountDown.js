@@ -6,13 +6,13 @@ const CountDown = (props) => {
     const cd = useRef();
     useEffect(() => {
         cd.current = setInterval(() => {
-            console.log('stop running!');
+            console.log("stop running!")
             setTime(t => {
                 if(t-1 <= 0) {setStart(true)} return t-1;
             })
         }, 1000)
 
-        return (() => clearInterval(cd))
+        return () => clearInterval(cd.current);
     }, [])
 
     useEffect(() => {
