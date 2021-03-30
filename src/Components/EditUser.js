@@ -31,7 +31,9 @@ const EditUser = ({...props}) => {
     
     const updateUser=()=>{
         if(checkPassword() && checkName(editUser.first_name) && checkName(editUser.last_name)){
-            axios.put(`/auth/user`)
+            axios.put(`/auth/user`, {})
+            .then()
+            .catch()
         }
     }
 
