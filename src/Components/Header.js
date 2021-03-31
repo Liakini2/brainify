@@ -73,7 +73,6 @@ const Header = (props) => {
                         <MenuIcon className="acctMenu computer" onClick={e => {
                             e.preventDefault();
                             setToggle(!toggle)
-
                         }}/>
                         <div></div>
                     </section>
