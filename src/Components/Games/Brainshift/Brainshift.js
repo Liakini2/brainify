@@ -89,7 +89,7 @@ const Brainshift = () => {
     }
 
     const addScore = () => {
-        console.log('correct: ', scoreRef.current+(50*consecutiveRef.current), typeof scoreRef.current, typeof consecutiveRef.current);
+        // console.log('correct: ', scoreRef.current+(50*consecutiveRef.current), typeof scoreRef.current, typeof consecutiveRef.current);
         setScore(scoreRef.current + (50 * consecutiveRef.current));
         setConsecutive(consecutiveRef.current+1);
     }
@@ -117,13 +117,13 @@ const Brainshift = () => {
     }
 
     const setConsecutive = (c) => {
-        console.log('cons: ', typeof c, c)
+        // console.log('cons: ', typeof c, c)
         consecutiveRef.current = c;
         _setConsecutive(c);
     }
 
     const setScore = (s) => {
-        console.log('score: ', typeof s, s)
+        // console.log('score: ', typeof s, s)
         scoreRef.current = s;
         _setScore(s);
     }

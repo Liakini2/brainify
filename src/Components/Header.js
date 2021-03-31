@@ -21,6 +21,7 @@ const Header = (props) => {
             let w = window.innerWidth;
             setPhoneMenu(w > 760);
             setToggle(w <= 760);
+            setWidth(w);
             // if(w > 760) {
             //     setPhoneMenu(true);
             //     setToggle(false);
@@ -56,7 +57,10 @@ const Header = (props) => {
     return (
         <header className='header'>
             <h1 className="brainifyLogo">BRAINIFY</h1>
-            <MenuIcon className="phone menu" onClick={_ => setPhoneMenu(!phoneMenu)} />
+            <MenuIcon className="phone menu" onClick={e => {
+                e.preventDefault();
+                setPhoneMenu(!phoneMenu)
+                }} />
             <Slide in={phoneMenu} direction="left" timeout={500} unmountOnExit mountOnEnter>
                 <nav className="nav">
                     <section className="left">
@@ -66,7 +70,11 @@ const Header = (props) => {
                     </section>
                     <section className="right">
                         <Link to="/about" className="altLinks">About</Link>
-                        <MenuIcon className="acctMenu computer" onClick={_ => setToggle(!toggle)}/>
+                        <MenuIcon className="acctMenu computer" onClick={e => {
+                            e.preventDefault();
+                            setToggle(!toggle)
+
+                        }}/>
                         <div></div>
                     </section>
                     <Slide in={toggle} direction="left" timeout={500} unmountOnExit mountOnEnter>
