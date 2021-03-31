@@ -1,8 +1,8 @@
 import {useContext, useEffect} from 'react'
 import axios from 'axios'
 import {HorizontalBar} from 'react-chartjs-2'
+import {Bar} from 'react-chartjs-2'
 import { UserContext } from '../context/UserContext'
-import { white } from 'material-ui/styles/colors'
 
 const Stat = () => {
     const userValue = useContext(UserContext)
@@ -22,6 +22,48 @@ const Stat = () => {
     return (
         <section className='stat'>
             <h1>Your Recent Stats</h1>
+            <Bar
+            height={'80%'}
+            width={'100%'}
+            data={{
+                labels: [...mappedCategories],
+                datasets: [{
+                    barPercentage: 1.0, 
+                    barThickness: 30,
+                    label: `Average Score by Category`,
+                    data: [50000, 128000, 6000, 50000],
+                    // [...mappedAverageScore],    
+                    backgroundColor: ["rgba(105, 222, 230, 0.5)", "rgba(114, 77, 128, 0.5)", "rgba(148, 137, 146, 0.5)", "rgba(40, 51, 130, 0.5)"]
+                }]
+            }}
+            options={{
+                maintainAspectRatio: false,
+                responsive: true,
+                legend: {
+                    display: false,
+                },
+                scales: {
+                    xAxes: [{
+                        ticks: {
+                            beginAtZero: true,
+                            fontColor: 'white'
+                        }
+                    }],
+                    yAxes: [{
+                        ticks: {
+                            display: false
+                        }
+                    }] 
+                }
+            }}
+            />
+        </section>
+    )
+}
+
+export default Stat
+
+{/* <h1>Your Recent Stats</h1>
             {userValue.stats.map(stat=>{
                 return <HorizontalBar
                     height={50}
@@ -57,9 +99,4 @@ const Stat = () => {
                         }
                     }}
                     />
-            })}
-                    </section>
-                    )
-                }
-
-export default Stat
+            })} */}

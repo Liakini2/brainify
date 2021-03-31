@@ -46,7 +46,7 @@ const Tests = () => {
             <section className='category-list'>
                 <label><span>Find Game:</span> <input className='searchBar' type="text" value={search} onChange={e => setSearch(e.target.value)}/></label>
 
-                <h3>Categories</h3>
+                <h3 className='listTitle'>Categories</h3>
                 <li className='categories-item' onClick={() =>setCatFilter('')}>All</li>
                 {categories.map((el, i) => <li className='categories-item' key={i} onClick={() => setCatFilter(el.category)}>{el.category}</li>)}
             </section> 

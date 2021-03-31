@@ -10,11 +10,11 @@ const Stats = () => {
     const userValue = useContext(UserContext)
 
     useEffect(() => {
-        axios.get('/auth/me')
-        .then(({data})=>{
-            userValue.setUser(data)
-        })
-        .catch(_=>history.push('/'))
+        // axios.get('/auth/me')
+        // .then(({data})=>{
+        //     userValue.setUser(data)
+        // })
+        // .catch(_=>history.push('/'))
 
         axios.get(`/api/scores`)
         .then(({data})=>{
@@ -32,24 +32,28 @@ const Stats = () => {
                 userValue.setMathStat(stat.averageScore)
             } else if(stat.category==='speed'){
                 userValue.setSpeedStat(stat.averageScore)
+            } else if(stat.category==='flexibility'){
+                userValue.setFlexibilityStat(stat.averageScore)
             }
         })
     }, [userValue.Stats])
     
     return (
         <div className='your-stats'>
-            <Stat/>
+            <section className='barGraph'>
+                <Stat/>
+            </section>
             <section className='overview'>
                 <Radar
-                height={500}
-                width={100}
+                height={'100%'}
+                width={'100%'}
                 data={{
                     //categories go here
-                    labels: ['Memory', 'Speed', 'Math'], 
+                    labels: ['Memory', 'Speed', 'Math', 'Flexibility'], 
                     datasets:[{
                         label: `score`,
                         // user scores go here
-                        data: [userValue.memoryStat, userValue.speedStat, userValue.mathStat],
+                        data: [userValue.memoryStat, userValue.speedStat, userValue.mathStat, userValue.flexibilityStat],
                         backgroundColor: "rgba(105, 222, 230, 0.5)"
                     }],
                 }}
@@ -66,6 +70,9 @@ const Stats = () => {
                         pointLabels: {
                             fontColor: "white",
                             fontSize: 14
+                        },
+                        ticks: {
+                            beginAtZero: true,
                         }
                     }
                 }}
