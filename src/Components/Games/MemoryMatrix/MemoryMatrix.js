@@ -24,7 +24,7 @@ const MemoryMatrix = () => {
     }
 
     const showTiles = () => {
-
+        //set Time for 3 seconds then flip tiles back over at the end.
     }
 
     const guessTile = (i) => {
