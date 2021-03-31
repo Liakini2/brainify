@@ -7,20 +7,19 @@
 @import "./Tests";
 @import "./SpeedMatch";
 @import "../Components/Games/MathDrop/MathDrop";
-@import '../Components/Games/Memory/MemoryGame';
+@import "../Components/Games/Memory/MemoryGame";
 @import "./Colors";
 @import "./Stat";
 
 #root,
 .App {
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   background: $primaryBackground;
 }
 
 .App {
   display: flex;
-  flex-direction: column;
   align-items: center;
 }
 
@@ -36,11 +35,11 @@ body {
 }
 
 .game {
-  width: 100%;
+  width: 100vw;
   height: 90vh;
 }
 
-.countdown{
+.countdown {
   z-index: 20;
   position: absolute;
   top: 50%;
@@ -48,25 +47,27 @@ body {
   transform: translate(-50%, -50%);
   width: 200px;
   height: 200px;
-  background: orange;
+  font-size: xx-large;
+  background: none;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .phone {
-  display: none!important;
+  display: none !important;
 }
 
-@media screen and (max-width: 760px)
-{
-  .phone{
+@media screen and (max-width: 760px) {
+  .phone {
     display: flex !important;
   }
 
-  .header .computer{
+  .header .computer {
     display: none !important;
   }
-  
 
+  .computer {
+    display: none !important;
+  }
 }

@@ -1,7 +1,7 @@
 @import '../../../../src/styles/functions';
 
 .memoryGame {
-    @include flexCenter(column, center);
+    @include flexCenter(column, center); 
 }
 
 .actualGame {

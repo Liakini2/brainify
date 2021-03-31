@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, {useState, useEffect} from 'react'
 import { GameContext } from '../../../context/GameContext'
+import CountDown from '../Modal/CountDown'
 import Card from './Card'
 
 const Memory = () => {
@@ -58,8 +59,20 @@ const Memory = () => {
                 return elem
             })
             setCards(arr)
-        }, 3500)
+        }, 3000)
 
+    }
+
+    const doTheThing = () => {
+        console.log('The thing has been done')
+    }
+
+    const postScore = async (gameId, score) => {
+        try{
+            await axios.post(`api/score/${gameId}`, {score})
+         }catch(err){
+             console.log(err)
+        }
     }
 
     const setHide = (i, hideProp) => {
@@ -97,13 +110,7 @@ const Memory = () => {
 
                 if(score === 7){
                     setSelected([])
-                    async () => {
-                        try{
-                            await axios.post(`api/score/${GameContext.game.game_id}`, {augScore})
-                        }catch{
-                            (err) => console.log(err)
-                        }
-                    }
+                    postScore(GameContext.game.game_id, augScore)
                     setTimeout(() => {
                         setGameState('victory')
                     },1000)
@@ -137,13 +144,7 @@ const Memory = () => {
 
                 if(lives === 1) {
                     setSelected([])
-                    async () => {
-                        try{
-                            await axios.post(`api/score/${GameContext.game.game_id}`, {augScore})
-                        }catch{
-                            (err) => console.log(err)
-                        }
-                    }
+                    postScore(GameContext.game.game_id, augScore)
                     setTimeout(() => {
                         setGameState('gameOver')
                     }, 1000)  
@@ -195,25 +196,28 @@ const Memory = () => {
 
 
             :gameState === 'play'? 
-            <div className='gameSpace'> 
-                <h1>Lives: {lives}</h1>
-                <div className='actualGame'>
-                    {cards.map((elem, i) => {
-                        return <>
-                            <Card 
-                                color={elem.color} 
-                                index={i}
-                                hide={elem.hidden}
-                                active={elem.active}
-                                disabled={elem.disabled? true : elem.correct? true : false}
-                                selected={selected}
-                                setHide={setHide}
-                                selectedFunc={selectedFunc}
-                            />
-                        </>
-                    })}
+            <div>
+                <CountDown time={3} play={doTheThing} />
+                <div className='gameSpace'> 
+                    <h1>Lives: {lives}</h1>
+                    <div className='actualGame'>
+                        {cards.map((elem, i) => {
+                            return <>
+                                <Card 
+                                    color={elem.color} 
+                                    index={i}
+                                    hide={elem.hidden}
+                                    active={elem.active}
+                                    disabled={elem.disabled? true : elem.correct? true : false}
+                                    selected={selected}
+                                    setHide={setHide}
+                                    selectedFunc={selectedFunc}
+                                />
+                            </>
+                        })}
+                    </div>
+                    <h1>Score: {augScore}</h1>
                 </div>
-                <h1>Score: {augScore}</h1>
             </div>
 
 

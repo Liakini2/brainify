@@ -15,12 +15,12 @@ const Tests = () => {
 
     const history = useHistory();
     useEffect(() => {
-        axios.get('/auth/me')
-        .then(({data})=>{
-            userValue.setUser(data)
-            userValue.getRecommendedGames()
-        })
-        .catch(_=>history.push('/'))
+        // axios.get('/auth/me')
+        // .then(({data})=>{
+        //     userValue.setUser(data)
+        //     userValue.getRecommendedGames()
+        // })
+        // .catch(_=>history.push('/'))
 
         axios.get('/api/games').then(res => {
             console.log(res.data)
@@ -44,9 +44,9 @@ const Tests = () => {
     return (
         <div className='games'>
             <section className='category-list'>
-                <label>Find Game: <input className='searchBar' type="text" value={search} onChange={e => setSearch(e.target.value)}/></label>
+                <label><span>Find Game:</span> <input className='searchBar' type="text" value={search} onChange={e => setSearch(e.target.value)}/></label>
 
-                {/* Switch this to list of categories, game icons will be mapping over all the games. */}
+                <h3>Categories</h3>
                 <li className='categories-item' onClick={() =>setCatFilter('')}>All</li>
                 {categories.map((el, i) => <li className='categories-item' key={i} onClick={() => setCatFilter(el.category)}>{el.category}</li>)}
             </section> 
@@ -54,7 +54,6 @@ const Tests = () => {
                 {games.filter(el => el.name.includes(search) && el.category.includes(catFilter)).map((el, i) => {
                     return <GameIcon key={i} loadgame={loadGame} info={el}/>
                 })}
-                
             </section>
         </div>
     )

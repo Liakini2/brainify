@@ -43,8 +43,8 @@ const getuser = (req, res) => {
 
 const updateuser = async (req, res) => {
     // console.log(req.session.user)
-    const {username} = req.session.user
-    const {first_name, last_name, original_password, new_password} = req.body;
+    const {id} = req.session.user
+    const {first_name, last_name, new_password} = req.body;
     let db = req.app.get('db');
     const [result] = await db.user.find_user([req.session.user.username]);
     // console.log('result:', result, req.session.username)

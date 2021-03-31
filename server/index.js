@@ -32,7 +32,7 @@ app.post('/auth/register', userCtrl.register);
 app.post('/auth/login', userCtrl.login);
 app.post('/auth/logout', userCtrl.logout)
 app.get('/auth/me', userCtrl.getuser);
-app.put('/auth/user/:user_id', auth.usersOnly, userCtrl.updateuser);
+app.put('/auth/user', auth.usersOnly, userCtrl.updateuser);
 
 
 app.post('/api/score/:game_id', auth.usersOnly, gameCtrl.addScore);

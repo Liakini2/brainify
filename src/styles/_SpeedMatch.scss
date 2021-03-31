@@ -18,7 +18,7 @@
     align-self: flex-start;
     justify-self: flex-start;
     width: 100vw;
-    height: 10%;
+    height: 10vh;
 
     .score {
       width: 10%;
@@ -51,6 +51,7 @@
     align-items: center;
     height: 50%;
     text-align: center;
+
   }
 
   .square {
@@ -66,10 +67,11 @@
     border-left: 6vw solid transparent;
     border-right: 6vw solid transparent;
     border-bottom: 6vw solid black;
+    background-color: transparent;
   }
 
   .triangle.green {
-    border-bottom-color: green;
+    border-bottom-color: green; 
   }
 
   .triangle.red {
@@ -120,9 +122,8 @@
     width: 100px;
     height: 100px;
     position: relative;
-    margin-top: 100px;
-    margin-left: 100px;
-    transform: translate(-65%, -50%);
+    background-color: transparent;
+    transform: translate(-20%, -20%);
   }
 
   .star:before,
@@ -161,24 +162,25 @@
   }
 
   .shapes {
-    height: 50%;
-    width: 35%;
+    height: 80%;
+    width: 75%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
 
     .discard-pile {
       width: 298px;
       height: 400px;
-      background-image: url(https://opengameart.org/sites/default/files/card%20back%20red.png);
+      background-image: url(https://images.cdn2.stockunlimited.net/preview1300/playing-cards-background_1608080.jpg);
       background-position: center;
-      background-size: 95%;
+      background-size: cover;
       background-repeat: no-repeat;
+      
       z-index: 5;
       box-shadow: inset 0 0 0.2em 0.3em black;
     }
 
-    .card {
+    .cardd {
       width: 298px;
       height: 400px;
       background: white;
@@ -201,9 +203,10 @@
 
   .arrows {
     display: flex;
-    width: 15%;
-    height: 10%;
+    width: 30%;
+    height: 20%;
     justify-content: space-around;
+    align-items: center;
     label {
       height: 100%;
       text-align: center;
@@ -228,6 +231,339 @@
 
   .right-arrow.click {
     animation: click 0.1s 1;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .speedmatch {
+
+    .gameInfo {
+      align-items: center;
+      height: 3vh;
+      .score {
+        width: 23%;
+      }
+
+      h1{
+        font-size: 1.5rem;
+      }
+      .timer {
+        width: 23%;
+      }
+    }
+
+    .shapes {
+      width: 80%;
+      .discard-pile {
+        width: 40%;
+        max-height: 300px;
+      }
+
+      .cardd {
+        width: 40%;
+        max-height: 300px;
+      }
+
+      .square {
+        width: 130px;
+        height: 130px;
+      }
+
+      .circle {
+        height: 130px;
+        width: 130px;
+      }
+
+      .triangle {
+        border-left: 13vw solid transparent;
+        border-right: 13vw solid transparent;
+        border-bottom: 13vw solid black;
+      }
+
+      .triangle.green {
+        border-bottom-color: green; 
+      }
+    
+      .triangle.red {
+        border-bottom-color: red;
+      }
+    
+      .triangle.yellow {
+        border-bottom-color: yellow;
+      }
+    
+      .triangle.purple {
+        border-bottom-color: purple;
+      }
+
+      .star {
+        width: 75px;
+        height: 75px;
+        min-width: 50px;
+        min-height: 50px;
+        position: relative;
+        background-color: transparent;
+        transform: translate(-20%, -20%);
+      }
+    
+      .star:before,
+      .star:after {
+        content: "";
+        position: absolute;
+        display: block;
+        left: 0;
+        width: 141.4213%; /* 100% * √2 */
+        top: 0;
+        bottom: 0;
+        border-radius: 5%;
+        transform: rotate(66.66deg) skewX(45deg);
+      }
+    
+      /* the same but +90deg to rotate */
+      .star:after {
+        transform: rotate(156.66deg) skew(45deg);
+      }
+    
+      .star.green:after,
+      .star.green:before {
+        background-color: green;
+      }
+      .star.red:after,
+      .star.red:before {
+        background-color: red;
+      }
+      .star.purple:after,
+      .star.purple:before {
+        background-color: purple;
+      }
+      .star.yellow:after,
+      .star.yellow:before {
+        background-color: yellow;
+      }
+
+      
+    }
+
+    .about-game {
+      width: 80%;
+    }
+
+    .arrows {
+      width: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .speedmatch {
+
+    .gameInfo {
+      align-items: center;
+      height: 3vh;
+      .score {
+        width: 23%;
+      }
+
+      h1{
+        font-size: 1.5rem;
+      }
+      .timer {
+        width: 23%;
+      }
+    }
+
+    .shapes {
+      width: 80%;
+      .discard-pile {
+        width: 40%;
+        max-height: 300px;
+      }
+
+      .cardd {
+        width: 40%;
+        max-height: 300px;
+      }
+
+      .square {
+        width: 130px;
+        height: 130px;
+      }
+
+      .circle {
+        height: 130px;
+        width: 130px;
+      }
+
+      .triangle {
+        border-left: 13vw solid transparent;
+        border-right: 13vw solid transparent;
+        border-bottom: 13vw solid black;
+      }
+
+      .triangle.green {
+        border-bottom-color: green; 
+      }
+    
+      .triangle.red {
+        border-bottom-color: red;
+      }
+    
+      .triangle.yellow {
+        border-bottom-color: yellow;
+      }
+    
+      .triangle.purple {
+        border-bottom-color: purple;
+      }
+
+      .star {
+        width: 45px;
+        height: 45px;
+        min-width: 50px;
+        min-height: 50px;
+        position: relative;
+        background-color: transparent;
+        transform: translate(-20%, -50%);
+      }
+    
+      .star:before,
+      .star:after {
+        content: "";
+        position: absolute;
+        display: block;
+        left: 0;
+        width: 141.4213%; /* 100% * √2 */
+        top: 0;
+        bottom: 0;
+        border-radius: 5%;
+        transform: rotate(66.66deg) skewX(45deg);
+      }
+    
+      /* the same but +90deg to rotate */
+      .star:after {
+        transform: rotate(156.66deg) skew(45deg);
+      }
+    
+      .star.green:after,
+      .star.green:before {
+        background-color: green;
+      }
+      .star.red:after,
+      .star.red:before {
+        background-color: red;
+      }
+      .star.purple:after,
+      .star.purple:before {
+        background-color: purple;
+      }
+      .star.yellow:after,
+      .star.yellow:before {
+        background-color: yellow;
+      }
+
+      
+    }
+
+    .about-game {
+      width: 80%;
+    }
+
+    .arrows {
+      width: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .speedmatch {
+
+    .shapes {
+      width: 100%;
+      justify-content: center;
+      .discard-pile {
+        display: none;
+      }
+
+      .cardd {
+        width: 80%;
+      }
+
+      .square {
+        width: 130px;
+        height: 130px;
+      }
+
+      .circle {
+        height: 130px;
+        width: 130px;
+      }
+
+      .triangle {
+        border-left: 35vw solid transparent;
+        border-right: 35vw solid transparent;
+        border-bottom: 35vw solid black;
+      }
+
+      .triangle.green {
+        border-bottom-color: green; 
+      }
+    
+      .triangle.red {
+        border-bottom-color: red;
+      }
+    
+      .triangle.yellow {
+        border-bottom-color: yellow;
+      }
+    
+      .triangle.purple {
+        border-bottom-color: purple;
+      }
+
+      .star {
+        width: 50px;
+        height: 50px;
+        position: relative;
+        background-color: transparent;
+        transform: translate(-30%, -50%);
+      }
+    
+      .star:before,
+      .star:after {
+        content: "";
+        position: absolute;
+        display: block;
+        left: 0;
+        width: 141.4213%; /* 100% * √2 */
+        top: 0;
+        bottom: 0;
+        border-radius: 5%;
+        transform: rotate(66.66deg) skewX(45deg);
+      }
+    
+      /* the same but +90deg to rotate */
+      .star:after {
+        transform: rotate(156.66deg) skew(45deg);
+      }
+    
+      .star.green:after,
+      .star.green:before {
+        background-color: green;
+      }
+      .star.red:after,
+      .star.red:before {
+        background-color: red;
+      }
+      .star.purple:after,
+      .star.purple:before {
+        background-color: purple;
+      }
+      .star.yellow:after,
+      .star.yellow:before {
+        background-color: yellow;
+      }
+
+    }
   }
 }
 
