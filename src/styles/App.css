@@ -1964,6 +1964,143 @@ button {
   width: 100%;
 }
 
+.brainshift-game {
+  width: 100vw;
+  height: 70vh;
+}
+
+.brainshift-game .brainshift {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.brainshift-game .brainshift .brainshift-header {
+  width: 100vw;
+  height: 10vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.brainshift-game .brainshift .shiftcards {
+  width: 100vw;
+  max-width: 500px;
+  height: 60vh;
+  max-height: 600px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.brainshift-game .brainshift .shiftcards .even {
+  width: 40%;
+  height: 40%;
+  -webkit-box-shadow: 0 0 5px 5px black;
+          box-shadow: 0 0 5px 5px black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: blue;
+}
+
+.brainshift-game .brainshift .shiftcards .vowel {
+  width: 40%;
+  height: 40%;
+  -webkit-box-shadow: 0 0 5px 5px black;
+          box-shadow: 0 0 5px 5px black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: orange;
+}
+
+.brainshift-game .brainshift .arrows {
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.brainshift-game .brainshift .arrows label .left-arrow {
+  -webkit-transform: scale(1.5) rotate(180deg);
+          transform: scale(1.5) rotate(180deg);
+}
+
+.brainshift-game .brainshift .arrows label .right-arrow {
+  -webkit-transform: scale(1.5);
+          transform: scale(1.5);
+}
+
+.brainshift-game .brainshift .arrows label .right-arrow.click {
+  -webkit-animation: click .2s 1;
+          animation: click .2s 1;
+}
+
+.brainshift-game .brainshift .arrows label .left-arrow.click {
+  -webkit-animation: clickLeft .2s 1;
+          animation: clickLeft .2s 1;
+}
+
+@keyframes click {
+  from {
+    -webkit-transform: scale(1.5);
+            transform: scale(1.5);
+  }
+  to {
+    -webkit-transform: scale(1.3);
+            transform: scale(1.3);
+  }
+}
+
+@keyframes clickLeft {
+  from {
+    -webkit-transform: scale(1.5) rotate(180deg);
+            transform: scale(1.5) rotate(180deg);
+  }
+  to {
+    -webkit-transform: scale(1.3) rotate(180deg);
+            transform: scale(1.3) rotate(180deg);
+  }
+}
+
 #root,
 .App {
   width: 100vw;

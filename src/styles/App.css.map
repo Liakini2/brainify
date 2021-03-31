@@ -34,7 +34,8 @@
         "_functions.scss",
         "_Colors.scss",
         "_Colors.scss",
-        "_Stat.scss"
+        "_Stat.scss",
+        "../Components/Games/Brainshift/_Brainshift.scss"
     ],
     "names": [],
     "file": "App.css"
