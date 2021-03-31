@@ -30,32 +30,43 @@ const EditUser = ({...props}) => {
     }
     
     const updateUser=()=>{
-        if(checkPassword() && checkName(editUser.first_name) && checkName(editUser.last_name)){
-            axios.put(`/auth/user`, {})
+        const {oldPassword, password, first_name, last_name} = editUser
+        if(checkPassword() && checkName(first_name) && checkName(last_name)){
+            axios.put(`/auth/user`, {oldPassword, password, first_name, last_name})
             .then()
             .catch()
         }
     }
 
     return (
-        <div className="edit-user">
-            <section>
-                <span>First Name: </span>
-                <input value={editUser.firstName} onChange={e=>setEditUser({...editUser, first_name: e.target.value})}/>
-            </section>
-            <section>
-                <span>Last Name: </span>
-                <input value={editUser.lastName} onChange={e=>setEditUser({...editUser, last_name: e.target.value})}/>
-            </section>
-            <section>
-                <span>Old Password: </span>
-                <input value={editUser.password} onChange={e=>setEditUser({...editUser, password: e.target.value})}/>
-            </section>
-            <section>
-                <span>New Password: </span>
-                <input value={editUser.password} onChange={e=>setEditUser({...editUser, password: e.target.value})}/>
-            </section>
-            <button onClick={updateUser}>Submit</button>
+        <div className="edit-page">
+            <div className="edit-user">
+                <section className="row">
+                    <label>
+                        <span>First Name: </span>
+                        <input value={editUser.firstName} onChange={e=>setEditUser({...editUser, first_name: e.target.value})}/>
+                    </label>
+                </section>
+                <section className="row">
+                    <label>
+                        <span>Last Name: </span>
+                        <input value={editUser.lastName} onChange={e=>setEditUser({...editUser, last_name: e.target.value})}/>
+                    </label>
+                </section>
+                <section className="row">
+                    <label>
+                        <span>Old Password: </span>
+                        <input value={editUser.password} onChange={e=>setEditUser({...editUser, password: e.target.value})}/>
+                    </label>
+                </section>
+                <section className="row">
+                    <label>
+                        <span>New Password: </span>
+                        <input value={editUser.password} onChange={e=>setEditUser({...editUser, password: e.target.value})}/>
+                    </label>
+                </section>
+                <button onClick={updateUser}>Submit</button>
+            </div>
         </div>
     )
 }
