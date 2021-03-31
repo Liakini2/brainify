@@ -1,9 +1,13 @@
+import axios from 'axios'
 import React, {useState, useEffect} from 'react'
+import { GameContext } from '../../../context/GameContext'
+import CountDown from '../Modal/CountDown'
 import Card from './Card'
 
 const Memory = () => {
+    const [augScore, setAugScore] = useState(0)
     const [score, setScore] = useState(0)
-    const [lives, setLives] = useState(3)
+    const [lives, setLives] = useState(5)
     const [gameState, setGameState] = useState('menu')
     const [selected, setSelected] = useState([])
     const [cards, setCards] = useState([
@@ -55,8 +59,20 @@ const Memory = () => {
                 return elem
             })
             setCards(arr)
-        }, 3500)
+        }, 3000)
 
+    }
+
+    const doTheThing = () => {
+        console.log('The thing has been done')
+    }
+
+    const postScore = async (gameId, score) => {
+        try{
+            await axios.post(`api/score/${gameId}`, {score})
+         }catch(err){
+             console.log(err)
+        }
     }
 
     const setHide = (i, hideProp) => {
@@ -72,6 +88,15 @@ const Memory = () => {
         setCards(giveBorder)
     }
 
+    //makes the score more interesting
+    useEffect(() => {
+        if(lives === 0){
+            setAugScore(score * 1500)
+        }else{
+            setAugScore((lives * 300) * (score * 15))
+        }
+    },[selected])
+
 
 
 
@@ -83,8 +108,9 @@ const Memory = () => {
                 //good comparison: if score is max then victory
                 setScore(score + 1)
 
-                if(score === 8){
+                if(score === 7){
                     setSelected([])
+                    postScore(GameContext.game.game_id, augScore)
                     setTimeout(() => {
                         setGameState('victory')
                     },1000)
@@ -118,6 +144,7 @@ const Memory = () => {
 
                 if(lives === 1) {
                     setSelected([])
+                    postScore(GameContext.game.game_id, augScore)
                     setTimeout(() => {
                         setGameState('gameOver')
                     }, 1000)  
@@ -159,7 +186,8 @@ const Memory = () => {
 
             {gameState === 'menu'? 
             <div className='startCard'>
-                <p>This is a description of the game.</p>
+                <h1>Memory Cards!</h1>
+                <p>Match all the cards </p>
                 <button onClick={() => {
                     newGame()
                     setGameState('play') 
@@ -168,32 +196,35 @@ const Memory = () => {
 
 
             :gameState === 'play'? 
-            <div className='gameSpace'> 
-                <h1>Score: {score}</h1>
-                <div className='actualGame'>
-                    {cards.map((elem, i) => {
-                        return <>
-                            <Card 
-                                color={elem.color} 
-                                index={i}
-                                hide={elem.hidden}
-                                active={elem.active}
-                                disabled={elem.disabled? true : elem.correct? true : false}
-                                selected={selected}
-                                setHide={setHide}
-                                selectedFunc={selectedFunc}
-                            />
-                        </>
-                    })}
+            <div>
+                <CountDown time={3} play={doTheThing} />
+                <div className='gameSpace'> 
+                    <h1>Lives: {lives}</h1>
+                    <div className='actualGame'>
+                        {cards.map((elem, i) => {
+                            return <>
+                                <Card 
+                                    color={elem.color} 
+                                    index={i}
+                                    hide={elem.hidden}
+                                    active={elem.active}
+                                    disabled={elem.disabled? true : elem.correct? true : false}
+                                    selected={selected}
+                                    setHide={setHide}
+                                    selectedFunc={selectedFunc}
+                                />
+                            </>
+                        })}
+                    </div>
+                    <h1>Score: {augScore}</h1>
                 </div>
-                <h1>Lives: {lives}</h1>
             </div>
 
 
             :gameState === 'victory'?
             <div className='victory'>
                 <h1>A Winner Is You!</h1>
-                <h1>Final Score: {score}</h1>
+                <h1>Final Score: {augScore}</h1>
                 <button onClick={() => setGameState('menu')}>Replay</button>
             </div>
 
@@ -201,7 +232,7 @@ const Memory = () => {
             :gameState === 'gameOver'?
             <div className='gameOver'>
                 <h1>Game Over</h1>
-                <h1>Score: {score}</h1>
+                <h1>Score: {augScore}</h1>
                 <button onClick={() => setGameState('menu')}>Try Again</button>
             </div>
 

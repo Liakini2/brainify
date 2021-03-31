@@ -18,8 +18,21 @@
     @include flexCenter(row, center);
 }
 
+.startCard {
+    @include flexCenter(column, center)
+}
+
+.victory {
+    @include flexCenter(column, center)
+}
+
+.gameOver {
+    @include flexCenter(column, center)
+}
 
 
+
+//other card stuff
 .card {
     height: 150px;
     width: 150px;
@@ -39,9 +52,6 @@
     background-color: rgb(34, 35, 133)
     !important;
 }
-
-
-
 
 
 //Card type classes
