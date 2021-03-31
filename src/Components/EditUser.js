@@ -40,8 +40,12 @@ const EditUser = ({...props}) => {
     return (
         <div className="edit-user">
             <section>
-                <span>Username: </span>
-                <input value={editUser.username} onChange={e=>setEditUser({...editUser, username: e.target.value})}/>
+                <span>First Name: </span>
+                <input value={editUser.firstName} onChange={e=>setEditUser({...editUser, first_name: e.target.value})}/>
+            </section>
+            <section>
+                <span>Last Name: </span>
+                <input value={editUser.lastName} onChange={e=>setEditUser({...editUser, last_name: e.target.value})}/>
             </section>
             <section>
                 <span>Old Password: </span>
@@ -50,14 +54,6 @@ const EditUser = ({...props}) => {
             <section>
                 <span>New Password: </span>
                 <input value={editUser.password} onChange={e=>setEditUser({...editUser, password: e.target.value})}/>
-            </section>
-            <section>
-                <span>First Name: </span>
-                <input value={editUser.firstName} onChange={e=>setEditUser({...editUser, first_name: e.target.value})}/>
-            </section>
-            <section>
-                <span>Last Name: </span>
-                <input value={editUser.lastName} onChange={e=>setEditUser({...editUser, last_name: e.target.value})}/>
             </section>
             <button onClick={updateUser}>Submit</button>
         </div>

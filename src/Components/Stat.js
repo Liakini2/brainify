@@ -17,8 +17,7 @@ const Stat = () => {
 
     let mappedCategories = userValue.stats.map(stat=>{return stat.category})
     let mappedAverageScore = userValue.stats.map(stat=>{return stat.averageScore})
-    
-    console.log(mappedCategories)
+
     return (
         <section className='stat'>
             <h1>Your Recent Stats</h1>
@@ -31,8 +30,7 @@ const Stat = () => {
                     barPercentage: 1.0, 
                     barThickness: 30,
                     label: `Average Score by Category`,
-                    data: [50000, 128000, 6000, 50000],
-                    // [...mappedAverageScore],    
+                    data: [...mappedAverageScore],    
                     backgroundColor: ["rgba(105, 222, 230, 0.5)", "rgba(114, 77, 128, 0.5)", "rgba(148, 137, 146, 0.5)", "rgba(40, 51, 130, 0.5)"]
                 }]
             }}
