@@ -57,17 +57,13 @@ const Brainshift = () => {
                 setDirection('right');
                 if(evenRef.current) {
                     if(numberRef.current % 2 === 0) {
-                        console.log('even number correct: ', parseInt(scoreRef.current+(50*consecutiveRef.current)), typeof scoreRef.current, typeof consecutiveRef.current);
-                        setScore(scoreRef.current+(50*consecutiveRef.current));
-                        setConsecutive(consecutiveRef.current+1);
+                        addScore();
                     } else {
                         setConsecutive(1);
                     }
                 } else {
                     if(vowels.includes(letterRef.current)) {
-                        console.log('vowel correct: ', parseInt(scoreRef.current+(50*consecutiveRef.current)), typeof scoreRef.current, typeof consecutiveRef.current);
-                        setScore(scoreRef.current + (50*consecutiveRef.current));
-                        setConsecutive(consecutiveRef.current+1);
+                        addScore();
                     } else {
                         setConsecutive(1);
                     }
@@ -76,17 +72,13 @@ const Brainshift = () => {
                 setDirection('left');
                 if(evenRef.current) {
                     if(numberRef.current % 2 !== 0) {
-                        console.log('not even number correct: ', parseInt(scoreRef.current+(50*consecutiveRef.current)), typeof scoreRef.current, typeof consecutiveRef.current);
-                        setScore(+scoreRef.current+(50 * +consecutiveRef.current));
-                        setConsecutive(+consecutiveRef.current+1);
+                        addScore();
                     } else {
                         setConsecutive(1);
                     }
                 } else {
                     if(!vowels.includes(letterRef.current)) {
-                        console.log('not vowel correct: ', parseInt(scoreRef.current+(50*consecutiveRef.current)), typeof scoreRef.current, typeof consecutiveRef.current);
-                        setScore(+scoreRef.current + (50*consecutiveRef.current));
-                        setConsecutive(consecutive.current+1);
+                        addScore();
                     } else {
                         setConsecutive(1);
                     }
@@ -94,6 +86,12 @@ const Brainshift = () => {
             }
             changeCard();
         // }
+    }
+
+    const addScore = () => {
+        console.log('correct: ', scoreRef.current+(50*consecutiveRef.current), typeof scoreRef.current, typeof consecutiveRef.current);
+        setScore(scoreRef.current + (50 * consecutiveRef.current));
+        setConsecutive(consecutiveRef.current+1);
     }
 
     const changeCard = () => {
@@ -119,11 +117,13 @@ const Brainshift = () => {
     }
 
     const setConsecutive = (c) => {
+        console.log('cons: ', typeof c, c)
         consecutiveRef.current = c;
         _setConsecutive(c);
     }
 
     const setScore = (s) => {
+        console.log('score: ', typeof s, s)
         scoreRef.current = s;
         _setScore(s);
     }
