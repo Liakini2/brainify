@@ -32,7 +32,7 @@ const Stats = () => {
                 userValue.setMathStat(stat.averageScore)
             } else if(stat.category==='speed'){
                 userValue.setSpeedStat(stat.averageScore)
-            } else if(stat.cateegory==='flexibility'){
+            } else if(stat.category==='flexibility'){
                 userValue.setFlexibilityStat(stat.averageScore)
             }
         })
