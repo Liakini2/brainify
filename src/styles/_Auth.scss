@@ -25,15 +25,15 @@
     grid-template-columns: auto;
     grid-template-rows: 20% 20% 15% 15% 15%;
 
-    .error-text{
+    .error-text {
       text-align: center;
     }
     label {
-      
       span {
         height: 50%;
         line-height: 50%;
-        
+        position: relative;
+        z-index: 1;
       }
       input {
         height: 40%;
@@ -51,15 +51,14 @@
     }
     .switch {
       // display: inline-block;
-      color: blue;
+      color: $accentColorThree;
       text-align: center;
       // clear: left;
     }
 
-    .switch:hover{ 
+    .switch:hover {
       cursor: pointer;
     }
-
   }
   .register {
     grid-template-rows: 12% 12% 12% 12% 12% 12% 10% 8%;
@@ -69,7 +68,7 @@
     }
   }
 
-  .row{
+  .row {
     display: grid;
     grid-template-columns: auto;
     grid-template-rows: 50% 50%;
@@ -80,7 +79,7 @@
       width: 100%;
       display: flex;
       justify-content: center;
-      span{
+      span {
         width: 20%;
         text-align: center;
         transform: translateY(50%);
@@ -88,7 +87,7 @@
 
       input {
         width: 40%;
-        height: 70%; 
+        height: 70%;
         max-height: 30px;
       }
     }
@@ -102,11 +101,9 @@
 
 @media screen and (max-width: 760px) {
   .login {
-    width: 80%;
     font-size: 1.5rem;
-    
+
     .row {
-      
       label {
         justify-content: space-around;
         width: 100%;
@@ -127,7 +124,6 @@
     width: 100%;
     font-size: 1rem;
     .row {
-      
       label {
         justify-content: space-around;
         width: 100%;

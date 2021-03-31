@@ -1,7 +1,7 @@
 @import "./Colors";
 
 .edit-user {
-  background: orange;
+  background: $primaryContainerBackground;
   display: grid;
   grid-template-columns: auto;
   width: 100%;
@@ -16,10 +16,11 @@
   input {
     width: 30%;
     height: 50%;
+    border-radius: 0;
   }
 
   button {
-    width: 20%;
+    @include primaryBtn;
   }
 }
 
