@@ -15,6 +15,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-top: 2%;
 
     label {
       height: 11vh;
@@ -25,6 +26,10 @@
     border-radius: 0;
     height: 26px;
     width: 60%;
+  }
+
+  .listTitle {
+    font-size: xx-large;
   }
 
   .categories-item {
@@ -42,33 +47,65 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    padding-top: 5%;
 
     .game-icon {
-      background: $primaryContainerBackground;
+      background-color: $transparentBackground;
       color: $primaryTextColor;
       display: flex;
       flex-direction: column;
-      justify-content: space-around;
       align-items: center;
-      width: 95%;
+      width: 20vw;
       height: 50%;
-      max-width: 250px;
-      max-height: 300px;
+      max-height: 350px;
+      max-width: 300px;
+      min-width: 150px;
+      box-shadow: inset 0 0 5px 5px black;
+
+      &:hover {
+        background: $primaryContainerBackground;
+      }
 
       .gameIconName {
         font-size: xx-large;
+        align-content: center;
+        height: 20%;
         display: flex;
         align-items: center;
-        height: 8%;
-        &:hover {
-          color: $accentColorThree;
-        }
+        font-size: x-large;
       }
       .gameIconImage {
         height: 70%;
-        width: 70%;
+        width: 60%;
         border-radius: 5%;
       }
+
+      // .game-icon {
+      //   background: $primaryContainerBackground;
+      //   color: $primaryTextColor;
+      //   display: flex;
+      //   flex-direction: column;
+      //   justify-content: space-around;
+      //   align-items: center;
+      //   width: 95%;
+      //   height: 50%;
+      //   max-width: 250px;
+      //   max-height: 300px;
+
+      //   .gameIconName {
+      //     font-size: xx-large;
+      //     display: flex;
+      //     align-items: center;
+      //     height: 8%;
+      //     &:hover {
+      //       color: $accentColorThree;
+      //     }
+      //   }
+      //   .gameIconImage {
+      //     height: 70%;
+      //     width: 70%;
+      //     border-radius: 5%;
+      //   }
     }
   }
 }
@@ -76,22 +113,21 @@
 @media screen and (max-width: 1200px) {
   .games {
     .category-list {
-      .categories-item{
+      .categories-item {
         font-size: 1.5rem;
       }
     }
-    .games-list{
+    .games-list {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-around;
-      .game-icon{
-        width: 22%;
+      .game-icon {
+        width: 25%;
 
-        .gameIconName{
+        .gameIconName {
           font-size: 1.5rem;
         }
       }
-    
     }
   }
 }
@@ -124,7 +160,6 @@
           width: 32vw;
           transform: translateY(15%);
         }
-
       }
 
       .categories-item {
@@ -140,16 +175,12 @@
       justify-content: space-around;
 
       .game-icon {
-        height: 30vh;
+        height: 35vh;
         width: 45vw;
-        max-height: 200px;
+        max-height: 400px;
 
-        .gameIconName{
+        .gameIconName {
           font-size: 1rem;
-        }
-
-        .gameIconImage {
-
         }
       }
 
@@ -160,11 +191,9 @@
       .game-icon:nth-of-type(even) {
         grid-column-start: 3;
       }
-      
     }
   }
 }
 
 @media screen and (max-width: 430px) {
-
 }

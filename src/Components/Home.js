@@ -3,9 +3,9 @@ import {UserContext} from '../context/UserContext'
 import {GameContext} from '../context/GameContext';
 import {useHistory} from 'react-router-dom';
 import GameIcon from './GameIcon'
-import Stat from './Stat'
 import axios from 'axios';
 import ForwardIcon from '@material-ui/icons/Forward';
+import Stat from './Stat';
 
 
 const Home = ({...props}) => {
@@ -16,12 +16,12 @@ const Home = ({...props}) => {
     const [index, setIndex] = useState(0);
 
     useEffect(() => {
-        // axios.get('/auth/me')
-        // .then(({data})=>{
-        //     userValue.setUser(data)
-        //     userValue.getRecommendedGames()
-        // })
-        // .catch(_=>history.push('/'))
+        axios.get('/auth/me')
+        .then(({data})=>{
+            userValue.setUser(data)
+            userValue.getRecommendedGames()
+        })
+        .catch(_=>history.push('/'))
     }, [])
 
     const loadGame = (id, name, game_icon) => {
@@ -49,7 +49,7 @@ const Home = ({...props}) => {
                     }}/>
                 </section>
                 <section className='stats'>
-                    <Stat />
+                    <Stat/>
                 </section>
             </section>
         </div>
