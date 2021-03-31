@@ -72,14 +72,14 @@ const getRecommendedGames = async (req, res) => {
         let score = results.filter(el => el.category === categories[i]).reduce((total, curr) => { total += +curr.score}, 0)/(results.filter(el => el.category === categories[i]).length ? results.filter(el => el.category === categories[i]).length : 1);
         final.push({category: categories[i].category, averageScore: score});
     }
-    //sort scores
-    console.log(final)
+    // //sort scores
+    // console.log(final)
 
     //get games
     const games = await db.game.get_games();
-    console.log('games', games)
+    // console.log('games', games)
     //sort games into array by category
-    let catGameCombo = {test: ''};
+    let catGameCombo = {};
     for(let i = 0;i<categories.length;i++)
     {
         catGameCombo[categories[i].category] = games.filter(el => el.category === categories[i].category);
@@ -91,6 +91,7 @@ const getRecommendedGames = async (req, res) => {
     let game2 = catGameCombo[final[1].category][Math.floor(Math.random() * catGameCombo[final[1].category].length)]
     let game3 = catGameCombo[final[2].category][Math.floor(Math.random() * catGameCombo[final[2].category].length)]
 
+    console.log('recommended: ', game1, game2, game3);
     return res.status(200).send([game1, game2, game3]);
 }
 
