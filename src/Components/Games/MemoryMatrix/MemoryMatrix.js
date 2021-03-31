@@ -30,7 +30,8 @@ const MemoryMatrix = () => {
     const guessTile = (i) => {
         setGuessedTiles([...guessedTiles, i]);
         if(guessedTiles.length === activeTiles.length) {
-
+            //end game
+            //add 1 to level and start next round
         }
     }
 

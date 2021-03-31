@@ -5,12 +5,17 @@ import ForwardIcon from '@material-ui/icons/Forward';
 
 const Brainshift = () => {
     const [startGame, setStartGame] = useState(false);
-    const [number, setNumber] = useState(2);
-    const [letter, setLetter] = useState('L');
-    const [isiteven, setIsiteven] = useState(true);
-    const [score, setScore] = useState(0);
+    const [number, _setNumber] = useState(2);
+    const numberRef = useRef(number);
+    const [letter, _setLetter] = useState('L');
+    const letterRef = useRef(letter);
+    const [isiteven, _setIsiteven] = useState(true);
+    const evenRef = useRef(isiteven);
+    const [score, _setScore] = useState(0);
+    const scoreRef = useRef(score);
     const [time, setTime] = useState(60);
-    const [consecutive, setConsecutive] = useState(1);
+    const [consecutive, _setConsecutive] = useState(1);
+    const consecutiveRef = useRef(consecutive);
     const [countdown, setCountdown] = useState(false);
     const [direction, setDirection] = useState('');
     
@@ -45,39 +50,43 @@ const Brainshift = () => {
 
 
     function checkAnswer(key) {
-        console.log(key, isiteven, number, letter);
+        // console.log(key, evenRef.current, numberRef.current, letterRef.current);
         const vowels = ['A', 'E', 'I', 'O', 'U'];
         // if(startGame) {   
             if(key === 'ArrowRight') {
                 setDirection('right');
-                if(isiteven) {
-                    if(number % 2 === 0) {
-                        setScore(score+(50*consecutive));
-                        setConsecutive(consecutive+1);
+                if(evenRef.current) {
+                    if(numberRef.current % 2 === 0) {
+                        console.log('even number correct: ', parseInt(scoreRef.current+(50*consecutiveRef.current)), typeof scoreRef.current, typeof consecutiveRef.current);
+                        setScore(scoreRef.current+(50*consecutiveRef.current));
+                        setConsecutive(consecutiveRef.current+1);
                     } else {
                         setConsecutive(1);
                     }
                 } else {
-                    if(vowels.includes(letter)) {
-                        setScore(score + (50*consecutive));
-                        setConsecutive(consecutive+1);
+                    if(vowels.includes(letterRef.current)) {
+                        console.log('vowel correct: ', parseInt(scoreRef.current+(50*consecutiveRef.current)), typeof scoreRef.current, typeof consecutiveRef.current);
+                        setScore(scoreRef.current + (50*consecutiveRef.current));
+                        setConsecutive(consecutiveRef.current+1);
                     } else {
                         setConsecutive(1);
                     }
                 }
             } else if(key === 'ArrowLeft'){
                 setDirection('left');
-                if(!isiteven) {
-                    if(number % 2 !== 0) {
-                        setScore(score+(50*consecutive));
-                        setConsecutive(consecutive+1);
+                if(evenRef.current) {
+                    if(numberRef.current % 2 !== 0) {
+                        console.log('not even number correct: ', parseInt(scoreRef.current+(50*consecutiveRef.current)), typeof scoreRef.current, typeof consecutiveRef.current);
+                        setScore(+scoreRef.current+(50 * +consecutiveRef.current));
+                        setConsecutive(+consecutiveRef.current+1);
                     } else {
                         setConsecutive(1);
                     }
                 } else {
-                    if(!vowels.includes(letter)) {
-                        setScore(score + (50*consecutive));
-                        setConsecutive(consecutive+1);
+                    if(!vowels.includes(letterRef.current)) {
+                        console.log('not vowel correct: ', parseInt(scoreRef.current+(50*consecutiveRef.current)), typeof scoreRef.current, typeof consecutiveRef.current);
+                        setScore(+scoreRef.current + (50*consecutiveRef.current));
+                        setConsecutive(consecutive.current+1);
                     } else {
                         setConsecutive(1);
                     }
@@ -88,16 +97,41 @@ const Brainshift = () => {
     }
 
     const changeCard = () => {
-        console.log('card changer');
         const letters = ['A', 'E', 'I', 'O', 'U', 'M', 'G', 'K', 'T', 'P'];
         setNumber(Math.floor(Math.random() * 8) + 1);
         setLetter(letters[Math.floor(Math.random() * letters.length)]);
         setIsiteven(Math.floor(Math.random() * 100) < 50);
     }
 
+    const setNumber = (n) => {
+        numberRef.current = n;
+        _setNumber(n);
+    }
+
+    const setLetter = (l) => {
+        letterRef.current = l;
+        _setLetter(l);
+    }
+
+    const setIsiteven = (e) => {
+        evenRef.current = e;
+        _setIsiteven(e);
+    }
+
+    const setConsecutive = (c) => {
+        consecutiveRef.current = c;
+        _setConsecutive(c);
+    }
+
+    const setScore = (s) => {
+        scoreRef.current = s;
+        _setScore(s);
+    }
+
     const playGame = () => {
         setCountdown(false);
         setTime(60);
+        setScore(0);
         timer.current = setInterval(() => {
             setTime(t => t-1);
         }, 1000);
@@ -107,16 +141,16 @@ const Brainshift = () => {
     return <div className="brainshift-game">
         {!startGame ? <section className="gameInfo"><p className="how-to-play">Top is Even numbers, Bottom is vowels. Press the left arrow if it doesn't match, the right arrow if it does match.</p>
         <button onClick={_ => {setCountdown(true); setStartGame(true);}}>PLAY</button></section> : countdown ? <CountDown time={3} play={playGame} /> : time > 0 ? <section className="brainshift">
-            <section className="brainshift-header"><h3>Score: {score}</h3> <h2>Brain Shift</h2><h3>Time: {time}</h3></section>
+            <section className="brainshift-header"><h3>Score: {scoreRef.current}</h3> <h2>Brain Shift</h2><h3>Time: {time}</h3></section>
             <div className="shiftcards">
                 <section className="even">
                     {isiteven && <span className="shiftcard">
-                        <h3>{number}{letter}</h3>    
+                        <h3>{numberRef.current}{letterRef.current}</h3>    
                     </span>}
                 </section>
                 <section className="vowel">
                 {!isiteven && <span className="shiftcard">
-                        <h3>{number}{letter}</h3>    
+                        <h3>{numberRef.current}{letterRef.current}</h3>    
                     </span>}
                 </section>
             </div>

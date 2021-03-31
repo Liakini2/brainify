@@ -6,7 +6,7 @@ const Tile = (props) => {
     return <span className={`tile${guessed ? ' guess' : ''}`} onClick={_ => {
         if(!guessed) {
             setGuessed(true);
-            props.guess()
+            props.guess(props.index)
         }
     }}>
     </span>
