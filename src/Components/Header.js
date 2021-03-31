@@ -15,8 +15,6 @@ const Header = (props) => {
     const [loggedin, setLoggedin] = useState(false);
 
     const [width, setWidth] = useState(window.innerWidth);
-    console.log(window.innerWidth)
-    console.log(window.innerHeight)
 
     useEffect(() => {
         const getDimensions = () => {

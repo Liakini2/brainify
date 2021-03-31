@@ -38,6 +38,9 @@ const Stats = () => {
         })
     }, [userValue.Stats])
     
+    let mappedCategories = userValue.stats.map(stat=>{return stat.category})
+    let mappedAverageScore = userValue.stats.map(stat=>{return stat.averageScore})
+    
     return (
         <div className='your-stats'>
             <section className='barGraph'>
@@ -49,11 +52,10 @@ const Stats = () => {
                 width={'100%'}
                 data={{
                     //categories go here
-                    labels: ['Memory', 'Speed', 'Math', 'Flexibility'], 
+                    labels: [...mappedCategories],
                     datasets:[{
                         label: `score`,
-                        // user scores go here
-                        data: [userValue.memoryStat, userValue.speedStat, userValue.mathStat, userValue.flexibilityStat],
+                        data: [...mappedAverageScore], 
                         backgroundColor: "rgba(105, 222, 230, 0.5)"
                     }],
                 }}
