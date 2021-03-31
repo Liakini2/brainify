@@ -2,20 +2,44 @@
 
 .your-stats {
   display: flex;
+  flex-direction: row;
   width: 100vw;
   height: 100vh;
-  justify-content: space-around;
   background: $primaryBackground;
-  .stat {
+  .barGraph {
+    width: 48vw;
     display: flex;
+    justify-content: center;
     align-items: center;
-    width: 40%;
-    height: 100px;
-    background: $primaryBackground;
+    height: 85%;
+    .stat {
+      display: flex;
+      align-items: center;
+      width: 80%;
+      height: 90%;
+      background: $primaryBackground;
+    }
   }
   .overview {
-    width: 50%;
-    height: 100vh;
+    width: 50vw;
+    height: 88%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background: $primaryContainerBackground;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .your-stats {
+    display: inline-block;
+    .barGraph {
+      width: 100vw;
+      height: 38vh;
+    }
+    .overview {
+      width: 100vw;
+      height: 50vh;
+    }
   }
 }

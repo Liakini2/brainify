@@ -15,6 +15,7 @@ export const UserProvider = ({children}) => {
     const [memoryStat, setMemoryStat] = useState(0)
     const [mathStat, setMathStat] = useState(0)
     const [speedStat, setSpeedStat] = useState(0)
+    const [flexibilityStat, setFlexibilityStat] = useState(0)
     const [recommended, setRecommended] = useState([])
     
         const getRecommendedGames = () => {
@@ -30,7 +31,8 @@ export const UserProvider = ({children}) => {
             stats, setStats, 
             mathStat, setMathStat, 
             speedStat, setSpeedStat, 
-            memoryStat, setMemoryStat}}>
+            memoryStat, setMemoryStat,
+            flexibilityStat, setFlexibilityStat}}>
             {children}
         </UserContext.Provider>
     )
