@@ -1,13 +1,21 @@
+
+@import '../../../styles/functions';
+
+
 .brainshift-game {
     width: 100vw;
     height: 70vh;
     .gameInfo {
-        .how-to-play {
-
-        }
-
+        @include flexCenter(column, center);
         button {
+            margin: 10px;
+        }
+    }
 
+    .final-score {
+        @include flexCenter(column, center);
+        button {
+            margin: 10px;
         }
     }
 
