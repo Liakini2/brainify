@@ -570,6 +570,7 @@
   .header .nav .dropdown {
     position: relative;
     height: 8vh;
+    width: 40%;
     top: 0;
     right: 0;
   }
@@ -1881,7 +1882,6 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -2088,6 +2088,72 @@
   background-color: #754d80;
 }
 
+.memoryGame .victory {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 80vh;
+  text-align: center;
+}
+
+.memoryGame .victory button {
+  border: 2px solid #fff;
+  color: #fff;
+  background-color: #45376c;
+  text-align: center;
+  width: 150px;
+  height: 50px;
+  border-radius: 0;
+  margin: 10%;
+}
+
+.memoryGame .victory button:hover {
+  background-color: #754d80;
+}
+
+.memoryGame .gameOver {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 80vh;
+  text-align: center;
+}
+
+.memoryGame .gameOver button {
+  border: 2px solid #fff;
+  color: #fff;
+  background-color: #45376c;
+  text-align: center;
+  width: 150px;
+  height: 50px;
+  border-radius: 0;
+  margin: 10%;
+}
+
+.memoryGame .gameOver button:hover {
+  background-color: #754d80;
+}
+
 .actualGame {
   height: 80vh;
   width: 60vw;
@@ -2139,38 +2205,6 @@
 
 .startCard .gameInstructions {
   width: 63%;
-}
-
-.victory {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
-.gameOver {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
 }
 
 .card {
@@ -2243,18 +2277,12 @@
             flex-direction: column;
   }
   .actualGame {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -ms-flex-pack: distribute;
-        justify-content: space-around;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 25% 25% 25% 25%;
+        grid-template-columns: 25% 25% 25% 25%;
+    -ms-grid-rows: 25% 25% 25% 25%;
+        grid-template-rows: 25% 25% 25% 25%;
   }
 }
 
@@ -2273,34 +2301,27 @@
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-  }
-  .actualGame {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -ms-flex-pack: distribute;
-        justify-content: space-around;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-    width: 700px;
-    height: 700px;
-    border: 1px solid yellow;
+    width: 90vw;
+  }
+  .actualGame {
+    width: 100%;
+    height: 100%;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 25% 25% 25% 25%;
+        grid-template-columns: 25% 25% 25% 25%;
+    -ms-grid-rows: 25% 25% 25% 25%;
+        grid-template-rows: 25% 25% 25% 25%;
+    border: 1px solid #69dee6;
     border-radius: 5px;
   }
   .card {
-    height: 150px;
-    width: 150px;
+    height: 15vh;
+    width: 20vw;
     border-radius: 5px;
     margin: 2px;
   }
@@ -2332,23 +2353,9 @@
             flex-direction: column;
   }
   .actualGame {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -ms-flex-pack: distribute;
-        justify-content: space-around;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
     width: 360px;
     height: 360px;
-    border: 1px solid yellow;
+    border: 1px solid #69dee6;
     border-radius: 5px;
   }
   .card {
@@ -2385,23 +2392,9 @@
             flex-direction: column;
   }
   .actualGame {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -ms-flex-pack: distribute;
-        justify-content: space-around;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
     width: 275px;
     height: 275px;
-    border: 1px solid yellow;
+    border: 1px solid #69dee6;
     border-radius: 5px;
   }
   .card {
@@ -2697,7 +2690,7 @@ body {
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   width: 100vw;
-  height: 80vh;
+  height: 95vh;
   font-size: xx-large;
   background: rgba(36, 33, 59, 0.9);
   display: -webkit-box;

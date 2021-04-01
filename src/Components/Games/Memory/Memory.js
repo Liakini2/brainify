@@ -212,7 +212,7 @@ const Memory = () => {
 
             :gameState === 'play'? 
             <div>
-                <CountDown time={3} play={doTheThing} />
+                <CountDown className='memoryCountdown' time={3} play={doTheThing} />
                 <div className='gameSpace'> 
                     <div className='actualGame'>
                         {cards.map((elem, i) => {

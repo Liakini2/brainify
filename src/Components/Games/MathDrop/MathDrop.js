@@ -116,7 +116,7 @@ const MathDrop = () => {
                     {!gameStart ? <div className='startNewGame'>
                         {countdown && <CountDown time={3} play={playGame} />}
                         <h1 className='gameTitle'>Math Drop!</h1>
-                        <p className='gameInstructions'>Type the answer to the equation into the box at the bottowm of the screen and press enter to submit your answer, before the equation falls to the bottom. You have three lives.</p>
+                        <p className='gameInstructions'> Enter your answers before the bubbles reach the bottom. Type the answer to the equation into the box at the bottowm of the screen and press enter to submit your answer. You have three lives! how long can you last?</p>
                         <button className='playBtn' onClick={_=>{setCountdown(true)}}>Play</button>
                     </div>
                     : lives>0 ? <div className='mathdropGame'>
