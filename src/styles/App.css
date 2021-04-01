@@ -2321,6 +2321,7 @@ button {
       -ms-flex-align: center;
           align-items: center;
   background: blue;
+  font-size: 300%;
 }
 
 .brainshift-game .brainshift .shiftcards .vowel {
@@ -2338,6 +2339,7 @@ button {
       -ms-flex-align: center;
           align-items: center;
   background: orange;
+  font-size: 300%;
 }
 
 .brainshift-game .brainshift .arrows {
