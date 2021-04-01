@@ -6,6 +6,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -2520,6 +2521,46 @@
   height: 70vh;
 }
 
+.brainshift-game .gameInfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.brainshift-game .gameInfo button {
+  margin: 10px;
+}
+
+.brainshift-game .final-score {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.brainshift-game .final-score button {
+  margin: 10px;
+}
+
 .brainshift-game .brainshift {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2582,6 +2623,7 @@
       -ms-flex-align: center;
           align-items: center;
   background: blue;
+  font-size: 300%;
 }
 
 .brainshift-game .brainshift .shiftcards .vowel {
@@ -2599,6 +2641,7 @@
       -ms-flex-align: center;
           align-items: center;
   background: orange;
+  font-size: 300%;
 }
 
 .brainshift-game .brainshift .arrows {
