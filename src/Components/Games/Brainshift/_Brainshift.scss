@@ -1,96 +1,123 @@
+@import "../../../../src/styles/functions";
+@import "../../../../src/styles/Colors";
+
 .brainshift-game {
-    width: 100vw;
-    height: 70vh;
+  width: 100vw;
+  height: 70vh;
+  @include flexCenter(row, center);
+  .startNewGame {
+    width: 65vw;
+    height: 80vh;
     .gameInfo {
-        .how-to-play {
+      @include flexCenter(column, space-around);
+      background-color: $primaryContainerBackground;
+      height: 70%;
+      width: 100%;
+      text-align: center;
+      .how-to-play {
+        width: 63%;
+      }
 
-        }
+      button {
+        @include primaryBtn;
+      }
+    }
+  }
 
-        button {
+  .final-score {
+    text-align: center;
+    button {
+      @include primaryBtn;
+      margin: 3%;
+    }
+  }
 
-        }
+  .brainshift {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    .brainshift-header {
+      width: 100vw;
+      height: 10vh;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
     }
 
-    .brainshift {
+    .shiftcards {
+      width: 100vw;
+      max-width: 500px;
+      height: 60vh;
+      max-height: 600px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+
+      .even {
+        width: 40%;
+        height: 40%;
+        box-shadow: 0 0 5px 5px black;
         display: flex;
-        flex-direction: column;
-        justify-content: space-around;
+        justify-content: center;
         align-items: center;
-        .brainshift-header {
-            width: 100vw;
-            height: 10vh;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-        }
+        background: $primaryBtnColor;
+      }
 
-        .shiftcards {
-            width: 100vw;
-            max-width: 500px;
-            height: 60vh;
-            max-height: 600px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            align-items: center;
-
-            .even {
-                width: 40%;
-                height: 40%;
-                box-shadow: 0 0 5px 5px black;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                background: blue;
-            }
-
-            .vowel { 
-                width: 40%;
-                height: 40%; 
-                box-shadow: 0 0 5px 5px black;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                background: orange;
-            }
-        }
-
-        .arrows {
-            width: 50%;
-            display: flex;
-            justify-content: space-around;
-            label {
-            .left-arrow {
-                transform: scale(1.5) rotate(180deg);
-            }
-
-            .right-arrow {
-                transform: scale(1.5);
-            }
-
-            .right-arrow.click {
-                animation: click .2s 1;
-            }
-            .left-arrow.click {
-                animation: clickLeft .2s 1;
-            }
-        }
-        }
+      .vowel {
+        width: 40%;
+        height: 40%;
+        box-shadow: 0 0 5px 5px black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: $accentColorOne;
+      }
     }
+
+    .arrows {
+      width: 50%;
+      display: flex;
+      justify-content: space-around;
+      label {
+        .left-arrow {
+          transform: scale(1.5) rotate(180deg);
+        }
+
+        .right-arrow {
+          transform: scale(1.5);
+        }
+
+        .right-arrow.click {
+          animation: click 0.2s 1;
+        }
+        .left-arrow.click {
+          animation: clickLeft 0.2s 1;
+        }
+      }
+    }
+  }
+}
+
+.text {
+  font-size: xxx-large;
 }
 
 @keyframes click {
-    from {
-        transform: scale(1.5);
-    } to {
-        transform: scale(1.3);
-    }
+  from {
+    transform: scale(1.5);
+  }
+  to {
+    transform: scale(1.3);
+  }
 }
 
 @keyframes clickLeft {
-    from {
-        transform: scale(1.5) rotate(180deg);
-    } to {
-        transform: scale(1.3) rotate(180deg);
-    }
+  from {
+    transform: scale(1.5) rotate(180deg);
+  }
+  to {
+    transform: scale(1.3) rotate(180deg);
+  }
 }

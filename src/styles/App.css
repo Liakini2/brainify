@@ -6,6 +6,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -465,6 +466,10 @@
   text-decoration: none;
 }
 
+.header .nav .altLinks:hover {
+  color: #69dee6;
+}
+
 .header .nav .dropdown {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -493,6 +498,10 @@
 .header .nav .navBtn {
   color: #fff;
   text-decoration: none;
+}
+
+.header .nav .navBtn:hover {
+  color: #69dee6;
 }
 
 .header .nav button {
@@ -577,6 +586,9 @@
   .header .nav .dropdown .navBtn {
     font-size: 1rem;
   }
+  .header .nav .dropdown .navBtn:hover {
+    color: #69dee6;
+  }
   .header .nav .dropdown button {
     display: inline-block;
     max-width: 100px;
@@ -656,7 +668,7 @@
 }
 
 .home .recommended .game-icon {
-  background-color: rgba(36, 33, 59, 0.9);
+  background-color: #292945;
   color: #fff;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -673,12 +685,11 @@
   max-height: 350px;
   max-width: 300px;
   min-width: 150px;
-  -webkit-box-shadow: inset 0 0 5px 5px black;
-          box-shadow: inset 0 0 5px 5px black;
+  border: 3px solid black;
 }
 
 .home .recommended .game-icon:hover {
-  background: #292945;
+  background: #45376c;
 }
 
 .home .recommended .game-icon .gameIconName {
@@ -697,8 +708,9 @@
 
 .home .recommended .game-icon .gameIconImage {
   height: 70%;
-  width: 60%;
-  border-radius: 5%;
+  width: 90%;
+  margin: 5%;
+  border: 3px solid black;
 }
 
 .home .stats {
@@ -927,7 +939,7 @@
 }
 
 .games .games-list .game-icon {
-  background-color: rgba(36, 33, 59, 0.9);
+  background-color: #292945;
   color: #fff;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -944,12 +956,11 @@
   max-height: 350px;
   max-width: 300px;
   min-width: 150px;
-  -webkit-box-shadow: inset 0 0 5px 5px black;
-          box-shadow: inset 0 0 5px 5px black;
+  border: 3px solid black;
 }
 
 .games .games-list .game-icon:hover {
-  background: #292945;
+  background: #45376c;
 }
 
 .games .games-list .game-icon .gameIconName {
@@ -967,9 +978,10 @@
 }
 
 .games .games-list .game-icon .gameIconImage {
-  height: 70%;
-  width: 60%;
-  border-radius: 5%;
+  height: 60%;
+  width: 80%;
+  margin: 5%;
+  border: 3px solid black;
 }
 
 @media screen and (max-width: 1200px) {
@@ -986,7 +998,7 @@
         justify-content: space-around;
   }
   .games .games-list .game-icon {
-    width: 25%;
+    width: 100%;
   }
   .games .games-list .game-icon .gameIconName {
     font-size: 1.5rem;
@@ -1875,7 +1887,7 @@
 }
 
 .gameDisplay .final-score {
-  height: 90%;
+  height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1901,7 +1913,7 @@
   width: 150px;
   height: 50px;
   border-radius: 0;
-  margin: 10%;
+  margin: 3%;
 }
 
 .gameDisplay .final-score button:hover {
@@ -2518,6 +2530,80 @@
 .brainshift-game {
   width: 100vw;
   height: 70vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.brainshift-game .startNewGame {
+  width: 65vw;
+  height: 80vh;
+}
+
+.brainshift-game .startNewGame .gameInfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: #292945;
+  height: 70%;
+  width: 100%;
+  text-align: center;
+}
+
+.brainshift-game .startNewGame .gameInfo .how-to-play {
+  width: 63%;
+}
+
+.brainshift-game .startNewGame .gameInfo button {
+  border: 2px solid #fff;
+  color: #fff;
+  background-color: #45376c;
+  text-align: center;
+  width: 150px;
+  height: 50px;
+  border-radius: 0;
+}
+
+.brainshift-game .startNewGame .gameInfo button:hover {
+  background-color: #754d80;
+}
+
+.brainshift-game .final-score {
+  text-align: center;
+}
+
+.brainshift-game .final-score button {
+  border: 2px solid #fff;
+  color: #fff;
+  background-color: #45376c;
+  text-align: center;
+  width: 150px;
+  height: 50px;
+  border-radius: 0;
+  margin: 3%;
+}
+
+.brainshift-game .final-score button:hover {
+  background-color: #754d80;
 }
 
 .brainshift-game .brainshift {
@@ -2581,7 +2667,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background: blue;
+  background: #45376c;
 }
 
 .brainshift-game .brainshift .shiftcards .vowel {
@@ -2598,7 +2684,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background: orange;
+  background: #754d80;
 }
 
 .brainshift-game .brainshift .arrows {
@@ -2621,13 +2707,17 @@
 }
 
 .brainshift-game .brainshift .arrows label .right-arrow.click {
-  -webkit-animation: click .2s 1;
-          animation: click .2s 1;
+  -webkit-animation: click 0.2s 1;
+          animation: click 0.2s 1;
 }
 
 .brainshift-game .brainshift .arrows label .left-arrow.click {
-  -webkit-animation: clickLeft .2s 1;
-          animation: clickLeft .2s 1;
+  -webkit-animation: clickLeft 0.2s 1;
+          animation: clickLeft 0.2s 1;
+}
+
+.text {
+  font-size: xxx-large;
 }
 
 @keyframes click {

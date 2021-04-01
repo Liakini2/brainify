@@ -49,6 +49,9 @@
     .altLinks {
       color: $primaryTextColor;
       text-decoration: none;
+      &:hover {
+        color: $accentColorThree;
+      }
     }
 
     .dropdown {
@@ -71,6 +74,9 @@
     .navBtn {
       color: $primaryTextColor;
       text-decoration: none;
+      &:hover {
+        color: $accentColorThree;
+      }
     }
 
     button {
@@ -135,6 +141,9 @@
 
         .navBtn {
           font-size: 1rem;
+          &:hover {
+            color: $accentColorThree;
+          }
         }
 
         button {
