@@ -1,15 +1,30 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 const Tile = (props) => {
     const [guessed, setGuessed] = useState(false);
+    const [tileState, setTileState] = useState(false)
 
-
-    return <span className={`tile${guessed ? ' guess' : ''}`} onClick={_ => {
-        if(!guessed) {
-            setGuessed(true);
-            props.guess(props.index)
+    useEffect(() => {
+        if(props. tileSecrets.includes(props.index)){
+            setTileState(true)
         }
-    }}>
-    </span>
+    },[])
+
+
+    return <input className={`tile ${guessed ? '' : 'guess'} ${tileState? 'active' : 'inactive'}`} 
+
+        onClick={_ => {
+            
+             setGuessed(true);
+             if(tileState){
+                  props.guess(props.index)
+             }else{
+                 setTimeout(() => {
+                    setGuessed(false)
+                },1000)
+            }
+            
+        }} readOnly disabled={guessed}/>
+
 }
 
 export default Tile;

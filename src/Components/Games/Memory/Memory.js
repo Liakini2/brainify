@@ -1,10 +1,11 @@
 import axios from 'axios'
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import { GameContext } from '../../../context/GameContext'
 import CountDown from '../Modal/CountDown'
 import Card from './Card'
 
 const Memory = () => {
+    const gameContext = useContext(GameContext)
     const [augScore, setAugScore] = useState(0)
     const [score, setScore] = useState(0)
     const [lives, setLives] = useState(5)
@@ -41,7 +42,7 @@ const Memory = () => {
 
     const newGame = () => {
         setScore(0)
-        setLives(3)
+        setLives(5)
         shuffle(cards)
         let arr = cards.map((elem) => {
             elem.hidden = false
@@ -110,7 +111,7 @@ const Memory = () => {
 
                 if(score === 7){
                     setSelected([])
-                    postScore(GameContext.game.game_id, augScore)
+                    postScore(gameContext.game.game_id, augScore)
                     setTimeout(() => {
                         setGameState('victory')
                     },1000)

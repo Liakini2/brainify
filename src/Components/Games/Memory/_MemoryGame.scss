@@ -19,7 +19,11 @@
 }
 
 .startCard {
-    @include flexCenter(column, center)
+    @include flexCenter(column, center);
+    p {
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
 }
 
 .victory {
@@ -85,4 +89,129 @@
 
 .black{
     background-color: black;
+}
+
+@media (max-width: 1200px) {
+
+    .memoryGame{
+        padding: 0;
+        margin: 0;
+    }
+
+    .gameSpace {
+        @include flexCenter(column, center)
+    }
+
+    .actualGame {
+        @include flexCenter(row, space-around);
+    }
+
+    
+}
+
+@media (max-width: 800px) {
+
+    .memoryGame{
+        padding: 0;
+        margin: 0;
+    }
+
+    .gameSpace {
+        @include flexCenter(column, center)
+    }
+
+    .actualGame {
+        @include flexCenter(row, space-around);
+        flex-wrap: wrap;
+        width: 700px;
+        height: 700px;
+        border: 1px solid yellow;
+        border-radius: 5px;
+    }
+
+    .card {
+        height: 150px;
+        width: 150px;
+        border-radius: 5px;
+        margin: 2px;
+    }
+    
+    .selected{
+        border: 3px solid rgb(151, 255, 32) !important;
+        height: 74px !important;
+        width: 74px !important;
+    }
+    
+
+    
+}
+
+@media (max-width: 540px) {
+
+    .memoryGame{
+        padding: 0;
+        margin: 0;
+    }
+
+    .gameSpace {
+        @include flexCenter(column, center)
+    }
+
+    .actualGame {
+        @include flexCenter(row, space-around);
+        flex-wrap: wrap;
+        width: 360px;
+        height: 360px;
+        border: 1px solid yellow;
+        border-radius: 5px;
+    }
+
+    .card {
+        height: 80px;
+        width: 80px;
+        border-radius: 5px;
+        margin: 2px;
+    }
+    
+    .selected{
+        border: 3px solid rgb(151, 255, 32) !important;
+        height: 74px !important;
+        width: 74px !important;
+    }
+    
+}
+
+@media (max-width: 350px) {
+
+    .memoryGame{
+        padding: 0;
+        margin: 0;
+    }
+
+    .gameSpace {
+        @include flexCenter(column, center)
+    }
+
+    .actualGame {
+        @include flexCenter(row, space-around);
+        flex-wrap: wrap;
+        width: 275px;
+        height: 275px;
+        border: 1px solid yellow;
+        border-radius: 5px;
+    }
+
+    .card {
+        height: 60px;
+        width: 60px;
+        border-radius: 5px;
+        margin: 0;
+    }
+    
+    .selected{
+        border: 2px solid rgb(151, 255, 32) !important;
+        height: 61px !important;
+        width: 61px !important;
+    }
+    
 }
