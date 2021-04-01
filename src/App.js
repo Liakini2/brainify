@@ -5,7 +5,7 @@ import './styles/App.css'
 
 function App() {
   const [toggle, setToggle] = useState(false)
-  const [phoneMenu, setPhoneMenu] = useState(true);
+  const [phoneMenu, setPhoneMenu] = useState(window.innerWidth > 760);
 
   return (
     <div className="App" onClick={_ => {

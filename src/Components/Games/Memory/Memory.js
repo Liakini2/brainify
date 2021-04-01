@@ -31,7 +31,7 @@ const Memory = () => {
         {color: 'black', active: false, hidden: false, disabled: true, correct: false}
     ])
     
-    const gameContext = useContext(GameContext);
+    // const gameContext = useContext(GameContext);
 
     const shuffle = (array) => {
         let arr = array
