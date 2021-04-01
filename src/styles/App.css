@@ -1278,7 +1278,7 @@
 
 .speedmatch .shapes {
   height: 80%;
-  width: 75%;
+  width: 50%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1292,6 +1292,8 @@
 .speedmatch .shapes .discard-pile {
   width: 298px;
   height: 400px;
+  max-width: 298px;
+  max-height: 400px;
   background-image: url(https://images.cdn2.stockunlimited.net/preview1300/playing-cards-background_1608080.jpg);
   background-position: center;
   background-size: cover;
@@ -1304,6 +1306,8 @@
 .speedmatch .shapes .cardd {
   width: 298px;
   height: 400px;
+  max-width: 298px;
+  max-height: 400px;
   background: white;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1430,11 +1434,11 @@
   }
   .speedmatch .shapes .discard-pile {
     width: 40%;
-    max-height: 300px;
+    max-height: 400px;
   }
   .speedmatch .shapes .cardd {
     width: 40%;
-    max-height: 300px;
+    max-height: 400px;
   }
   .speedmatch .shapes .square {
     width: 130px;
@@ -1615,6 +1619,18 @@
   }
   .speedmatch .arrows {
     width: 100%;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .speedmatch .shapes {
+    width: 100%;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .speedmatch .shapes .discard-pile {
+    display: none;
   }
 }
 
