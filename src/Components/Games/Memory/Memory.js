@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, {useState, useEffect, useContext} from 'react'
 import { GameContext } from '../../../context/GameContext'
+import {UserContext} from '../../../context/UserContext';
 import CountDown from '../Modal/CountDown'
 import Card from './Card'
 
@@ -30,9 +31,7 @@ const Memory = () => {
         {color: 'black', active: false, hidden: false, disabled: true, correct: false}
     ])
     
-
-
-
+    const gameContext = useContext(GameContext);
 
     const shuffle = (array) => {
         let arr = array
@@ -42,6 +41,7 @@ const Memory = () => {
 
     const newGame = () => {
         setScore(0)
+        setAugScore(0);
         setLives(5)
         shuffle(cards)
         let arr = cards.map((elem) => {
@@ -65,10 +65,11 @@ const Memory = () => {
     }
 
     const doTheThing = () => {
-        console.log('The thing has been done')
+        // console.log('The thing has been done')
     }
 
     const postScore = async (gameId, score) => {
+        // console.log('score', score)
         try{
             await axios.post(`api/score/${gameId}`, {score})
          }catch(err){
@@ -90,13 +91,48 @@ const Memory = () => {
     }
 
     //makes the score more interesting
+    // useEffect(() => {
+    //     if(lives === 0){
+    //         setAugScore(score)
+    //     }else{
+    //         setAugScore(score)
+    //     }
+    // },[selected])
+
     useEffect(() => {
-        if(lives === 0){
-            setAugScore(score * 1500)
+        if(lives <= 0) {
+            setSelected([])
+            postScore(gameContext.game.game_id, augScore)
+            setAugScore(augScore);
+            setTimeout(() => {
+                setGameState('gameOver')
+            }, 1000)  
         }else{
-            setAugScore((lives * 300) * (score * 15))
+            // console.log('selected: ', selected);
+            let array = cards.map((elem) => {
+                elem.disabled = true
+                return elem
+            })
+            setCards(array)
+            setTimeout(() => {
+                let hideAgain = array.slice()
+                if(selected.length === 2) {
+                    hideAgain[selected[0]].hidden = true
+                    hideAgain[selected[1]].hidden = true
+                    hideAgain[selected[0]].active = false
+                    hideAgain[selected[1]].active = false
+                }
+                setCards(hideAgain)
+                let arr = cards.map((elem) => {
+                    elem.disabled = false
+                    return elem
+                })
+                // console.log(arr)
+                setCards(arr)
+                setSelected([])   
+            }, 1500)
         }
-    },[selected])
+    }, [lives])
 
 
 
@@ -107,11 +143,16 @@ const Memory = () => {
             if(cards[selected[0]].color === cards[selected[1]].color) {
 
                 //good comparison: if score is max then victory
-                setScore(score + 1)
-
-                if(score === 7){
+                setScore(score + 1500);
+                setAugScore(score + 1500);
+                //check for game end
+                
+                // console.log(cards.filter(c => c.correct).length);
+                if(cards.filter(c => c.correct).length === 14){
+                    console.log('not getting here')
                     setSelected([])
-                    postScore(gameContext.game.game_id, augScore)
+                    setAugScore(augScore*lives*10);
+                    postScore(gameContext.game.game_id, augScore * lives)
                     setTimeout(() => {
                         setGameState('victory')
                     },1000)
@@ -142,35 +183,6 @@ const Memory = () => {
 
                 //bad comparison: if no lives remain then gameover
                 setLives(lives - 1)
-
-                if(lives === 1) {
-                    setSelected([])
-                    postScore(GameContext.game.game_id, augScore)
-                    setTimeout(() => {
-                        setGameState('gameOver')
-                    }, 1000)  
-                }else{
-                    let arr = cards.map((elem) => {
-                        elem.disabled = true
-                        return elem
-                    })
-                    setCards(arr)
-                    setTimeout(() => {
-                        let hideAgain = cards.slice()
-                        hideAgain[selected[0]].hidden = true
-                        hideAgain[selected[1]].hidden = true
-                        hideAgain[selected[0]].active = false
-                        hideAgain[selected[1]].active = false
-                        setCards(hideAgain)
-                        let arr = cards.map((elem) => {
-                            elem.disabled = false
-                            return elem
-                        })
-                        setCards(arr)
-                        setSelected([])   
-                    }, 1500)
-                }
-
                 
             }
         }

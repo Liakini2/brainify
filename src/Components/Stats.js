@@ -10,11 +10,11 @@ const Stats = () => {
     const userValue = useContext(UserContext)
 
     useEffect(() => {
-        // axios.get('/auth/me')
-        // .then(({data})=>{
-        //     userValue.setUser(data)
-        // })
-        // .catch(_=>history.push('/'))
+        axios.get('/auth/me')
+        .then(({data})=>{
+            userValue.setUser(data)
+        })
+        .catch(_=>history.push('/'))
 
         axios.get(`/api/scores`)
         .then(({data})=>{
@@ -23,20 +23,6 @@ const Stats = () => {
         })
         .catch(err=>console.log(err))
     }, [])
-
-    useEffect(() => {
-        userValue.stats.filter((stat)=>{
-            if(stat.category==='memory'){
-                userValue.setMemoryStat(stat.averageScore)
-            } else if(stat.category==='math'){
-                userValue.setMathStat(stat.averageScore)
-            } else if(stat.category==='speed'){
-                userValue.setSpeedStat(stat.averageScore)
-            } else if(stat.category==='flexibility'){
-                userValue.setFlexibilityStat(stat.averageScore)
-            }
-        })
-    }, [userValue.Stats])
     
     let mappedCategories = userValue.stats.map(stat=>{return stat.category})
     let mappedAverageScore = userValue.stats.map(stat=>{return stat.averageScore})

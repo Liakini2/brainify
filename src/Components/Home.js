@@ -37,7 +37,7 @@ const Home = ({...props}) => {
             <h2>We recommend these games</h2>
             <section className='home-content'>
                 <section className="recommended computer">
-                    {userValue.recommended.map((el, i) => {if(el) return <GameIcon info={el} loadgame={loadGame} />})}
+                    {userValue.recommended.map((el, i) => {if(el) return <GameIcon key={i} info={el} loadgame={loadGame} />})}
                 </section>
                 <section className="recommended phone">
                     <ForwardIcon className="left" onClick={_ => {

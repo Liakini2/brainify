@@ -2,6 +2,10 @@ import {useEffect, useState, useRef, useContext} from 'react';
 import CountDown from '../Modal/CountDown';
 import useKeyPress from '../useKeyPress';
 import ForwardIcon from '@material-ui/icons/Forward';
+import axios from 'axios';
+import {GameContext} from '../../../context/GameContext';
+import {UserContext} from '../../../context/UserContext';
+import {useHistory} from 'react-router-dom';
 
 const Brainshift = () => {
     const [startGame, setStartGame] = useState(false);
@@ -21,53 +25,49 @@ const Brainshift = () => {
     
     const timer = useRef();
 
+    const gamecontext = useContext(GameContext);
+
     
     useKeyPress(['ArrowRight', 'ArrowLeft'], checkAnswer);
+
+    const userValue = useContext(UserContext);
+    const history = useHistory();
     
     useEffect(() => {
-        // function check(e) {
-        //     if(e.key === 'ArrowRight' || e.code === 'ArrowRight' || e.key === 'ArrowLeft' || e.code === 'ArrowLeft') {
-        //         e.preventDefault();
-        //         checkAnswer(e.key ? e.key : e.code);
-        //     }
-        // }
-        // window.addEventListener('keyup', check)
-        // useKeyPress(['ArrowRight', 'ArrowLeft'], checkAnswer);
+        // axios.get('/auth/me')
+        // .then(({data})=>{
+        //     userValue.setUser(data)
+        // })
+        // .catch(_=>history.push('/'))
+
         return (() => {
             clearInterval(timer.current);
-            // window.removeEventListener('keyup', check)
         })
     }, []);
 
     useEffect(() => {
         if(time <= 0) {
             clearInterval(timer.current);
-            // axios.post(`/api/score/${gamecontext.game_id}`, {score}).then(_ => {
+            axios.post(`/api/score/${gamecontext.game.game_id}`, {score}).then(_ => {
 
-            // }).catch(err => console.log(err));
+            }).catch(err => console.log(err));
         }
     }, [time])
 
 
     function checkAnswer(key) {
-        // console.log(key, evenRef.current, numberRef.current, letterRef.current);
         const vowels = ['A', 'E', 'I', 'O', 'U'];
-        // if(startGame) {   
             if(key === 'ArrowRight') {
                 setDirection('right');
                 if(evenRef.current) {
                     if(numberRef.current % 2 === 0) {
-                        console.log('even number correct: ', parseInt(scoreRef.current+(50*consecutiveRef.current)), typeof scoreRef.current, typeof consecutiveRef.current);
-                        setScore(scoreRef.current+(50*consecutiveRef.current));
-                        setConsecutive(consecutiveRef.current+1);
+                        addScore();
                     } else {
                         setConsecutive(1);
                     }
                 } else {
                     if(vowels.includes(letterRef.current)) {
-                        console.log('vowel correct: ', parseInt(scoreRef.current+(50*consecutiveRef.current)), typeof scoreRef.current, typeof consecutiveRef.current);
-                        setScore(scoreRef.current + (50*consecutiveRef.current));
-                        setConsecutive(consecutiveRef.current+1);
+                        addScore();
                     } else {
                         setConsecutive(1);
                     }
@@ -76,24 +76,24 @@ const Brainshift = () => {
                 setDirection('left');
                 if(evenRef.current) {
                     if(numberRef.current % 2 !== 0) {
-                        console.log('not even number correct: ', parseInt(scoreRef.current+(50*consecutiveRef.current)), typeof scoreRef.current, typeof consecutiveRef.current);
-                        setScore(+scoreRef.current+(50 * +consecutiveRef.current));
-                        setConsecutive(+consecutiveRef.current+1);
+                        addScore();
                     } else {
                         setConsecutive(1);
                     }
                 } else {
                     if(!vowels.includes(letterRef.current)) {
-                        console.log('not vowel correct: ', parseInt(scoreRef.current+(50*consecutiveRef.current)), typeof scoreRef.current, typeof consecutiveRef.current);
-                        setScore(+scoreRef.current + (50*consecutiveRef.current));
-                        setConsecutive(consecutive.current+1);
+                        addScore();
                     } else {
                         setConsecutive(1);
                     }
                 }
             }
             changeCard();
-        // }
+    }
+
+    const addScore = () => {
+        setScore(scoreRef.current + (50 * consecutiveRef.current));
+        setConsecutive(consecutiveRef.current+1);
     }
 
     const changeCard = () => {
