@@ -1,7 +1,6 @@
 import axios from 'axios'
 import React, {useState, useEffect, useContext} from 'react'
 import { GameContext } from '../../../context/GameContext'
-import {UserContext} from '../../../context/UserContext';
 import CountDown from '../Modal/CountDown'
 import Card from './Card'
 
@@ -196,11 +195,14 @@ const Memory = () => {
     return (
 
         <div className='memoryGame'>
-
+            <section className='game-stats'>
+                <h1 className='hub'>Score: {augScore}</h1>
+                <h1 className='hub'>Lives: {lives}</h1>  
+            </section>
             {gameState === 'menu'? 
             <div className='startCard'>
-                <h1>Memory Cards!</h1>
-                <p>Match all the cards </p>
+                <h1 className='gameTitle'>Memory Cards!</h1>
+                <p className='gameInstructions'>This is a classic card matching memory game. Memorize the positions of as many cards as you can before they flip over. Match cards to score points. Try to match them all before you run out of lives.</p>
                 <button onClick={() => {
                     newGame()
                     setGameState('play') 
@@ -210,9 +212,8 @@ const Memory = () => {
 
             :gameState === 'play'? 
             <div>
-                <CountDown time={3} play={doTheThing} />
+                <CountDown className='memoryCountdown' time={3} play={doTheThing} />
                 <div className='gameSpace'> 
-                    <h1>Lives: {lives}</h1>
                     <div className='actualGame'>
                         {cards.map((elem, i) => {
                             return <>
@@ -229,7 +230,6 @@ const Memory = () => {
                             </>
                         })}
                     </div>
-                    <h1>Score: {augScore}</h1>
                 </div>
             </div>
 
@@ -244,8 +244,8 @@ const Memory = () => {
 
             :gameState === 'gameOver'?
             <div className='gameOver'>
-                <h1>Game Over</h1>
-                <h1>Score: {augScore}</h1>
+                <h1>Game Over!</h1>
+                <h1>Final Score: {augScore}</h1>
                 <button onClick={() => setGameState('menu')}>Try Again</button>
             </div>
 
