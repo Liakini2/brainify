@@ -10,11 +10,11 @@ const Stats = () => {
     const userValue = useContext(UserContext)
 
     useEffect(() => {
-        // axios.get('/auth/me')
-        // .then(({data})=>{
-        //     userValue.setUser(data)
-        // })
-        // .catch(_=>history.push('/'))
+        axios.get('/auth/me')
+        .then(({data})=>{
+            userValue.setUser(data)
+        })
+        .catch(_=>history.push('/'))
 
         axios.get(`/api/scores`)
         .then(({data})=>{

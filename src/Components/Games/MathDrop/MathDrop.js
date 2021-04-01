@@ -22,13 +22,13 @@ const MathDrop = () => {
     const gameContext = useContext(GameContext)
     const userValue = useContext(UserContext)
 
-    useEffect(() => {
-        // axios.get('/auth/me')
-        // .then(({data})=>{
-        //     userValue.setUser(data)
-        // })
-        // .catch(_=>history.push('/'))
-    }, [])
+    // useEffect(() => {
+    //     axios.get('/auth/me')
+    //     .then(({data})=>{
+    //         userValue.setUser(data)
+    //     })
+    //     .catch(_=>history.push('/'))
+    // }, [])
 
     useEffect(() => {
         return(()=>{clearInterval(equationTimer.current)})
