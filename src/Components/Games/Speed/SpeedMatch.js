@@ -162,7 +162,7 @@ class SpeedMatch extends Component {
                         Play Again
                     </button>
                 </div>}
-                <section className="arrows">
+                {this.state.gameTime > 0 && <section className="arrows">
                     <label>
                         <ForwardIcon 
                         className={`left-arrow ${this.state.direction === 'left' ? 'click' : ''}`} 
@@ -175,7 +175,7 @@ class SpeedMatch extends Component {
                     onAnimationEnd={() => this.setState({direction: ''})} />
                     YES
                 </label>
-                </section>
+                </section>}
         </div>
     }
 }
