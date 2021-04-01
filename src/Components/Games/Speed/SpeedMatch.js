@@ -139,7 +139,7 @@ class SpeedMatch extends Component {
             </div>
             {!this.state.game_started ? <div className="about-game">
                 <section className="how-to-play">
-                    Press the left arrow if the new card doesn't match the previous. Press the Right arrow if it does match! 
+                    Does the current card match the shape and color from the last card? <br /> Press the right arrow on your keyboard for Yes. <br />Press the left arrow for No.
                 </section>
                 <button className="play" onClick={() => this.startCountDown()}>
                     Play
