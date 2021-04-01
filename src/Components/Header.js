@@ -58,7 +58,11 @@ const Header = (props) => {
         <header className='header'>
             <h1 className="brainifyLogo">BRAINIFY</h1>
             <MenuIcon className="phone menu" onClick={e => {
+                console.log('toggle 1', width)
                 e.preventDefault();
+                if(window.innerWidth <= 760) {
+                    setToggle(true);
+                }
                 setPhoneMenu(!phoneMenu)
                 }} />
             <Slide in={phoneMenu} direction="left" timeout={500} unmountOnExit mountOnEnter>
@@ -71,9 +75,9 @@ const Header = (props) => {
                     <section className="right">
                         <Link to="/about" className="altLinks">About</Link>
                         <MenuIcon className="acctMenu computer" onClick={e => {
+                            console.log('toggle 2', width)
                             e.preventDefault();
                             setToggle(!toggle)
-
                         }}/>
                         <div></div>
                     </section>

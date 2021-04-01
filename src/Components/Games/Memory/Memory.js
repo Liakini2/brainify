@@ -5,6 +5,7 @@ import CountDown from '../Modal/CountDown'
 import Card from './Card'
 
 const Memory = () => {
+    const gameContext = useContext(GameContext)
     const [augScore, setAugScore] = useState(0)
     const [score, setScore] = useState(0)
     const [lives, setLives] = useState(5)
@@ -29,7 +30,7 @@ const Memory = () => {
         {color: 'black', active: false, hidden: false, disabled: true, correct: false}
     ])
     
-    const gameContext = useContext(GameContext);
+    // const gameContext = useContext(GameContext);
 
     const shuffle = (array) => {
         let arr = array
@@ -63,11 +64,11 @@ const Memory = () => {
     }
 
     const doTheThing = () => {
-        console.log('The thing has been done')
+        // console.log('The thing has been done')
     }
 
     const postScore = async (gameId, score) => {
-        console.log('score', score)
+        // console.log('score', score)
         try{
             await axios.post(`api/score/${gameId}`, {score})
          }catch(err){
@@ -106,7 +107,7 @@ const Memory = () => {
                 setGameState('gameOver')
             }, 1000)  
         }else{
-            console.log('selected: ', selected);
+            // console.log('selected: ', selected);
             let array = cards.map((elem) => {
                 elem.disabled = true
                 return elem
@@ -125,7 +126,7 @@ const Memory = () => {
                     elem.disabled = false
                     return elem
                 })
-                console.log(arr)
+                // console.log(arr)
                 setCards(arr)
                 setSelected([])   
             }, 1500)
@@ -143,10 +144,13 @@ const Memory = () => {
                 //good comparison: if score is max then victory
                 setScore(score + 1500);
                 setAugScore(score + 1500);
-
-                if(score >= 8*1500){
+                //check for game end
+                
+                // console.log(cards.filter(c => c.correct).length);
+                if(cards.filter(c => c.correct).length === 14){
+                    console.log('not getting here')
                     setSelected([])
-                    setAugScore(augScore*lives);
+                    setAugScore(augScore*lives*10);
                     postScore(gameContext.game.game_id, augScore * lives)
                     setTimeout(() => {
                         setGameState('victory')
