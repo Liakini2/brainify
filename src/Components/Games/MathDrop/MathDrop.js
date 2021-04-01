@@ -17,7 +17,6 @@ const MathDrop = () => {
     const equationTimer = useRef()
     const gameContext = useContext(GameContext)
 
-
     useEffect(() => {
         return(()=>{clearInterval(equationTimer.current)})
     }, [])
