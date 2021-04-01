@@ -1,24 +1,12 @@
 import axios from 'axios'
 import React, {useState, useEffect, useContext} from 'react'
-import {useHistory} from 'react-router-dom';
 import { GameContext } from '../../../context/GameContext'
 import {UserContext} from '../../../context/UserContext';
 import CountDown from '../Modal/CountDown'
 import Card from './Card'
 
 const Memory = () => {
-
-    // const userValue = useContext(UserContext);
-    // const history = useHistory();
-
-    // useEffect(() => {
-    //     axios.get('/auth/me')
-    //     .then(({data})=>{
-    //         userValue.setUser(data)
-    //     })
-    //     .catch(_=>history.push('/'))
-    // }, []);
-
+    const gameContext = useContext(GameContext)
     const [augScore, setAugScore] = useState(0)
     const [score, setScore] = useState(0)
     const [lives, setLives] = useState(5)

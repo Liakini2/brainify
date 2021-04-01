@@ -1,0 +1,49 @@
+@import '../../../../src/styles/functions';
+
+//game style
+
+.memorymatrix {
+    @include flexCenter(column, center);
+}
+
+.about-game {
+    @include flexCenter(column, center);
+}
+
+.game-board {
+    @include flexCenter(row, space-around);
+    flex-wrap: wrap;
+    width: 800px;
+    height: 800px;
+    border: 1px solid yellow;
+    border-radius: 15px;
+    margin: 15px;
+}
+
+.victory {
+    @include flexCenter(column, center);
+}
+
+//tile style
+
+.tile {
+    height: 150px;
+    width: 150px;
+    border-radius: 10px;
+    margin: 15px;
+}
+
+//faceup or facedown
+.guess {
+    background-color: rgb(34, 35, 133)
+    !important; 
+}
+
+//correct or incorrect
+.active {
+    background-color: rgb(0, 255, 0);
+}
+
+.inactive {
+    background-color: red;
+}
