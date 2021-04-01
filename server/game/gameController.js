@@ -31,7 +31,7 @@ const getScores = async (req, res) => {
     for(let i = 0;i<categories.length;i++) {
         let avg = scores.filter(s => s.category === categories[i].category)[0]?.avg
         // console.log(avg ? avg : 0);
-        final.push({category: categories[i].category, averageScore:  avg ? avg : 0})
+        final.push({category: categories[i].category, averageScore:  avg ? Math.floor(avg) : 0})
     }
     return res.status(200).send(final);
 }
@@ -80,7 +80,7 @@ const getRecommendedGames = async (req, res) => {
     let recGames = [];
 
     // console.log('not played', notPlayed);
-    for(let i = 0;i<notPlayed.length;i++) {
+    for(let i = 0;i<notPlayed.length && i<3;i++) {
         let gamesToPlayInCategory = games.filter(g => g.category === notPlayed[i].category);
         // console.log('in not played: ', gamesToPlayInCategory);
         recGames.push(gamesToPlayInCategory[Math.floor(Math.random() * gamesToPlayInCategory.length)]);

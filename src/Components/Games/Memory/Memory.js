@@ -31,7 +31,7 @@ const Memory = () => {
         {color: 'black', active: false, hidden: false, disabled: true, correct: false}
     ])
     
-    const gameContext = useContext(GameContext);
+    // const gameContext = useContext(GameContext);
 
     const shuffle = (array) => {
         let arr = array
@@ -143,8 +143,8 @@ const Memory = () => {
             if(cards[selected[0]].color === cards[selected[1]].color) {
 
                 //good comparison: if score is max then victory
-                setScore(score + 1500);
-                setAugScore(score + 1500);
+                setScore(score + 150);
+                setAugScore(score + 150);
                 //check for game end
                 
                 // console.log(cards.filter(c => c.correct).length);

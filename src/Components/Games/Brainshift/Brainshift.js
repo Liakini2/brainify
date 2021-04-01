@@ -155,9 +155,9 @@ const Brainshift = () => {
                 </section>
             </div>
             <section className="arrows">
-                <label><ForwardIcon className={`left-arrow${direction === 'left' ? ' click' : ''}`} onAnimationEnd={() => setDirection('')} />NO</label>
+                <label onClick={_ => checkAnswer('ArrowLeft')}><ForwardIcon className={`left-arrow${direction === 'left' ? ' click' : ''}`} onAnimationEnd={() => setDirection('')} />NO</label>
 
-                <label><ForwardIcon className={`right-arrow${direction === 'right' ? ' click' : ''}`} onAnimationEnd={() => setDirection('')} />YES</label>
+                <label onClick={_ => checkAnswer('ArrowRight')}><ForwardIcon className={`right-arrow${direction === 'right' ? ' click' : ''}`} onAnimationEnd={() => setDirection('')} />YES</label>
             </section>
         </section> : <section className="final-score">
                         <h3>Your Final Score is {score}</h3>
