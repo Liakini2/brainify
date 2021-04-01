@@ -3,8 +3,6 @@ import Equation from './Equation'
 import CountDown from '../Modal/CountDown';
 import axios from 'axios'
 import { GameContext } from '../../../context/GameContext'
-import { UserContext } from '../../../context/UserContext'
-import { useHistory } from 'react-router-dom'
 import {v4 as uuidv4} from 'uuid';
 
 const MathDrop = () => {
@@ -14,20 +12,10 @@ const MathDrop = () => {
     const [equations, setEquations] = useState([])
     const [consecutive, setConsecutive] = useState(1)
     const [gameStart, setGameStart] = useState(false);
-
+    const [countdown, setCountdown] = useState(false)
     // const id = useRef(0)
     const equationTimer = useRef()
-    const history = useHistory()
     const gameContext = useContext(GameContext)
-    const userValue = useContext(UserContext)
-
-    useEffect(() => {
-        // axios.get('/auth/me')
-        // .then(({data})=>{
-        //     userValue.setUser(data)
-        // })
-        // .catch(_=>history.push('/'))
-    }, [])
 
     useEffect(() => {
         return(()=>{clearInterval(equationTimer.current)})
@@ -38,7 +26,6 @@ const MathDrop = () => {
             //will end game and send score to the server.
             setEquations([])
             clearInterval(equationTimer.current) 
-            setGameStart(false);
             axios.post(`/api/score/${gameContext.game.game_id}`, {score})
                 .then(_=>{
                     
@@ -111,36 +98,43 @@ const MathDrop = () => {
         // id.current = 0
         setLives(3);
         setScore(0);
+        setCountdown(false);
+        setGameStart(true);
         equationTimer.current = setInterval(()=>{
             generateProblem()
         },2000)
     }
 
-    const startGame = () => {
-        setGameStart(true);
-    }
-
     return (
         <div className='gameDisplay'>
-            <h1 className='hub'>Your Score: {score}</h1>
+            <section className='game-stats'>
+                <h1 className='hub'>Score: {score}</h1>
+                <h1 className='hub'>Lives: {lives}</h1>  
+            </section>
             <div className='centerGame'>
-                <h1 className='gameTitle'>mathdrop</h1>
-                {lives<=0?<div className='startNewGame'>
-                    {gameStart && <CountDown time={3} play={playGame} />}
-                    <p className='gameInstructions'>Type the answer to the equation into the box at the bottowm of the screen and press enter to submit your answer, before the equation falls to the bottom. You have three lives.</p>
-                    <button className='playBtn' onClick={_ => startGame()}>Play</button>
+                <div className='game-container'>
+                    {!gameStart ? <div className='startNewGame'>
+                        {countdown && <CountDown time={3} play={playGame} />}
+                        <h1 className='gameTitle'>Math Drop!</h1>
+                        <p className='gameInstructions'> Enter your answers before the bubbles reach the bottom. Type the answer to the equation into the box at the bottowm of the screen and press enter to submit your answer. You have three lives! how long can you last?</p>
+                        <button className='playBtn' onClick={_=>{setCountdown(true)}}>Play</button>
+                    </div>
+                    : lives>0 ? <div className='mathdropGame'>
+                        {equations.map((equation, index)=>{
+                            //get 6, 9 or 12
+                            return(<Equation className='displayEquations' key={equation.i} missedTarget={missedTarget} numOne={equation.numOne} numTwo={equation.numTwo} altOperator={equation.altOperator} />)
+                        })}
+                        <input className='user-answer' autoFocus value={userAnswer} onKeyPress={checkAnswer} onChange={(e)=>{setUserAnswer(e.target.value)}}/>
+                    </div>
+                    : <div className="final-score"> 
+                        <h1>Game Over!</h1> 
+                        <h1>Final Score: {score}</h1>
+                        <button onClick={_ =>{setGameStart(false); setCountdown(true)}}>
+                            Play Again
+                        </button>
+                    </div>}
                 </div>
-                :
-                gameStart && <div className='mathdropGame'>
-                    {equations.map((equation, index)=>{
-                        //get 6, 9 or 12
-                        return(<Equation className='displayEquations' key={equation.i} missedTarget={missedTarget} numOne={equation.numOne} numTwo={equation.numTwo} altOperator={equation.altOperator} />)
-                    })}
-                    <input className='user-answer' autoFocus value={userAnswer} onKeyPress={checkAnswer} onChange={(e)=>{setUserAnswer(e.target.value)}}/>
-                </div>
-                }
             </div>
-            <h1 className='hub'>Lives: {lives}</h1>  
         </div>
     )
 }

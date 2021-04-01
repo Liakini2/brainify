@@ -2,34 +2,50 @@
 @import "../../../styles/functions";
 
 .gameDisplay {
-  display: flex;
-  justify-content: space-around;
+  @include flexCenter(column, center);
   max-width: 100vw;
   max-height: 100vh;
-  .hub {
-    width: 15vw;
-    font-size: x-large;
-    text-align: center;
+  .game-stats {
+    width: 90vw;
+    @include flexCenter(row, space-around);
+    .hub {
+      width: 15vw;
+      font-size: x-large;
+      text-align: center;
+    }
   }
   .centerGame {
-    @include flexCenter(column, space-around);
-    width: 65vw;
-    height: 80vh;
-    .gameTitle {
-    }
-
-  }
-  .startNewGame {
-    @include flexCenter(column, space-around);
-    background-color: $primaryContainerBackground;
-    height: 70%;
-    width: 100%;
     text-align: center;
-    .gameInstructions {
-      width: 63%;
+
+    .game-container {
+      width: 65vw;
+      height: 80vh;
+      .startNewGame {
+        @include flexCenter(column, space-around);
+        background-color: $primaryContainerBackground;
+        height: 70%;
+        width: 100%;
+        text-align: center;
+        .gameInstructions {
+          width: 63%;
+        }
+        .playBtn {
+          @include primaryBtn;
+        }
+      }
     }
-    .playBtn {
+  }
+  .final-score {
+    height: 90%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    button {
       @include primaryBtn;
+      margin: 10%;
     }
   }
   .mathdropGame {
@@ -66,7 +82,6 @@
       border: 1px solid white;
       border-radius: 50%;
     }
-
   }
 }
 
@@ -76,5 +91,47 @@
   }
   to {
     transform: translate(0, 65vh);
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .gameDisplay {
+    .centerGame {
+      .game-container {
+        width: 100vw;
+        .startNewGame {
+          @include flexCenter(column, center);
+          .gameInstructions {
+            font-size: xx-large;
+            padding: 5%;
+          }
+        }
+        .mathdropGame {
+          width: 100%;
+          height: 69vh;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .gameDisplay {
+    .centerGame {
+      .game-container {
+        width: 100vw;
+        .startNewGame {
+          @include flexCenter(column, center);
+          .gameInstructions {
+            font-size: x-large;
+            padding: 5%;
+          }
+        }
+        .mathdropGame {
+          width: 100%;
+          height: 69vh;
+        }
+      }
+    }
   }
 }

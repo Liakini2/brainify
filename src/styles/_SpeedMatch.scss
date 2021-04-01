@@ -51,7 +51,6 @@
     align-items: center;
     height: 50%;
     text-align: center;
-
   }
 
   .square {
@@ -71,7 +70,7 @@
   }
 
   .triangle.green {
-    border-bottom-color: green; 
+    border-bottom-color: green;
   }
 
   .triangle.red {
@@ -175,7 +174,7 @@
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat;
-      
+
       z-index: 5;
       box-shadow: inset 0 0 0.2em 0.3em black;
     }
@@ -195,6 +194,15 @@
     height: 90%;
     display: flex;
     align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    button {
+      @include primaryBtn;
+      margin: 10%;
+    }
   }
 
   .animate-card {
@@ -236,7 +244,6 @@
 
 @media screen and (max-width: 1200px) {
   .speedmatch {
-
     .gameInfo {
       align-items: center;
       height: 3vh;
@@ -244,7 +251,7 @@
         width: 23%;
       }
 
-      h1{
+      h1 {
         font-size: 1.5rem;
       }
       .timer {
@@ -281,17 +288,17 @@
       }
 
       .triangle.green {
-        border-bottom-color: green; 
+        border-bottom-color: green;
       }
-    
+
       .triangle.red {
         border-bottom-color: red;
       }
-    
+
       .triangle.yellow {
         border-bottom-color: yellow;
       }
-    
+
       .triangle.purple {
         border-bottom-color: purple;
       }
@@ -305,7 +312,7 @@
         background-color: transparent;
         transform: translate(-20%, -20%);
       }
-    
+
       .star:before,
       .star:after {
         content: "";
@@ -318,12 +325,12 @@
         border-radius: 5%;
         transform: rotate(66.66deg) skewX(45deg);
       }
-    
+
       /* the same but +90deg to rotate */
       .star:after {
         transform: rotate(156.66deg) skew(45deg);
       }
-    
+
       .star.green:after,
       .star.green:before {
         background-color: green;
@@ -340,8 +347,6 @@
       .star.yellow:before {
         background-color: yellow;
       }
-
-      
     }
 
     .about-game {
@@ -356,7 +361,6 @@
 
 @media screen and (max-width: 760px) {
   .speedmatch {
-
     .gameInfo {
       align-items: center;
       height: 3vh;
@@ -364,7 +368,7 @@
         width: 23%;
       }
 
-      h1{
+      h1 {
         font-size: 1.5rem;
       }
       .timer {
@@ -401,17 +405,17 @@
       }
 
       .triangle.green {
-        border-bottom-color: green; 
+        border-bottom-color: green;
       }
-    
+
       .triangle.red {
         border-bottom-color: red;
       }
-    
+
       .triangle.yellow {
         border-bottom-color: yellow;
       }
-    
+
       .triangle.purple {
         border-bottom-color: purple;
       }
@@ -425,7 +429,7 @@
         background-color: transparent;
         transform: translate(-20%, -50%);
       }
-    
+
       .star:before,
       .star:after {
         content: "";
@@ -438,12 +442,12 @@
         border-radius: 5%;
         transform: rotate(66.66deg) skewX(45deg);
       }
-    
+
       /* the same but +90deg to rotate */
       .star:after {
         transform: rotate(156.66deg) skew(45deg);
       }
-    
+
       .star.green:after,
       .star.green:before {
         background-color: green;
@@ -460,8 +464,6 @@
       .star.yellow:before {
         background-color: yellow;
       }
-
-      
     }
 
     .about-game {
@@ -476,7 +478,6 @@
 
 @media screen and (max-width: 430px) {
   .speedmatch {
-
     .shapes {
       width: 100%;
       justify-content: center;
@@ -505,17 +506,17 @@
       }
 
       .triangle.green {
-        border-bottom-color: green; 
+        border-bottom-color: green;
       }
-    
+
       .triangle.red {
         border-bottom-color: red;
       }
-    
+
       .triangle.yellow {
         border-bottom-color: yellow;
       }
-    
+
       .triangle.purple {
         border-bottom-color: purple;
       }
@@ -527,7 +528,7 @@
         background-color: transparent;
         transform: translate(-30%, -50%);
       }
-    
+
       .star:before,
       .star:after {
         content: "";
@@ -540,12 +541,12 @@
         border-radius: 5%;
         transform: rotate(66.66deg) skewX(45deg);
       }
-    
+
       /* the same but +90deg to rotate */
       .star:after {
         transform: rotate(156.66deg) skew(45deg);
       }
-    
+
       .star.green:after,
       .star.green:before {
         background-color: green;
@@ -562,7 +563,6 @@
       .star.yellow:before {
         background-color: yellow;
       }
-
     }
   }
 }

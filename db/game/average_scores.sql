@@ -1,0 +1,1 @@
+SELECT AVG(score), category FROM results r JOIN games g ON g.id = r.game_id JOIN categories c ON c.id = g.category_id WHERE r.user_id = $1 GROUP BY c.category;

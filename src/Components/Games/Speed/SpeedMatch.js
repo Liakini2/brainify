@@ -27,6 +27,12 @@ class SpeedMatch extends Component {
     }
 
     componentDidMount(){
+        // axios.get('/auth/me')
+        // .then(({data})=>{
+            
+        // })
+        // .catch(_=>this.props.history.push('/'));
+
         window.addEventListener('keydown', this.compareShape);
         window.addEventListener('keyup', this.setPressed);
         // console.log(this.state.game_id, this.state.game_name)
@@ -126,18 +132,50 @@ class SpeedMatch extends Component {
         // console.log("previous: " + this.state.prev.shape + " " + this.state.prev.color, this.state.color, this.state.shape);
         return <div className="speedmatch">
             {this.state.countdown && <CountDown time={3} play={this.startGame}/>}
-        <div className="gameInfo"><section className="score">Score: {this.state.score}</section><h1>{this.state.game_name}</h1><section className="timer">Time: {this.state.gameTime}</section></div>
-            {!this.state.game_started ? <div className="about-game"><section className="how-to-play">Press the left arrow if the new card doesn't match the previous. Press the Right arrow if it does match! </section><button className="play" onClick={() => this.startCountDown()}>Play</button></div> :
-            this.state.gameTime > 0 ? <section className="shapes"><section className={`discard-pile`} />
-                <span>{this.state.answer==='correct' ? <CheckIcon className="correct" onAnimationEnd={() => this.setState({answer: ''})}/> : this.state.answer ==='wrong' ? <ClearIcon className="wrong" onAnimationEnd={() => this.setState({answer: ''})}/> : null}</span>
-                <section className={`cardd ${this.state.animate}`} onAnimationEnd={_ => this.setState({animate: ''})}><section className={`${this.state.shape} ${this.state.color}`} /></section></section> 
-                : <div className="final-score">Game Over! <section> Final Score is {this.state.score}!</section>
-                    <button onClick={_ => this.restartGame()}>Play Again</button>
-                </div>}
-                <section className="arrows">
-                    <label><ForwardIcon className={`left-arrow ${this.state.direction === 'left' ? 'click' : ''}`} onAnimationEnd={() => this.setState({direction: ''})} />NO</label>
-                <label><ForwardIcon className={`right-arrow ${this.state.direction === 'right'  ? 'click' : ''}`} onAnimationEnd={() => this.setState({direction: ''})} />YES</label>
+            <div className="gameInfo">
+                <section className="score">Score: {this.state.score}</section>
+                <h1>{this.state.game_name}</h1>
+                <section className="timer">Time: {this.state.gameTime}</section>
+            </div>
+            {!this.state.game_started ? <div className="about-game">
+                <section className="how-to-play">
+                    Press the left arrow if the new card doesn't match the previous. Press the Right arrow if it does match! 
                 </section>
+                <button className="play" onClick={() => this.startCountDown()}>
+                    Play
+                </button>
+            </div> :
+            this.state.gameTime > 0 ? <section className="shapes">
+                <section className={`discard-pile`} />
+                <span>
+                    {this.state.answer==='correct' ? <CheckIcon className="correct" onAnimationEnd={() => this.setState({answer: ''})}/> : this.state.answer ==='wrong' ? <ClearIcon className="wrong" onAnimationEnd={() => this.setState({answer: ''})}/> : null}
+                </span>
+                <section 
+                className={`cardd ${this.state.animate}`} 
+                onAnimationEnd={_ => this.setState({animate: ''})}>
+                    <section className={`${this.state.shape} ${this.state.color}`} /></section>
+                </section> 
+                : <div className="final-score"> 
+                <h1>Game Over! </h1> 
+                <h1> Final Score is {this.state.score}!</h1>
+                    <button onClick={_ => this.restartGame()}>
+                        Play Again
+                    </button>
+                </div>}
+                {this.state.gameTime > 0 && <section className="arrows">
+                    <label>
+                        <ForwardIcon 
+                        className={`left-arrow ${this.state.direction === 'left' ? 'click' : ''}`} 
+                        onAnimationEnd={() => this.setState({direction: ''})} />
+                        NO
+                </label>
+                <label>
+                    <ForwardIcon 
+                    className={`right-arrow ${this.state.direction === 'right'  ? 'click' : ''}`} 
+                    onAnimationEnd={() => this.setState({direction: ''})} />
+                    YES
+                </label>
+                </section>}
         </div>
     }
 }

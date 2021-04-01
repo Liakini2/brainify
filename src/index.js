@@ -6,11 +6,13 @@ import {HashRouter, BrowserRouter} from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 import {UserProvider} from './context/UserContext'
 import {GameProvider} from './context/GameContext';
+import {createBrowserHistory} from 'history';
 
 const Router = process.env.NODE_ENV === 'development' ? HashRouter : BrowserRouter;
+const history = createBrowserHistory();
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
+    <Router history={history}>
       <UserProvider>
         <GameProvider>
           <App />
