@@ -57,10 +57,11 @@ const Stats = () => {
                         },
                         pointLabels: {
                             fontColor: "white",
-                            fontSize: 14
+                            fontSize: 14, 
                         },
                         ticks: {
                             beginAtZero: true,
+                            display: false
                         }
                     }
                 }}

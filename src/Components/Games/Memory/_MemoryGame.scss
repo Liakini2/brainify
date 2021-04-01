@@ -1,88 +1,110 @@
-@import '../../../../src/styles/functions';
+@import "../../../../src/styles/functions";
 
 .memoryGame {
-    @include flexCenter(column, center); 
+  @include flexCenter(column, center);
+  .game-stats {
+    width: 90vw;
+    @include flexCenter(row, space-around);
+    .hub {
+      width: 15vw;
+      font-size: x-large;
+      text-align: center;
+    }
+  }
+  button {
+    @include primaryBtn;
+  }
 }
 
 .actualGame {
-    @include flexCenter(row, space-around);
-    flex-wrap: wrap;
-    width: 800px;
-    height: 800px;
-    border: 1px solid yellow;
-    border-radius: 15px;
-    margin: 15px;
+  //   @include flexCenter(row, space-around);
+  //   flex-wrap: wrap;
+  //     width: 800px;
+  //     height: 800px;
+  height: 80vh;
+  width: 60vw;
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-rows: 25% 25% 25% 25%;
+  border: 1px solid $accentColorThree;
+  border-radius: 15px;
+  margin: 15px;
 }
 
 .gameSpace {
-    @include flexCenter(row, center);
+  @include flexCenter(row, center);
 }
 
 .startCard {
-    @include flexCenter(column, center)
+  @include flexCenter(column, space-around);
+  background-color: $primaryContainerBackground;
+  height: 55vh;
+  width: 65vw;
+  text-align: center;
+  .gameInstructions {
+    width: 63%;
+  }
 }
 
 .victory {
-    @include flexCenter(column, center)
+  @include flexCenter(column, center);
 }
 
 .gameOver {
-    @include flexCenter(column, center)
+  @include flexCenter(column, center);
 }
-
-
 
 //other card stuff
 .card {
-    height: 150px;
-    width: 150px;
-    border-radius: 10px;
-    margin: 15px;
+  //   height: 150px;
+  //   width: 150px;
+  height: 80%;
+  width: 80%;
+  border-radius: 10px;
+  margin: 15px;
 }
 
-
-
-.selected{
-    border: 5px solid rgb(151, 255, 32) !important;
-    height: 140px !important;
-    width: 140px !important;
+.selected {
+  border: 5px solid rgb(151, 255, 32) !important;
+  //   height: 140px !important;
+  //   width: 140px !important;
+  height: 80% !important;
+  width: 80% !important;
 }
 
-.hidden{
-    background-color: rgb(34, 35, 133)
-    !important;
+.hidden {
+  background-color: rgb(34, 35, 133) !important;
 }
-
 
 //Card type classes
-.green{
-    background-color: green;
+.green {
+  background-color: green;
 }
 
-.red{
-    background-color: red;
+.red {
+  background-color: red;
 }
 
-.yellow{
-    background-color: yellow;
+.yellow {
+  background-color: yellow;
 }
 
-.blue{
-    background-color: blue;
+.blue {
+  background-color: blue;
 }
 
-.pink{
-    background-color: pink;
+.pink {
+  background-color: pink;
 }
 
-.orange{
-    background-color: orange;
+.orange {
+  background-color: orange;
 }
 
-.purple{
-    background-color: purple;
+.purple {
+  background-color: purple;
 }
 
-.black{
-    background-color: black;
+.black {
+  background-color: black;
 }
