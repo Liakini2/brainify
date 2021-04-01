@@ -27,6 +27,12 @@ class SpeedMatch extends Component {
     }
 
     componentDidMount(){
+        // axios.get('/auth/me')
+        // .then(({data})=>{
+            
+        // })
+        // .catch(_=>this.props.history.push('/'));
+
         window.addEventListener('keydown', this.compareShape);
         window.addEventListener('keyup', this.setPressed);
         // console.log(this.state.game_id, this.state.game_name)

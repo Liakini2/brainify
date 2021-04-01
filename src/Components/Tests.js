@@ -1,13 +1,15 @@
 import {useContext, useEffect, useState} from 'react';
-import {UserContext} from '../context/UserContext';
+// import {UserContext} from '../context/UserContext';
 import {GameContext} from '../context/GameContext';
+import {UserContext} from '../context/UserContext';
 import {useHistory} from 'react-router-dom';
 import GameIcon from './GameIcon';
 import axios from 'axios';
 
 const Tests = () => {
-    const userValue = useContext(UserContext);
+    // const userValue = useContext(UserContext);
     const gameContext = useContext(GameContext);
+    const userValue = useContext(UserContext);
     const [games, setGames] = useState([]);
     const [categories, setCategories] = useState([]);
     const [search, setSearch] = useState('');
@@ -15,12 +17,12 @@ const Tests = () => {
 
     const history = useHistory();
     useEffect(() => {
-        // axios.get('/auth/me')
-        // .then(({data})=>{
-        //     userValue.setUser(data)
-        //     userValue.getRecommendedGames()
-        // })
-        // .catch(_=>history.push('/'))
+        axios.get('/auth/me')
+        .then(({data})=>{
+            userValue.setUser(data)
+            userValue.getRecommendedGames()
+        })
+        .catch(_=>history.push('/'))
 
         axios.get('/api/games').then(res => {
             console.log(res.data)
