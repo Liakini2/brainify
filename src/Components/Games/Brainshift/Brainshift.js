@@ -139,28 +139,42 @@ const Brainshift = () => {
     
 
     return <div className="brainshift-game">
-        {!startGame ? <section className="gameInfo"><p className="how-to-play">Top is Even numbers, Bottom is vowels. Press the left arrow if it doesn't match, the right arrow if it does match.</p>
-        <button onClick={_ => {setCountdown(true); setStartGame(true);}}>PLAY</button></section> : countdown ? <CountDown time={3} play={playGame} /> : time > 0 ? <section className="brainshift">
-            <section className="brainshift-header"><h3>Score: {scoreRef.current}</h3> <h2>Brain Shift</h2><h3>Time: {time}</h3></section>
+        {!startGame ? <section className='startNewGame'>
+                <div className="gameInfo">
+                    <h1 className='gameTitle'>Brain Shift!</h1>
+                    <p className="how-to-play">The top card should contain an even number, and the bottom card should contain a vowel. If either card contains the incorrect information press the left arrow to say it doesn't match, otherwise if the card contains the correct information press the right arrow to say it does match.</p>
+                    <button onClick={_ => {setCountdown(true); setStartGame(true);}}>
+                        Play
+                    </button>
+                </div>
+            </section> : countdown ? <CountDown time={3} play={playGame} /> : time > 0 ? <section className="brainshift">
+            <section className="brainshift-header">
+                <h3>Score: {scoreRef.current}</h3> 
+                <h2>Brain Shift</h2>
+                <h3>Time: {time}</h3>
+            </section>
             <div className="shiftcards">
                 <section className="even">
                     {isiteven && <span className="shiftcard">
-                        <h3>{numberRef.current}{letterRef.current}</h3>    
+                        <h3 className='text'>
+                            {numberRef.current}{letterRef.current}
+                        </h3>    
                     </span>}
                 </section>
                 <section className="vowel">
                 {!isiteven && <span className="shiftcard">
-                        <h3>{numberRef.current}{letterRef.current}</h3>    
+                        <h3 className='text'>{numberRef.current}{letterRef.current}</h3>    
                     </span>}
                 </section>
             </div>
             <section className="arrows">
-                <label onClick={_ => checkAnswer('ArrowLeft')}><ForwardIcon className={`left-arrow${direction === 'left' ? ' click' : ''}`} onAnimationEnd={() => setDirection('')} />NO</label>
+                <label onClick={_ => checkAnswer('ArrowLeft')}>NO<ForwardIcon className={`left-arrow${direction === 'left' ? ' click' : ''}`} onAnimationEnd={() => setDirection('')} /></label>
 
                 <label onClick={_ => checkAnswer('ArrowRight')}><ForwardIcon className={`right-arrow${direction === 'right' ? ' click' : ''}`} onAnimationEnd={() => setDirection('')} />YES</label>
             </section>
         </section> : <section className="final-score">
-                        <h3>Your Final Score is {score}</h3>
+                        <h1>Game Over!</h1>
+                        <h1>Final Score: {score}</h1>
                         <button onClick={_ => setCountdown(true)} >Play Again!</button>
                      </section>}
 
