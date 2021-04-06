@@ -30,8 +30,6 @@ const Home = ({...props}) => {
         gameContext.setGame({game_id: id, game_name: name, game_icon});
         history.push(`/game/${name.toLowerCase()}`);
     }
-    
-    console.log(userValue.recommended)
 
     return (
         <div className='home'>

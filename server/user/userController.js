@@ -20,6 +20,7 @@ const login = async (req, res) => {
     const {username, password} = req.body;
     let db = req.app.get('db');
     let [user] = await db.user.find_user([username]);
+    console.log(user)
     if(!user) {
         return res.status(401).send('Invalid username or password');
     }
@@ -43,22 +44,21 @@ const getuser = (req, res) => {
 
 const updateuser = async (req, res) => {
     // console.log(req.session.user)
-    const {id} = req.session.user
-    const {first_name, last_name, new_password} = req.body;
+    const {first_name, last_name, new_password, original_password} = req.body;
     let db = req.app.get('db');
     const [result] = await db.user.find_user([req.session.user.username]);
-    // console.log('result:', result, req.session.username)
+    console.log('result:', result)
     if(result){
-    // console.log('new_password:', new_password)
+    console.log('new_password:', new_password)
         if(new_password !== '' && new_password !== undefined){
             const isAuthenticated = bcrypt.hashSync(original_password, result.password)
-            // console.log('isAuthenticated:', isAuthenticated)
+            console.log('isAuthenticated:', isAuthenticated)
             if(isAuthenticated) {
-                // console.log('made it here')
+                console.log('made it here')
                 const salt = bcrypt.genSaltSync(10);
                 const hash = bcrypt.hashSync(new_password, salt);
                 const [newUser] = await db.user.update_user([result.id, first_name, last_name, hash])
-                // console.log('newUser1:', newUser)
+                console.log('newUser:', newUser)
                 if(newUser){
                 req.session.user = {id: newUser.id, username: newUser.username, first_name: newUser.first_name, last_name: newUser.last_name, email: newUser.email, last_logged_in: newUser.last_logged_in};
                 return res.status(202).send(req.session.user);
